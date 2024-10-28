@@ -14,7 +14,7 @@ namespace Management_System.Entities
         public TaskEstimation TaskEstimation { get; set; }
         public Guid TableId { get; set; }
 
-        public IEnumerable<Subtask>? Subtasks { get; set; }
-        public IEnumerable<UserTask>? UserTasks { get; set; }
+        public IEnumerable<Subtask> Subtasks { get; set; } = [];
+        public IEnumerable<UserTask> UserTasks { get; set; } = [];
     }
 }
