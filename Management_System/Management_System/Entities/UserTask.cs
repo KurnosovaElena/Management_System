@@ -1,6 +1,6 @@
-﻿using Management_System.Enums;
+﻿using ManagementSystem.Enums;
 
-namespace Management_System.Entities
+namespace ManagementSystem.Entities
 {
     public class UserTask
     {

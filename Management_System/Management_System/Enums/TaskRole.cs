@@ -1,4 +1,4 @@
-﻿namespace Management_System.Enums
+﻿namespace ManagementSystem.Enums
 {
     public enum TaskRole
     {

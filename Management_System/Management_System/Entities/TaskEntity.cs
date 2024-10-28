@@ -1,9 +1,9 @@
-﻿using Management_System.Enums;
+﻿using ManagementSystem.Enums;
 using System.Xml.Linq;
 
-namespace Management_System.Entities
+namespace ManagementSystem.Entities
 {
-    public class Task
+    public class TaskEntity
     {
         public Guid Id { get; set; }
 

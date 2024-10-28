@@ -1,4 +1,4 @@
-﻿namespace Management_System.Entities
+﻿namespace ManagementSystem.Entities
 {
     public class Board
     {
