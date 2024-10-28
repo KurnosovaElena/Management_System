@@ -2,7 +2,8 @@
 {
     public enum TaskRole
     {
-        Assignee = 0,
-        Reviewer = 1
+        None = 0,
+        Assignee = 1,
+        Reviewer = 2
     }
 }

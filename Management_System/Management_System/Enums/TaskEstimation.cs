@@ -2,7 +2,8 @@
 {
     public enum TaskEstimation
     {
-        Storypoint = 0, 
-        Hour = 1
+        None = 0,
+        Storypoint = 1, 
+        Hour = 2
     }
 }
