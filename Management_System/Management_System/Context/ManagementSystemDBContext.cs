@@ -6,14 +6,15 @@ namespace ManagementSystem.Context
 {
     public class ManagementSystemDBContext : DbContext
     {
-        public DbSet<Board> Boards { get; set; }
-        public DbSet<Label> Labels { get; set; }
-        public DbSet<Subtask> Subtasks { get; set; }
-        public DbSet<Table> Tables { get; set; }
+
+        public DbSet<BoardEntity> Boards { get; set; }
+        public DbSet<LabelEntity> Labels { get; set; }
+        public DbSet<SubtaskEntity> Subtasks { get; set; }
+        public DbSet<TableEntity> Tables { get; set; }
         public DbSet<TaskEntity> Tasks { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserBoard> UserBoards { get; set; }
-        public DbSet<UserTask> UserTasks { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<UserBoardEntity> UserBoards { get; set; }
+        public DbSet<UserTaskEntity> UserTasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,14 +22,14 @@ namespace ManagementSystem.Context
 
             DataGenerator.Init();
 
-            modelBuilder.Entity<Board>().HasData(DataGenerator.Boards);
-            modelBuilder.Entity<Table>().HasData(DataGenerator.Tables);
+            modelBuilder.Entity<BoardEntity>().HasData(DataGenerator.Boards);
+            modelBuilder.Entity<TableEntity>().HasData(DataGenerator.Tables);
             modelBuilder.Entity<TaskEntity>().HasData(DataGenerator.Tasks);  
-            modelBuilder.Entity<Label>().HasData(DataGenerator.Labels);
-            modelBuilder.Entity<User>().HasData(DataGenerator.Users);
-            modelBuilder.Entity<Subtask>().HasData(DataGenerator.Subtasks);
-            modelBuilder.Entity<UserBoard>().HasData(DataGenerator.UserBoards);
-            modelBuilder.Entity<UserTask>().HasData(DataGenerator.UserTasks);
+            modelBuilder.Entity<LabelEntity>().HasData(DataGenerator.Labels);
+            modelBuilder.Entity<UserEntity>().HasData(DataGenerator.Users);
+            modelBuilder.Entity<SubtaskEntity>().HasData(DataGenerator.Subtasks);
+            modelBuilder.Entity<UserBoardEntity>().HasData(DataGenerator.UserBoards);
+            modelBuilder.Entity<UserTaskEntity>().HasData(DataGenerator.UserTasks);
 
         }
     }

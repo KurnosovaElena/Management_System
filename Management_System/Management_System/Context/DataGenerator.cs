@@ -7,14 +7,14 @@ namespace ManagementSystem.Context
 {
     public class DataGenerator
     {
-        public static readonly List<Board> Boards = new();
-        public static readonly List<Table> Tables = new();
+        public static readonly List<BoardEntity> Boards = new();
+        public static readonly List<TableEntity> Tables = new();
         public static readonly List<TaskEntity> Tasks = new();
-        public static readonly List<UserBoard> UserBoards = new();
-        public static readonly List<Subtask> Subtasks = new();
-        public static readonly List<UserTask> UserTasks = new();
-        public static readonly List<User> Users = new();
-        public static readonly List<Label> Labels = new();
+        public static readonly List<UserBoardEntity> UserBoards = new();
+        public static readonly List<SubtaskEntity> Subtasks = new();
+        public static readonly List<UserTaskEntity> UserTasks = new();
+        public static readonly List<UserEntity> Users = new();
+        public static readonly List<LabelEntity> Labels = new();
 
         public const int NumberOfBoards = 2;
         public const int NumberOfTasks = 2;
@@ -39,7 +39,7 @@ namespace ManagementSystem.Context
             Labels.AddRange(generatedLabels);
         }
 
-        private static List<Table> GetBogusTablesData(Guid boardId)
+        private static List<TableEntity> GetBogusTablesData(Guid boardId)
         {
             var tableGenerator = GetTableFaker(boardId);
             var generatedTables = tableGenerator.Generate(NumberOfBoards);
@@ -47,7 +47,7 @@ namespace ManagementSystem.Context
             return generatedTables;
         }
 
-        private static List<Subtask> GetBogusSubtasksData(Guid taskId)
+        private static List<SubtaskEntity> GetBogusSubtasksData(Guid taskId)
         {
             var subtasksGenerator = GetSubtasksFaker(taskId);
             var generatedSubtasks = subtasksGenerator.Generate(NumberOfTasks);
@@ -63,7 +63,7 @@ namespace ManagementSystem.Context
             return generatedTasks;
         }
 
-        private static List<UserBoard> GetUserBoardsData()
+        private static List<UserBoardEntity> GetUserBoardsData()
         {
             var userBoardsGenerator = GetUserBoardsFaker();
             var generatedUserBoards = userBoardsGenerator.Generate(NumberOfBoards);
@@ -71,7 +71,7 @@ namespace ManagementSystem.Context
             return generatedUserBoards;
         }
 
-        private static List<UserTask> GetBogusUserTasksData()
+        private static List<UserTaskEntity> GetBogusUserTasksData()
         {
             var userTasksGenerator = GetUserTasksFaker();
             var generatedUserTasks = userTasksGenerator.Generate(NumberOfTasks);
@@ -79,8 +79,8 @@ namespace ManagementSystem.Context
             return generatedUserTasks;
         }
 
-        private static Faker<Board> GetBoardFaker() =>
-            new Faker<Board>()
+        private static Faker<BoardEntity> GetBoardFaker() =>
+            new Faker<BoardEntity>()
             .RuleFor(b => b.Id, _ => Guid.NewGuid())
             .RuleFor(b => b.Name, f => f.Name.FirstName())
             .RuleFor(b => b.Description, f => f.Lorem.Word())
@@ -88,11 +88,11 @@ namespace ManagementSystem.Context
             {
                 return GetBogusTablesData(e.Id);
             });
-        private static Faker<Table> GetTableFaker(Guid boardId)
+        private static Faker<TableEntity> GetTableFaker(Guid boardId)
         {
             var status = new[] { "In Progress", "In Review", "Done", "Backlog" };
 
-            return new Faker<Table>()
+            return new Faker<TableEntity>()
                 .RuleFor(t => t.Id, _ => Guid.NewGuid())
                 .RuleFor(t => t.Name, f => f.PickRandomParam(status))
                 .RuleFor(t => t.BoardId, _ => boardId)
@@ -102,17 +102,17 @@ namespace ManagementSystem.Context
                 });
         }
 
-        private static Faker<Label> GetLabelFaker()
+        private static Faker<LabelEntity> GetLabelFaker()
         {
-            return new Faker<Label>()
+            return new Faker<LabelEntity>()
                 .RuleFor(t => t.Id, _ => Guid.NewGuid())
                 .RuleFor(t => t.Name, f => f.Random.Word())
                 .RuleFor(t => t.Description, f => f.Lorem.Word());
         }
 
-        private static Faker<Subtask> GetSubtasksFaker(Guid taskId)
+        private static Faker<SubtaskEntity> GetSubtasksFaker(Guid taskId)
         {
-            return new Faker<Subtask>()
+            return new Faker<SubtaskEntity>()
                 .RuleFor(t => t.Id, _ => Guid.NewGuid())
                 .RuleFor(t => t.Name, f => f.Random.Word())
                 .RuleFor(t => t.Description, f => f.Lorem.Word())
@@ -135,16 +135,16 @@ namespace ManagementSystem.Context
                });
         }
 
-        private static Faker<UserBoard> GetUserBoardsFaker()
+        private static Faker<UserBoardEntity> GetUserBoardsFaker()
         {
-            return new Faker<UserBoard>()
+            return new Faker<UserBoardEntity>()
                 .RuleFor(ub => ub.UserId, _ => _.PickRandom(Users).Id)
                 .RuleFor(ub => ub.BoardId, _ => _.PickRandom(Boards).Id);
         }
 
-        private static Faker<UserTask> GetUserTasksFaker()
+        private static Faker<UserTaskEntity> GetUserTasksFaker()
         {
-            return new Faker<UserTask>()
+            return new Faker<UserTaskEntity>()
                 .RuleFor(ub => ub.UserId, _ => _.PickRandom(Users).Id)
                 .RuleFor(ub => ub.TaskId, _ => _.PickRandom(Tasks).Id)
                 .RuleFor(ub => ub.Role, f => f.PickRandom(Enum.GetValues(typeof(TaskRole)).Cast<TaskRole>()));

@@ -2,12 +2,12 @@
 
 namespace ManagementSystem.Entities
 {
-    public class UserTask
+    public class UserTaskEntity
     {
         public Guid UserId { get; set; }
         public Guid TaskId { get; set; }
-        public User User { get; set; } = null!;
-        public Task Task { get; set; } = null!;
+        public UserEntity User { get; set; } = null!;
+        public TaskEntity Task { get; set; } = null!;
         public TaskRole Role { get; set; }
     }
 }

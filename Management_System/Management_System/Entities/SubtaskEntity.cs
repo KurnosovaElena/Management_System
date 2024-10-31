@@ -1,6 +1,6 @@
 ﻿namespace ManagementSystem.Entities
 {
-    public class Subtask
+    public class SubtaskEntity
     {
         public Guid Id { get; set; }
 
