@@ -6,6 +6,8 @@ namespace ManagementSystem.Context
 {
     public class ManagementSystemDBContext : DbContext
     {
+        public ManagementSystemDBContext(DbContextOptions options) : base(options) { }
+
 
         public DbSet<BoardEntity> Boards { get; set; }
         public DbSet<LabelEntity> Labels { get; set; }
