@@ -1,5 +1,9 @@
-﻿namespace ManagementSystem.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
+namespace ManagementSystem.Entities;
+
+[PrimaryKey(nameof(UserId), additionalPropertyNames: [nameof(BoardId)])]
 public class UserBoardEntity
 {
     public Guid UserId { get; set; }
