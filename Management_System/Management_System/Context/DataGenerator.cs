@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using ManagementSystem.Entities;
 using ManagementSystem.Enums;
+using System.Collections.Generic;
 
 namespace ManagementSystem.Context;
 
@@ -21,10 +22,10 @@ public class DataGenerator
     public static void Init()
     {
         GetBogusBoardsData();
-        GetLabelFaker();
+        GetBogusLabelsData();
+        GetBogusUsersData();
         GetUserBoardsData();
         GetBogusUserTasksData();
-        GetBogusLabelsData();
     }
 
     private static void GetBogusBoardsData()
@@ -32,6 +33,12 @@ public class DataGenerator
         var boardGenerator = GetBoardFaker();
         var generatedBoards = boardGenerator.Generate(NumberOfBoards);
         Boards.AddRange(generatedBoards);
+    }
+    private static void GetBogusUsersData()
+    {
+        var userGenerator = GetUserFaker();
+        var generatedUsers = userGenerator.Generate(NumberOfBoards);
+        Users.AddRange(generatedUsers);
     }
 
     private static void GetBogusLabelsData()
@@ -88,7 +95,8 @@ public class DataGenerator
         .RuleFor(b => b.Description, f => f.Lorem.Word())
         .RuleFor(b => b.Tables, (_, e) =>
         {
-            return GetBogusTablesData(e.Id);
+            GetBogusTablesData(e.Id);
+            return [];
         });
 
     private static Faker<TableEntity> GetTableFaker(Guid boardId)
@@ -101,9 +109,17 @@ public class DataGenerator
             .RuleFor(t => t.BoardId, _ => boardId)
             .RuleFor(t => t.Tasks, (_, e) =>
             {
-                return GetBogusTasksData(e.Id);
+                GetBogusTasksData(e.Id);
+                return [];
             });
     }
+
+    private static Faker<UserEntity> GetUserFaker() =>
+    new Faker<UserEntity>()
+    .RuleFor(b => b.Id, _ => Guid.NewGuid())
+    .RuleFor(b => b.FirstName, f => f.Name.FirstName())
+    .RuleFor(b => b.LastName, f => f.Name.LastName())
+    .RuleFor(b => b.Email, f => f.Internet.Email());
 
     private static Faker<LabelEntity> GetLabelFaker()
     {
@@ -134,7 +150,8 @@ public class DataGenerator
            .RuleFor(t => t.TableId, _ => tableId)
            .RuleFor(t => t.Subtasks, (_, e) =>
            {
-               return GetBogusSubtasksData(e.Id);
+               GetBogusSubtasksData(e.Id);
+               return [];
            });
     }
 
