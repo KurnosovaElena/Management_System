@@ -1,9 +1,8 @@
-﻿namespace ManagementSystem.Enums
+﻿namespace ManagementSystem.Enums;
+
+public enum TaskEstimation
 {
-    public enum TaskEstimation
-    {
-        None = 0,
-        Storypoint = 1,
-        Hour = 2
-    }
+    None = 0,
+    Storypoint = 1,
+    Hour = 2
 }
