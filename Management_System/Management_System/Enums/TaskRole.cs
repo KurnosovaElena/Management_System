@@ -1,9 +1,8 @@
-﻿namespace ManagementSystem.Enums
+﻿namespace ManagementSystem.Enums;
+
+public enum TaskRole
 {
-    public enum TaskRole
-    {
-        None = 0,
-        Assignee = 1,
-        Reviewer = 2
-    }
+    None = 0,
+    Assignee = 1,
+    Reviewer = 2
 }
