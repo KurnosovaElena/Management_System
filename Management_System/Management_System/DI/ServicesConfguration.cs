@@ -1,13 +1,14 @@
-﻿using ManagementSystem.Context;
+﻿using ManagementSystem.Constants;
+using ManagementSystem.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace ManagementSystem.DI
+namespace ManagementSystem.DI;
+
+public static class ServicesConfguration
 {
-    public static class ServicesConfguration
+    public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
     {
-        public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<ManagementSystemDBContext>(options => options.UseNpgsql(configuration.GetConnectionString("DBConnection")));
-        }
+        services.AddDbContext<ManagementSystemDBContext>(options => options.UseNpgsql(configuration.GetConnectionString(Connections.DBConnection)));
     }
 }
+
