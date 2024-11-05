@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using ManagementSystem.Entities;
 using ManagementSystem.Enums;
+using System.Collections.Generic;
 
 namespace ManagementSystem.Context;
 
@@ -20,21 +21,28 @@ public class DataGenerator
 
     public static void Init()
     {
-        GetBogusBoardsData();
-        GetLabelFaker();
-        GetUserBoardsData();
-        GetBogusUserTasksData();
-        GetBogusLabelsData();
+        GenerateBogusBoardsData();
+        GenerateBogusLabelsData();
+        GenerateBogusUsersData();
+        GenerateUserBoardsData();
+        GenerateBogusUserTasksData();
     }
 
-    private static void GetBogusBoardsData()
+    private static void GenerateBogusBoardsData()
     {
         var boardGenerator = GetBoardFaker();
         var generatedBoards = boardGenerator.Generate(NumberOfBoards);
         Boards.AddRange(generatedBoards);
     }
 
-    private static void GetBogusLabelsData()
+    private static void GenerateBogusUsersData()
+    {
+        var userGenerator = GetUserFaker();
+        var generatedUsers = userGenerator.Generate(NumberOfBoards);
+        Users.AddRange(generatedUsers);
+    }
+
+    private static void GenerateBogusLabelsData()
     {
         var labelGenerator = GetLabelFaker();
         var generatedLabels = labelGenerator.Generate(NumberOfBoards);
@@ -65,20 +73,18 @@ public class DataGenerator
         return generatedTasks;
     }
 
-    private static List<UserBoardEntity> GetUserBoardsData()
+    private static void GenerateUserBoardsData()
     {
         var userBoardsGenerator = GetUserBoardsFaker();
         var generatedUserBoards = userBoardsGenerator.Generate(NumberOfBoards);
         UserBoards.AddRange(generatedUserBoards);
-        return generatedUserBoards;
     }
 
-    private static List<UserTaskEntity> GetBogusUserTasksData()
+    private static void GenerateBogusUserTasksData()
     {
         var userTasksGenerator = GetUserTasksFaker();
         var generatedUserTasks = userTasksGenerator.Generate(NumberOfTasks);
         UserTasks.AddRange(generatedUserTasks);
-        return generatedUserTasks;
     }
 
     private static Faker<BoardEntity> GetBoardFaker() =>
@@ -88,7 +94,8 @@ public class DataGenerator
         .RuleFor(b => b.Description, f => f.Lorem.Word())
         .RuleFor(b => b.Tables, (_, e) =>
         {
-            return GetBogusTablesData(e.Id);
+            GetBogusTablesData(e.Id);
+            return [];
         });
 
     private static Faker<TableEntity> GetTableFaker(Guid boardId)
@@ -101,9 +108,17 @@ public class DataGenerator
             .RuleFor(t => t.BoardId, _ => boardId)
             .RuleFor(t => t.Tasks, (_, e) =>
             {
-                return GetBogusTasksData(e.Id);
+                GetBogusTasksData(e.Id);
+                return [];
             });
     }
+
+    private static Faker<UserEntity> GetUserFaker() =>
+    new Faker<UserEntity>()
+    .RuleFor(b => b.Id, _ => Guid.NewGuid())
+    .RuleFor(b => b.FirstName, f => f.Name.FirstName())
+    .RuleFor(b => b.LastName, f => f.Name.LastName())
+    .RuleFor(b => b.Email, f => f.Internet.Email());
 
     private static Faker<LabelEntity> GetLabelFaker()
     {
@@ -134,7 +149,8 @@ public class DataGenerator
            .RuleFor(t => t.TableId, _ => tableId)
            .RuleFor(t => t.Subtasks, (_, e) =>
            {
-               return GetBogusSubtasksData(e.Id);
+               GetBogusSubtasksData(e.Id);
+               return [];
            });
     }
 

@@ -3,8 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ManagementSystem.Context;
 
-public class ManagementSystemDBContext(DbContextOptions options) : DbContext(options)
+public class ManagementSystemDBContext : DbContext
 {
+    public ManagementSystemDBContext(DbContextOptions options) : base(options)
+    {
+        Database.Migrate();
+    }
+
     public DbSet<BoardEntity> Boards { get; set; }
     public DbSet<LabelEntity> Labels { get; set; }
     public DbSet<SubtaskEntity> Subtasks { get; set; }
@@ -30,4 +35,3 @@ public class ManagementSystemDBContext(DbContextOptions options) : DbContext(opt
         modelBuilder.Entity<UserTaskEntity>().HasData(DataGenerator.UserTasks);
     }
 }
-
