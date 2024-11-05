@@ -21,27 +21,28 @@ public class DataGenerator
 
     public static void Init()
     {
-        GetBogusBoardsData();
-        GetBogusLabelsData();
-        GetBogusUsersData();
-        GetUserBoardsData();
-        GetBogusUserTasksData();
+        GenerateBogusBoardsData();
+        GenerateBogusLabelsData();
+        GenerateBogusUsersData();
+        GenerateUserBoardsData();
+        GenerateBogusUserTasksData();
     }
 
-    private static void GetBogusBoardsData()
+    private static void GenerateBogusBoardsData()
     {
         var boardGenerator = GetBoardFaker();
         var generatedBoards = boardGenerator.Generate(NumberOfBoards);
         Boards.AddRange(generatedBoards);
     }
-    private static void GetBogusUsersData()
+
+    private static void GenerateBogusUsersData()
     {
         var userGenerator = GetUserFaker();
         var generatedUsers = userGenerator.Generate(NumberOfBoards);
         Users.AddRange(generatedUsers);
     }
 
-    private static void GetBogusLabelsData()
+    private static void GenerateBogusLabelsData()
     {
         var labelGenerator = GetLabelFaker();
         var generatedLabels = labelGenerator.Generate(NumberOfBoards);
@@ -72,20 +73,18 @@ public class DataGenerator
         return generatedTasks;
     }
 
-    private static List<UserBoardEntity> GetUserBoardsData()
+    private static void GenerateUserBoardsData()
     {
         var userBoardsGenerator = GetUserBoardsFaker();
         var generatedUserBoards = userBoardsGenerator.Generate(NumberOfBoards);
         UserBoards.AddRange(generatedUserBoards);
-        return generatedUserBoards;
     }
 
-    private static List<UserTaskEntity> GetBogusUserTasksData()
+    private static void GenerateBogusUserTasksData()
     {
         var userTasksGenerator = GetUserTasksFaker();
         var generatedUserTasks = userTasksGenerator.Generate(NumberOfTasks);
         UserTasks.AddRange(generatedUserTasks);
-        return generatedUserTasks;
     }
 
     private static Faker<BoardEntity> GetBoardFaker() =>
