@@ -1,9 +1,9 @@
 ﻿using Bogus;
-using ManagementSystem.Entities;
-using ManagementSystem.Enums;
+using DAL.Entities;
+using DAL.Enums;
 using System.Collections.Generic;
 
-namespace ManagementSystem.Context;
+namespace DAL.Context;
 
 public class DataGenerator
 {

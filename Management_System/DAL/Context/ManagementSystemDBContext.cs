@@ -1,7 +1,7 @@
-﻿using ManagementSystem.Entities;
+﻿using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ManagementSystem.Context;
+namespace DAL.Context;
 
 public class ManagementSystemDBContext : DbContext
 {
