@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-namespace ManagementSystem.Entities;
+namespace DAL.Entities;
 
 [PrimaryKey(nameof(UserId), additionalPropertyNames: [nameof(BoardId)])]
 public class UserBoardEntity

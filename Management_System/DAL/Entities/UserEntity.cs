@@ -1,4 +1,4 @@
-﻿namespace ManagementSystem.Entities;
+﻿namespace DAL.Entities;
 
 public class UserEntity
 {

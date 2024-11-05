@@ -1,11 +1,11 @@
-﻿namespace ManagementSystem.Entities;
+﻿namespace DAL.Entities;
 
-public class LabelEntity
+public class SubtaskEntity
 {
     public Guid Id { get; set; }
 
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
 
-    public IEnumerable<TaskEntity> Tasks { get; set; } = [];
+    public Guid TaskId { get; set; }
 }
