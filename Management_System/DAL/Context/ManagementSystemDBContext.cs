@@ -1,7 +1,7 @@
-﻿using ManagementSystem.Entities;
+﻿using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ManagementSystem.Context;
+namespace DAL.Context;
 
 public class ManagementSystemDBContext : DbContext
 {
@@ -22,6 +22,9 @@ public class ManagementSystemDBContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        
+        modelBuilder.Entity<UserBoardEntity>().HasKey(ub => new {ub.BoardId , ub.UserId});
+        modelBuilder.Entity<UserTaskEntity>().HasKey(ub => new {ub.TaskId , ub.UserId});
 
         DataGenerator.Init();
 

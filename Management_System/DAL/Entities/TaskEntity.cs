@@ -1,6 +1,6 @@
-﻿using ManagementSystem.Enums;
+﻿using DAL.Enums;
 
-namespace ManagementSystem.Entities;
+namespace DAL.Entities;
 
 public class TaskEntity
 {

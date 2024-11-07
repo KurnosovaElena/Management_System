@@ -1,13 +1,11 @@
-﻿using ManagementSystem.Constants;
-using ManagementSystem.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using BLL.DI;
 
 namespace ManagementSystem.DI;
 
 public static class ServicesConfguration
 {
-    public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
+    public static void AddApiDependencies(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ManagementSystemDBContext>(options => options.UseNpgsql(configuration.GetConnectionString(Connections.DBConnection)));
+        services.AddBusinessLogicDependencies(configuration);
     }
 }

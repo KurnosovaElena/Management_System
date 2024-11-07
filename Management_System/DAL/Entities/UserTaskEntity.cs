@@ -1,9 +1,8 @@
-﻿using ManagementSystem.Enums;
+﻿using DAL.Enums;
 using Microsoft.EntityFrameworkCore;
 
-namespace ManagementSystem.Entities;
+namespace DAL.Entities;
 
-[PrimaryKey(nameof(UserId), additionalPropertyNames: [nameof(TaskId)])]
 public class UserTaskEntity
 {
     public Guid UserId { get; set; }

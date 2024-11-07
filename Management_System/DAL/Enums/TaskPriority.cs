@@ -1,4 +1,4 @@
-﻿namespace ManagementSystem.Enums;
+﻿namespace DAL.Enums;
 
 public enum TaskPriority
 {
