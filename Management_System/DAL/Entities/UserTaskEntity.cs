@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Entities;
 
-[PrimaryKey(nameof(UserId), additionalPropertyNames: [nameof(TaskId)])]
 public class UserTaskEntity
 {
     public Guid UserId { get; set; }

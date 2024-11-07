@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DAL.Entities;
 
-[PrimaryKey(nameof(UserId), additionalPropertyNames: [nameof(BoardId)])]
 public class UserBoardEntity
 {
     public Guid UserId { get; set; }
