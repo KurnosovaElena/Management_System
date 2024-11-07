@@ -8,7 +8,7 @@ namespace DAL.DI;
 
 public static class ServicesConfguration
 {
-    public static void AddDependencies(this IServiceCollection services, IConfiguration configuration)
+    public static void AddDataAccessDependencies(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<ManagementSystemDBContext>(options => options.UseNpgsql(configuration.GetConnectionString(Connections.DBConnection)));
     }

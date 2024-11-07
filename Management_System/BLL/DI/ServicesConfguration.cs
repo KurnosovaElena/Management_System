@@ -7,6 +7,6 @@ public static class ServicesConfguration
 {
     public static void AddBusinessLogicDependencies(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDependencies(configuration);
+        services.AddDataAccessDependencies(configuration);
     }
 }

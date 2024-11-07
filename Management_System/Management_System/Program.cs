@@ -1,9 +1,8 @@
 using ManagementSystem.DI;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDependencies(builder.Configuration);
+builder.Services.AddApiDependencies(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
