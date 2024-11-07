@@ -1,6 +1,6 @@
 ﻿namespace DAL.Constants;
 
-internal static class Connections
+public static class Connections
 {
-    internal const string DBConnection = "DBConnection";
+    public const string DBConnection = "DBConnection";
 }
