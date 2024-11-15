@@ -14,6 +14,6 @@ public static class ServicesConfguration
     {
         services.AddDbContext<ManagementSystemDBContext>(options => options.UseNpgsql(configuration.GetConnectionString(Connections.DBConnection)));
 
-        services.AddTransient<IBoardRepository, BoardRepository>();
+        services.AddScoped<IBoardRepository, BoardRepository>();
     }
 }
