@@ -1,6 +1,6 @@
 ﻿namespace DAL.Entities;
 
-public class BoardEntity
+public class BoardEntity : IEntity
 {
     public Guid Id { get; set; }
 
