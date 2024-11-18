@@ -3,6 +3,7 @@ using DAL.Entities;
 using DAL.Repositories.Interfaces;
 
 namespace BLL.Services.Implementaiton;
+
 public class BoardService(IBoardRepository repository) : IBoardService
 {
     public async Task<BoardEntity> Add(BoardEntity entity, CancellationToken cancellationToken)
@@ -34,12 +35,10 @@ public class BoardService(IBoardRepository repository) : IBoardService
         return entity;
     }
 
-    public async Task<BoardEntity> Delete(Guid id, CancellationToken cancellationToken)
+    public async Task Delete(Guid id, CancellationToken cancellationToken)
     {
         var board = await repository.GetBoard(id, cancellationToken);
 
         await repository.Delete(board, cancellationToken);
-
-        return board;
     }
 }
