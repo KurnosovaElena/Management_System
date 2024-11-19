@@ -15,7 +15,7 @@ public class BoardRepository (ManagementSystemDBContext db) : Repository<BoardEn
 {
     public async Task<BoardEntity?> GetBoard(Guid id, CancellationToken cancellationToken)
     {
-        var board = await GetById(b => b.Id == id)
+        var board = await GetById(id)
             .Include(b => b.Tables)
             .Include(b => b.UserBoards)
             .FirstOrDefaultAsync(cancellationToken);

@@ -8,9 +8,9 @@ namespace DAL.Repositories.Implementations
 {
     public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where T : class, IEntity
     {
-        public IQueryable<T> GetAll(CancellationToken cancellationToken)
+        public async Task<IEnumerable<T>> GetAll(CancellationToken cancellationToken)
         {
-            return db.Set<T>();
+            return await db.Set<T>().ToListAsync(cancellationToken);
         }
 
         public IQueryable<T> GetAll(int page, int pageSize, CancellationToken cancellationToken)
@@ -21,14 +21,13 @@ namespace DAL.Repositories.Implementations
                      .AsNoTracking();
         }
 
-        public IQueryable<T> GetById(Expression<Func<T, bool>> predicate)
+        public IQueryable<T> GetById(Guid id)
         {
             return db.Set<T>()
-                .Where(predicate)
+                .Where(entity => entity.Id == id) 
                 .AsNoTracking();
         }
 
-        public async Task Add(T entity, CancellationToken cancellationToken)
         public async Task<T> Add(T entity, CancellationToken cancellationToken)
         {
             await db.AddAsync(entity, cancellationToken);
@@ -36,7 +35,6 @@ namespace DAL.Repositories.Implementations
             return entity;
         }
 
-        public async Task Update(T entity, CancellationToken cancellationToken)
         public async Task<T> Update(T entity, CancellationToken cancellationToken)
         {
             db.Update(entity);
