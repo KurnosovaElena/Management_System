@@ -29,15 +29,19 @@ namespace DAL.Repositories.Implementations
         }
 
         public async Task Add(T entity, CancellationToken cancellationToken)
+        public async Task<T> Add(T entity, CancellationToken cancellationToken)
         {
             await db.AddAsync(entity, cancellationToken);
             await db.SaveChangesAsync(cancellationToken);
+            return entity;
         }
 
         public async Task Update(T entity, CancellationToken cancellationToken)
+        public async Task<T> Update(T entity, CancellationToken cancellationToken)
         {
             db.Update(entity);
             await db.SaveChangesAsync(cancellationToken);
+            return entity;
         }
 
         public async Task Delete(T entity, CancellationToken cancellationToken)

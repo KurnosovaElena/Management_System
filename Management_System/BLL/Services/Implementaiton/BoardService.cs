@@ -22,7 +22,7 @@ public class BoardService(IBoardRepository repository) : IBoardService
 
     public async Task<IEnumerable<BoardEntity>> GetAll(CancellationToken cancellationToken)
     {
-        var boards = await repository.GetBoards(cancellationToken);
+        var boards = await repository.GetAll(cancellationToken);
         return boards;
     }
 

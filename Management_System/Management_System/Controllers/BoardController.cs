@@ -32,9 +32,10 @@ public class BoardController(IBoardService service) : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task Update(Guid id, BoardEntity entity, CancellationToken cancellationToken)
+    public async Task<BoardEntity> Update(Guid id, BoardEntity entity, CancellationToken cancellationToken)
     {
-        await service.Update(id, entity, cancellationToken);
+        var board = await service.Update(id, entity, cancellationToken);
+        return board;
     }
 
     [HttpDelete("{id}")]
