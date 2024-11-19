@@ -13,12 +13,6 @@ namespace DAL.Repositories.Implementations;
 
 public class BoardRepository (ManagementSystemDBContext db) : Repository<BoardEntity>(db), IBoardRepository 
 {
-    public async Task<IEnumerable<BoardEntity>> GetBoards(CancellationToken cancellationToken)
-    {
-        var boards = await GetAll(cancellationToken).ToListAsync(cancellationToken);
-        return boards;
-    }
-
     public async Task<BoardEntity?> GetBoard(Guid id, CancellationToken cancellationToken)
     {
         var board = await GetById(b => b.Id == id)
