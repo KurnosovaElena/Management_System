@@ -15,5 +15,6 @@ public static class ServicesConfguration
         services.AddDbContext<ManagementSystemDBContext>(options => options.UseNpgsql(configuration.GetConnectionString(Connections.DBConnection)));
 
         services.AddScoped<IBoardRepository, BoardRepository>();
+        services.AddScoped<ILabelRepository, LabelRepository>();
     }
 }
