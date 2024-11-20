@@ -45,4 +45,3 @@ public class LabelController(ILabelService service) : ControllerBase
         await service.Delete(id, cancellationToken);
     }
 }
-
