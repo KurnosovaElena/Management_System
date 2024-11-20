@@ -25,7 +25,7 @@ public class LabelController(ILabelService service) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<LabelEntity> Add(LabelEntity entity, CancellationToken cancellationToken)
+    public async Task<LabelEntity> Add([FromBody] LabelEntity entity, CancellationToken cancellationToken)
     {
         var label = await service.Add(entity, cancellationToken);
 
@@ -33,14 +33,14 @@ public class LabelController(ILabelService service) : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<LabelEntity> Update(Guid id, LabelEntity entity, CancellationToken cancellationToken)
+    public async Task<LabelEntity> Update([FromBody] Guid id, LabelEntity entity, CancellationToken cancellationToken)
     {
         var label = await service.Update(id, entity, cancellationToken);
         return label;
     }
 
     [HttpDelete("{id}")]
-    public async Task Delete(Guid id, CancellationToken cancellationToken)
+    public async Task Delete([FromBody] Guid id, CancellationToken cancellationToken)
     {
         await service.Delete(id, cancellationToken);
     }
