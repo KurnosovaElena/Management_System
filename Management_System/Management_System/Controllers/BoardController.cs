@@ -7,6 +7,7 @@ namespace ManagementSystem.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+
 public class BoardController(IBoardService service) : ControllerBase
 {
     [HttpGet]
@@ -20,6 +21,7 @@ public class BoardController(IBoardService service) : ControllerBase
     public async Task<BoardEntity> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
         var board = await service.GetById(id, cancellationToken);
+
         return board;
     }
 
