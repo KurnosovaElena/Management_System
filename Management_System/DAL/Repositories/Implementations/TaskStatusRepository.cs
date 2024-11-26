@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories.Implementations;
 
-public class LabelRepository(ManagementSystemDBContext db) : Repository<LabelEntity>(db), ILabelRepository
+public class TaskStatusRepository(ManagementSystemDBContext db) : Repository<TaskStatusEntity>(db), ITaskStatusRepository
 {
-    public override async Task<LabelEntity?> GetById(Guid id, CancellationToken cancellationToken)
+    public override async Task<TaskStatusEntity?> GetById(Guid id, CancellationToken cancellationToken)
     {
-        return await db.Set<LabelEntity>()
+        return await db.Set<TaskStatusEntity>()
         .Include(b => b.Tasks)
         .AsNoTracking()
         .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);

@@ -1,4 +1,4 @@
-﻿using DAL.Context;
+using DAL.Context;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +12,7 @@ public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where 
         return await db.Set<T>().ToListAsync(cancellationToken);
     }
 
-    public IQueryable<T> GetAll(int page, int pageSize, CancellationToken cancellationToken)
+    public IQueryable<T> FetchPaginatedData(int page, int pageSize, CancellationToken cancellationToken)
     {
         return db.Set<T>()
                  .Skip((page - 1) * pageSize)
@@ -20,11 +20,11 @@ public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where 
                  .AsNoTracking();
     }
 
-    public IQueryable<T> GetById(Guid id)
+    public virtual async Task<T?> GetById(Guid id, CancellationToken cancellationToken)
     {
-        return db.Set<T>()
-            .Where(entity => entity.Id == id)
-            .AsNoTracking();
+        return await db.Set<T>()
+            .AsNoTracking()
+            .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 
     public async Task<T> Add(T entity, CancellationToken cancellationToken)

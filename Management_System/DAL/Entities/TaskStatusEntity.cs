@@ -1,6 +1,6 @@
 ﻿namespace DAL.Entities;
 
-public class TableEntity
+public class TaskStatusEntity : IEntity
 {
     public Guid Id { get; set; }
 

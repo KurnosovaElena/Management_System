@@ -1,14 +1,12 @@
 ﻿using BLL.Services.Interfaсes;
 using DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Emit;
 
-namespace ManagementSystem.Controllers;
+namespace API.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-
-public class LabelController(ILabelService service) : ControllerBase
+[Route("api/labels")]
+public class LabelsController(ILabelService service) : ControllerBase
 {
     [HttpGet]
     public async Task<IEnumerable<LabelEntity>> GetAll(CancellationToken cancellationToken)
@@ -28,12 +26,11 @@ public class LabelController(ILabelService service) : ControllerBase
     public async Task<LabelEntity> Add([FromBody] LabelEntity entity, CancellationToken cancellationToken)
     {
         var label = await service.Add(entity, cancellationToken);
-
         return label;
     }
 
     [HttpPut("{id}")]
-    public async Task<LabelEntity> Update([FromRoute] Guid id,[FromBody] LabelEntity entity, CancellationToken cancellationToken)
+    public async Task<LabelEntity> Update([FromRoute] Guid id, [FromBody] LabelEntity entity, CancellationToken cancellationToken)
     {
         var label = await service.Update(id, entity, cancellationToken);
         return label;

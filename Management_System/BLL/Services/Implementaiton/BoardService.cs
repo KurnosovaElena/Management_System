@@ -15,7 +15,7 @@ public class BoardService(IBoardRepository repository) : IBoardService
 
     public async Task<BoardEntity> GetById(Guid id, CancellationToken cancellationToken)
     {
-        var board = await repository.GetBoard(id, cancellationToken);
+        var board = await repository.GetById(id, cancellationToken);
 
         return board;
     }
@@ -28,7 +28,7 @@ public class BoardService(IBoardRepository repository) : IBoardService
 
     public async Task<BoardEntity> Update(Guid id, BoardEntity entity, CancellationToken cancellationToken)
     {
-        var board = await repository.GetBoard(id, cancellationToken);
+        var board = await repository.GetById(id, cancellationToken);
 
         await repository.Update(board, cancellationToken);
 
@@ -37,7 +37,7 @@ public class BoardService(IBoardRepository repository) : IBoardService
 
     public async Task Delete(Guid id, CancellationToken cancellationToken)
     {
-        var board = await repository.GetBoard(id, cancellationToken);
+        var board = await repository.GetById(id, cancellationToken);
 
         await repository.Delete(board, cancellationToken);
     }

@@ -13,7 +13,7 @@ public class ManagementSystemDBContext : DbContext
     public DbSet<BoardEntity> Boards { get; set; }
     public DbSet<LabelEntity> Labels { get; set; }
     public DbSet<SubtaskEntity> Subtasks { get; set; }
-    public DbSet<TableEntity> Tables { get; set; }
+    public DbSet<TaskStatusEntity> TaskStatus { get; set; }
     public DbSet<TaskEntity> Tasks { get; set; }
     public DbSet<UserEntity> Users { get; set; }
     public DbSet<UserBoardEntity> UserBoards { get; set; }
@@ -29,7 +29,7 @@ public class ManagementSystemDBContext : DbContext
         DataGenerator.Init();
 
         modelBuilder.Entity<BoardEntity>().HasData(DataGenerator.Boards);
-        modelBuilder.Entity<TableEntity>().HasData(DataGenerator.Tables);
+        modelBuilder.Entity<TaskStatusEntity>().HasData(DataGenerator.TaskStatus);
         modelBuilder.Entity<TaskEntity>().HasData(DataGenerator.Tasks);
         modelBuilder.Entity<LabelEntity>().HasData(DataGenerator.Labels);
         modelBuilder.Entity<UserEntity>().HasData(DataGenerator.Users);
