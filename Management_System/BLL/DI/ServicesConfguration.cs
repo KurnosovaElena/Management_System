@@ -13,5 +13,6 @@ public static class ServicesConfguration
         services.AddDataAccessDependencies(configuration);
 
         services.AddScoped<IBoardService, BoardService>();
+        services.AddScoped<ITaskStatusService, TaskStatusService>();
     }
 }
