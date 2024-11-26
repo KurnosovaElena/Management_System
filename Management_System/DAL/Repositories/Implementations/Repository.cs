@@ -27,13 +27,6 @@ public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where 
             .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 
-    public IQueryable<T> GetById(Guid id)
-    {
-        return db.Set<T>()
-            .Where(entity => entity.Id == id)
-            .AsNoTracking();
-    }
-
     public async Task<T> Add(T entity, CancellationToken cancellationToken)
     {
         await db.AddAsync(entity, cancellationToken);
