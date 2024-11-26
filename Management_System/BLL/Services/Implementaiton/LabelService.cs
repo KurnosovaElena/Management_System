@@ -20,7 +20,7 @@ public class LabelService (ILabelRepository repository) : ILabelService
 
     public async Task<LabelEntity> GetById(Guid id, CancellationToken cancellationToken)
     {
-        var label = await repository.GetLabel(id, cancellationToken);
+        var label = await repository.GetById(id, cancellationToken);
 
         return label;
     }
@@ -33,7 +33,7 @@ public class LabelService (ILabelRepository repository) : ILabelService
 
     public async Task<LabelEntity> Update(Guid id, LabelEntity entity, CancellationToken cancellationToken)
     {
-        var label = await repository.GetLabel(id, cancellationToken);
+        var label = await repository.GetById(id, cancellationToken);
 
         await repository.Update(label, cancellationToken);
 
@@ -42,7 +42,7 @@ public class LabelService (ILabelRepository repository) : ILabelService
 
     public async Task Delete(Guid id, CancellationToken cancellationToken)
     {
-        var label = await repository.GetLabel(id, cancellationToken);
+        var label = await repository.GetById(id, cancellationToken);
 
         await repository.Delete(label, cancellationToken);
     }

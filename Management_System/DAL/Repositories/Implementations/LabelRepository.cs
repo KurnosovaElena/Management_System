@@ -7,11 +7,11 @@ namespace DAL.Repositories.Implementations;
 
 public class LabelRepository(ManagementSystemDBContext db) : Repository<LabelEntity>(db), ILabelRepository
 {
-    public async Task<LabelEntity?> GetLabel(Guid id, CancellationToken cancellationToken)
+    public override async Task<LabelEntity?> GetById(Guid id, CancellationToken cancellationToken)
     {
-        var label = await GetById(id)
-            .Include(b => b.Tasks)
-            .FirstOrDefaultAsync(cancellationToken);
-        return label;
+        return await db.Set<LabelEntity>()
+        .Include(b => b.Tasks)
+        .AsNoTracking()
+        .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 }
