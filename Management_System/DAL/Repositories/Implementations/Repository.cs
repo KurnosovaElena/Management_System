@@ -1,4 +1,4 @@
-﻿using DAL.Context;
+using DAL.Context;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +27,12 @@ public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where 
             .SingleOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 
+    public IQueryable<T> GetById(Guid id)
+    {
+        return db.Set<T>()
+            .Where(entity => entity.Id == id)
+            .AsNoTracking();
+    }
 
     public async Task<T> Add(T entity, CancellationToken cancellationToken)
     {

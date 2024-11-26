@@ -1,4 +1,4 @@
-﻿using DAL.Constants;
+using DAL.Constants;
 using DAL.Context;
 using DAL.Repositories.Implementations;
 using DAL.Repositories.Interfaces;
@@ -16,5 +16,6 @@ public static class ServicesConfguration
 
         services.AddScoped<IBoardRepository, BoardRepository>();
         services.AddScoped<ITaskStatusRepository, TaskStatusRepository>();
+        services.AddScoped<ILabelRepository, LabelRepository>();
     }
 }

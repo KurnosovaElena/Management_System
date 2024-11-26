@@ -1,6 +1,6 @@
 ﻿namespace DAL.Entities;
 
-public class LabelEntity
+public class LabelEntity : IEntity
 {
     public Guid Id { get; set; }
 
