@@ -24,7 +24,7 @@ public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where 
     {
         return await db.Set<T>()
             .AsNoTracking()
-            .SingleOrDefaultAsync(entity => entity.Id == id, cancellationToken);
+            .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 
     public IQueryable<T> GetById(Guid id)

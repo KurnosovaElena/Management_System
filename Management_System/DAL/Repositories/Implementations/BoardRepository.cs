@@ -13,6 +13,6 @@ public class BoardRepository(ManagementSystemDBContext db) : Repository<BoardEnt
             .Include(b => b.TaskStatus)
             .Include(b => b.UserBoards)
             .AsNoTracking()
-            .SingleOrDefaultAsync(entity => entity.Id == id, cancellationToken);
+            .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 }

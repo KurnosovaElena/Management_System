@@ -12,6 +12,6 @@ public class TaskStatusRepository(ManagementSystemDBContext db) : Repository<Tas
         return await db.Set<TaskStatusEntity>()
         .Include(b => b.Tasks)
         .AsNoTracking()
-        .SingleOrDefaultAsync(entity => entity.Id == id, cancellationToken);
+        .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
 }
