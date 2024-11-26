@@ -1,4 +1,4 @@
-﻿using BLL.Services.Implementaiton;
+using BLL.Services.Implementaiton;
 using BLL.Services.Interfaсes;
 using DAL.DI;
 using Microsoft.Extensions.Configuration;
@@ -14,5 +14,6 @@ public static class ServicesConfguration
 
         services.AddScoped<IBoardService, BoardService>();
         services.AddScoped<ITaskStatusService, TaskStatusService>();
+        services.AddScoped<ILabelService, LabelService>();
     }
 }
