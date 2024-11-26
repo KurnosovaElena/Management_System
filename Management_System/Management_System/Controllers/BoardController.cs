@@ -1,14 +1,12 @@
 ﻿using BLL.Services.Interfaсes;
 using DAL.Entities;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementSystem.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-
-public class BoardController(IBoardService service) : ControllerBase
+[Route("api/boards")]
+public class BoardsController(IBoardService service) : ControllerBase
 {
     [HttpGet]
     public async Task<IEnumerable<BoardEntity>> GetAll(CancellationToken cancellationToken)
@@ -21,7 +19,6 @@ public class BoardController(IBoardService service) : ControllerBase
     public async Task<BoardEntity> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
         var board = await service.GetById(id, cancellationToken);
-
         return board;
     }
 
@@ -29,7 +26,6 @@ public class BoardController(IBoardService service) : ControllerBase
     public async Task<BoardEntity> Add([FromBody] BoardEntity entity, CancellationToken cancellationToken)
     {
         var board = await service.Add(entity, cancellationToken);
-
         return board;
     }
 
