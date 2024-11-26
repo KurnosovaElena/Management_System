@@ -12,7 +12,7 @@ public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where 
         return await db.Set<T>().ToListAsync(cancellationToken);
     }
 
-    public IQueryable<T> GetAll(int page, int pageSize, CancellationToken cancellationToken)
+    public IQueryable<T> FetchPaginatedData(int page, int pageSize, CancellationToken cancellationToken)
     {
         return db.Set<T>()
                  .Skip((page - 1) * pageSize)
