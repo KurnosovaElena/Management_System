@@ -2,7 +2,7 @@
 using DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ManagementSystem.Controllers;
+namespace API.Controllers;
 
 [ApiController]
 [Route("api/task-statuses")]
