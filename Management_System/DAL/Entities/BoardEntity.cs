@@ -7,6 +7,6 @@ public class BoardEntity : IEntity
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
 
-    public IEnumerable<TableEntity> Tables { get; set; } = new List<TableEntity>();
+    public IEnumerable<TaskStatusEntity> TaskStatus { get; set; } = new List<TaskStatusEntity>();
     public IEnumerable<UserBoardEntity> UserBoards { get; set; } = new List<UserBoardEntity>();
 }

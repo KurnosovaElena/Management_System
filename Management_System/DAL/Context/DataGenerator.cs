@@ -8,7 +8,7 @@ namespace DAL.Context;
 public class DataGenerator
 {
     public static readonly List<BoardEntity> Boards = [];
-    public static readonly List<TableEntity> Tables = [];
+    public static readonly List<TaskStatusEntity> TaskStatus = [];
     public static readonly List<TaskEntity> Tasks = [];
     public static readonly List<UserBoardEntity> UserBoards = [];
     public static readonly List<SubtaskEntity> Subtasks = [];
@@ -49,12 +49,12 @@ public class DataGenerator
         Labels.AddRange(generatedLabels);
     }
 
-    private static List<TableEntity> GetBogusTablesData(Guid boardId)
+    private static List<TaskStatusEntity> GetBogusStatusData(Guid boardId)
     {
-        var tableGenerator = GetTableFaker(boardId);
-        var generatedTables = tableGenerator.Generate(NumberOfBoards);
-        Tables.AddRange(generatedTables);
-        return generatedTables;
+        var statusGenerator = GetTableFaker(boardId);
+        var generatedStatus = statusGenerator.Generate(NumberOfBoards);
+        TaskStatus.AddRange(generatedStatus);
+        return generatedStatus;
     }
 
     private static List<SubtaskEntity> GetBogusSubtasksData(Guid taskId)
@@ -92,17 +92,17 @@ public class DataGenerator
         .RuleFor(b => b.Id, _ => Guid.NewGuid())
         .RuleFor(b => b.Name, f => f.Name.FirstName())
         .RuleFor(b => b.Description, f => f.Lorem.Word())
-        .RuleFor(b => b.Tables, (_, e) =>
+        .RuleFor(b => b.TaskStatus, (_, e) =>
         {
-            GetBogusTablesData(e.Id);
+            GetBogusStatusData(e.Id);
             return [];
         });
 
-    private static Faker<TableEntity> GetTableFaker(Guid boardId)
+    private static Faker<TaskStatusEntity> GetTableFaker(Guid boardId)
     {
         var status = new[] { "In Progress", "In Review", "Done", "Backlog" };
 
-        return new Faker<TableEntity>()
+        return new Faker<TaskStatusEntity>()
             .RuleFor(t => t.Id, _ => Guid.NewGuid())
             .RuleFor(t => t.Name, f => f.PickRandomParam(status))
             .RuleFor(t => t.BoardId, _ => boardId)

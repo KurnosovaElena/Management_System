@@ -11,3 +11,4 @@ public class UserBoardEntity
     public UserEntity User { get; set; } = null!;
     public BoardEntity Board { get; set; } = null!;
 }
+//roles
