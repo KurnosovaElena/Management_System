@@ -1,17 +1,13 @@
-﻿using DAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BLL.DTO;
+using DAL.Entities;
 
 namespace BLL.Services.Interfaсes;
 
 public interface IBoardService
 {
-    Task<BoardEntity> GetById(Guid id, CancellationToken cancellationToken);
-    Task<IEnumerable<BoardEntity>> GetAll(CancellationToken cancellationToken);
-    Task<BoardEntity> Add(BoardEntity entity, CancellationToken cancellationToken);
-    Task<BoardEntity> Update(Guid id, BoardEntity entity, CancellationToken cancellationToken);
+    Task<BoardDTO> GetById(Guid id, CancellationToken cancellationToken);
+    Task<IEnumerable<BoardDTO>> GetAll(CancellationToken cancellationToken);
+    Task<BoardDTO> Add(BoardEntity entity, CancellationToken cancellationToken);
+    Task<BoardDTO> Update(Guid id, BoardEntity entity, CancellationToken cancellationToken);
     Task Delete(Guid id, CancellationToken cancellationToken);
 }
