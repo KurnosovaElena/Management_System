@@ -1,10 +1,9 @@
-﻿using BLL.DTO;
+﻿using AutoMapper;
+using BLL.DTO;
 using BLL.DTO.CreateDTO;
 using BLL.Services.Interfaсes;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
-using AutoMapper;
-using System.Collections.Generic;
 
 namespace BLL.Services.Implementaiton;
 
@@ -34,7 +33,7 @@ public class BoardService(IBoardRepository repository, IMapper mapper) : IBoardS
     {
         var boards = await repository.GetAll(cancellationToken);
 
-        var boardsDTO = mapper.Map<IEnumerable<BoardDTO>> (boards);
+        var boardsDTO = mapper.Map<IEnumerable<BoardDTO>>(boards);
 
         return boardsDTO;
     }
