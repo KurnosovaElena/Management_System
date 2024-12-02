@@ -1,4 +1,5 @@
 ﻿using BLL.DTO;
+using BLL.DTO.CreateDTO;
 using BLL.Services.Interfaсes;
 using DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -24,14 +25,14 @@ public class BoardsController(IBoardService service) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<BoardDTO> Add([FromBody] BoardEntity entity, CancellationToken cancellationToken)
+    public async Task<BoardDTO> Add([FromBody] CreateBoardDTO entity, CancellationToken cancellationToken)
     {
         var board = await service.Add(entity, cancellationToken);
         return board;
     }
 
     [HttpPut("{id}")]
-    public async Task<BoardDTO> Update([FromRoute] Guid id, [FromBody] BoardEntity entity, CancellationToken cancellationToken)
+    public async Task<BoardDTO> Update([FromRoute] Guid id, [FromBody] CreateBoardDTO entity, CancellationToken cancellationToken)
     {
         var board = await service.Update(id, entity, cancellationToken);
         return board;
