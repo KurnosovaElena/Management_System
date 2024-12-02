@@ -18,5 +18,6 @@ public static class ServicesConfguration
         services.AddScoped<ILabelService, LabelService>();
 
         services.AddAutoMapper(typeof(BoardProfile));
+        services.AddAutoMapper(typeof(LabelProfile));
     }
 }

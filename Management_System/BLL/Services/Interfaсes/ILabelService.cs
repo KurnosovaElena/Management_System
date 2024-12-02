@@ -1,18 +1,13 @@
-﻿using DAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BLL.DTO;
+using BLL.DTO.CreateDTO;
 
-namespace BLL.Services.Interfaсes
+namespace BLL.Services.Interfaсes;
+
+public interface ILabelService
 {
-    public interface ILabelService
-    {
-        Task<LabelEntity> GetById(Guid id, CancellationToken cancellationToken);
-        Task<IEnumerable<LabelEntity>> GetAll(CancellationToken cancellationToken);
-        Task<LabelEntity> Add(LabelEntity entity, CancellationToken cancellationToken);
-        Task<LabelEntity> Update(Guid id, LabelEntity entity, CancellationToken cancellationToken);
-        Task Delete(Guid id, CancellationToken cancellationToken);
-    }
+    Task<LabelDTO> GetById(Guid id, CancellationToken cancellationToken);
+    Task<IEnumerable<LabelDTO>> GetAll(CancellationToken cancellationToken);
+    Task<LabelDTO> Add(CreateLabelDTO entity, CancellationToken cancellationToken);
+    Task<LabelDTO> Update(Guid id, CreateLabelDTO entity, CancellationToken cancellationToken);
+    Task Delete(Guid id, CancellationToken cancellationToken);
 }

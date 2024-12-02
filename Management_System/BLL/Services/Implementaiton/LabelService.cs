@@ -1,43 +1,53 @@
-﻿using BLL.Services.Interfaсes;
+﻿using AutoMapper;
+using BLL.DTO;
+using BLL.DTO.CreateDTO;
+using BLL.Services.Interfaсes;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.Services.Implementaiton;
-public class LabelService (ILabelRepository repository) : ILabelService
+public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelService
 {
-    public async Task<LabelEntity> Add(LabelEntity entity, CancellationToken cancellationToken)
+    public async Task<LabelDTO> Add(CreateLabelDTO entity, CancellationToken cancellationToken)
     {
-        await repository.Add(entity, cancellationToken);
+        var label = mapper.Map<LabelEntity>(entity);
 
-        return entity;
+        await repository.Add(label, cancellationToken);
+
+        var labelDTO = mapper.Map<LabelDTO>(label);
+
+        return labelDTO;
     }
 
-    public async Task<LabelEntity> GetById(Guid id, CancellationToken cancellationToken)
+    public async Task<LabelDTO> GetById(Guid id, CancellationToken cancellationToken)
     {
         var label = await repository.GetById(id, cancellationToken);
 
-        return label;
+        var labelDTO = mapper.Map<LabelDTO>(label);
+
+        return labelDTO;
     }
 
-    public async Task<IEnumerable<LabelEntity>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<LabelDTO>> GetAll(CancellationToken cancellationToken)
     {
         var labels = await repository.GetAll(cancellationToken);
-        return labels;
+
+        var labelsDTO = mapper.Map<IEnumerable<LabelDTO>>(labels);
+
+        return labelsDTO;
     }
 
-    public async Task<LabelEntity> Update(Guid id, LabelEntity entity, CancellationToken cancellationToken)
+    public async Task<LabelDTO> Update(Guid id, CreateLabelDTO entity, CancellationToken cancellationToken)
     {
         var label = await repository.GetById(id, cancellationToken);
+
+        mapper.Map(label, entity);
 
         await repository.Update(label, cancellationToken);
 
-        return entity;
+        var labelDTO = mapper.Map<LabelDTO>(label);
+
+        return labelDTO;
     }
 
     public async Task Delete(Guid id, CancellationToken cancellationToken)
