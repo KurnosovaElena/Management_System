@@ -1,14 +1,8 @@
-﻿using DAL.Entities;
+﻿using BLL.DTO.CreateDTO;
 
 namespace BLL.DTO;
 
-public class BoardDTO
+public class BoardDTO : CreateBoardDTO
 {
     public Guid Id { get; set; }
-
-    public string Name { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-
-    public IEnumerable<TaskStatusEntity> TaskStatus { get; set; } = new List<TaskStatusEntity>();
-    public IEnumerable<UserBoardEntity> UserBoards { get; set; } = new List<UserBoardEntity>();
 }
