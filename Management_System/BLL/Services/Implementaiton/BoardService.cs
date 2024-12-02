@@ -7,17 +7,8 @@ using DAL.Repositories.Interfaces;
 
 namespace BLL.Services.Implementation;
 
-public class BoardService : IBoardService
+public class BoardService(IBoardRepository repository, IMapper mapper)  : IBoardService
 {
-    private readonly IBoardRepository repository;
-    private readonly IMapper mapper;
-
-    public BoardService(IBoardRepository repository, IMapper mapper)
-    {
-        this.repository = repository;
-        this.mapper = mapper;
-    }
-
     public async Task<BoardDTO> Add(CreateBoardDTO entity, CancellationToken cancellationToken)
     {
         var board = mapper.Map<BoardEntity>(entity);
