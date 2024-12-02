@@ -4,6 +4,8 @@ using DAL.DI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BLL.Profiles;
+using BLL.Services.Implementation;
+using BLL.Services.Interfaces;
 
 namespace BLL.DI;
 
