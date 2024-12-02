@@ -1,8 +1,8 @@
-﻿using BLL.DTO;
+using BLL.DTO;
 using BLL.DTO.CreateDTO;
 using DAL.Entities;
 
-namespace BLL.Services.Interfaсes;
+namespace BLL.Services.Interfaces;
 
 public interface IBoardService
 {

@@ -5,7 +5,7 @@ using BLL.Services.Interfaсes;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 
-namespace BLL.Services.Implementaiton;
+namespace BLL.Services.Implementation;
 
 public class BoardService(IBoardRepository repository, IMapper mapper) : IBoardService
 {
@@ -55,7 +55,7 @@ public class BoardService(IBoardRepository repository, IMapper mapper) : IBoardS
     public async Task Delete(Guid id, CancellationToken cancellationToken)
     {
         var board = await repository.GetById(id, cancellationToken);
-
         await repository.Delete(board, cancellationToken);
     }
 }
+
