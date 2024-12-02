@@ -1,81 +1,49 @@
-﻿using BLL.DTO;
-using BLL.Services.Interfaсes;
+using AutoMapper;
+using BLL.DTO;
+using BLL.DTO.CreateDTO;
+using BLL.Services.Interfaces;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 
-namespace BLL.Services.Implementaiton;
+namespace BLL.Services.Implementation;
 
-public class BoardService(IBoardRepository repository) : IBoardService
+public class BoardService(IBoardRepository repository, IMapper mapper)  : IBoardService
 {
-    public async Task<BoardDTO> Add(BoardEntity entity, CancellationToken cancellationToken)
+    public async Task<BoardDTO> Add(CreateBoardDTO entity, CancellationToken cancellationToken)
     {
-        await repository.Add(entity, cancellationToken);
-
-        var boardDTO = new BoardDTO
-        {
-            Id = entity.Id,
-            Name = entity.Name,
-            Description = entity.Description,
-            TaskStatus = entity.TaskStatus,
-            UserBoards = entity.UserBoards,
-        };
-
+        var board = mapper.Map<BoardEntity>(entity);
+        await repository.Add(board, cancellationToken);
+        var boardDTO = mapper.Map<BoardDTO>(board);
         return boardDTO;
     }
 
     public async Task<BoardDTO> GetById(Guid id, CancellationToken cancellationToken)
     {
         var board = await repository.GetById(id, cancellationToken);
-
-        var boardDTO = new BoardDTO
-        {
-            Id = board.Id,
-            Name = board.Name,
-            Description = board.Description,
-            TaskStatus = board.TaskStatus,
-            UserBoards = board.UserBoards,
-        };
-
+        var boardDTO = mapper.Map<BoardDTO>(board);
         return boardDTO;
     }
 
     public async Task<IEnumerable<BoardDTO>> GetAll(CancellationToken cancellationToken)
     {
         var boards = await repository.GetAll(cancellationToken);
-        var boardsDTO = boards.Select(boards => new BoardDTO
-        {
-            Id = boards.Id,
-            Name = boards.Name,
-            Description = boards.Description,
-            TaskStatus = boards.TaskStatus,
-            UserBoards = boards.UserBoards,
-        });
-
+        var boardsDTO = mapper.Map<IEnumerable<BoardDTO>>(boards);
         return boardsDTO;
     }
 
-    public async Task<BoardDTO> Update(Guid id, BoardEntity entity, CancellationToken cancellationToken)
+    public async Task<BoardDTO> Update(Guid id, CreateBoardDTO entity, CancellationToken cancellationToken)
     {
         var board = await repository.GetById(id, cancellationToken);
-
+        mapper.Map(entity, board);
         await repository.Update(board, cancellationToken);
-
-        var boardDTO = new BoardDTO
-        {
-            Id = board.Id,
-            Name = board.Name,
-            Description = board.Description,
-            TaskStatus = board.TaskStatus,
-            UserBoards = board.UserBoards,
-        };
-
+        var boardDTO = mapper.Map<BoardDTO>(board);
         return boardDTO;
     }
 
     public async Task Delete(Guid id, CancellationToken cancellationToken)
     {
         var board = await repository.GetById(id, cancellationToken);
-
         await repository.Delete(board, cancellationToken);
     }
 }
+

@@ -1,45 +1,57 @@
-﻿using BLL.DTO;
-using BLL.Services.Interfaсes;
+using BLL.DTO;
+using BLL.DTO.CreateDTO;
+using BLL.Services.Interfaces;
 using DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace API.Controllers;
-
-[ApiController]
-[Route("api/boards")]
-public class BoardsController(IBoardService service) : ControllerBase
+namespace API.Controllers
 {
-    [HttpGet]
-    public async Task<IEnumerable<BoardDTO>> GetAll(CancellationToken cancellationToken)
+    [ApiController]
+    [Route("api/boards")]
+    public class BoardsController : ControllerBase
     {
-        var boards = await service.GetAll(cancellationToken);
-        return boards;
-    }
+        private readonly IBoardService service;
 
-    [HttpGet("{id}")]
-    public async Task<BoardDTO> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
-    {
-        var board = await service.GetById(id, cancellationToken);
-        return board;
-    }
+        public BoardsController(IBoardService service)
+        {
+            this.service = service;
+        }
 
-    [HttpPost]
-    public async Task<BoardDTO> Add([FromBody] BoardEntity entity, CancellationToken cancellationToken)
-    {
-        var board = await service.Add(entity, cancellationToken);
-        return board;
-    }
+        [HttpGet]
+        public async Task<IEnumerable<BoardDTO>> GetAll(CancellationToken cancellationToken)
+        {
+            var boards = await service.GetAll(cancellationToken);
+            return boards;
+        }
 
-    [HttpPut("{id}")]
-    public async Task<BoardDTO> Update([FromRoute] Guid id, [FromBody] BoardEntity entity, CancellationToken cancellationToken)
-    {
-        var board = await service.Update(id, entity, cancellationToken);
-        return board;
-    }
+        [HttpGet("{id}")]
+        public async Task<BoardDTO> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
+        {
+            var board = await service.GetById(id, cancellationToken);
+            return board;
+        }
 
-    [HttpDelete("{id}")]
-    public async Task Delete([FromRoute] Guid id, CancellationToken cancellationToken)
-    {
-        await service.Delete(id, cancellationToken);
+        [HttpPost]
+        public async Task<BoardDTO> Add([FromBody] CreateBoardDTO entity, CancellationToken cancellationToken)
+        {
+            var board = await service.Add(entity, cancellationToken);
+            return board;
+        }
+
+        [HttpPut("{id}")]
+        public async Task<BoardDTO> Update([FromRoute] Guid id, [FromBody] CreateBoardDTO entity, CancellationToken cancellationToken)
+        {
+            var board = await service.Update(id, entity, cancellationToken);
+            return board;
+        }
+
+        [HttpDelete("{id}")]
+        public async Task Delete([FromRoute] Guid id, CancellationToken cancellationToken)
+        {
+            await service.Delete(id, cancellationToken);
+        }
     }
 }
