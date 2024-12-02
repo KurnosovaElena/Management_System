@@ -1,6 +1,7 @@
 ﻿using DAL.Entities;
 
 namespace BLL.DTO.CreateDTO;
+
 public class CreateBoardDTO
 {
     public string Name { get; set; } = string.Empty;
