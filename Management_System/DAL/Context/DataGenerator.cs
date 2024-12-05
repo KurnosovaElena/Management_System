@@ -51,7 +51,7 @@ public class DataGenerator
 
     private static List<TaskStatusEntity> GetBogusStatusData(Guid boardId)
     {
-        var statusGenerator = GetTableFaker(boardId);
+        var statusGenerator = GetTaskStatusFaker(boardId);
         var generatedStatus = statusGenerator.Generate(NumberOfBoards);
         TaskStatus.AddRange(generatedStatus);
         return generatedStatus;
@@ -76,14 +76,22 @@ public class DataGenerator
     private static void GenerateUserBoardsData()
     {
         var userBoardsGenerator = GetUserBoardsFaker();
-        var generatedUserBoards = userBoardsGenerator.Generate(NumberOfBoards);
+        var generatedUserBoards = userBoardsGenerator.Generate(NumberOfBoards)
+            .GroupBy(ub => new { ub.UserId, ub.BoardId })
+            .Select(ub => ub.FirstOrDefault())
+            .ToList();
+
         UserBoards.AddRange(generatedUserBoards);
     }
 
     private static void GenerateBogusUserTasksData()
     {
         var userTasksGenerator = GetUserTasksFaker();
-        var generatedUserTasks = userTasksGenerator.Generate(NumberOfTasks);
+        var generatedUserTasks = userTasksGenerator.Generate(NumberOfTasks)
+            .GroupBy(ut => new { ut.UserId, ut.TaskId })
+            .Select(ut => ut.FirstOrDefault())
+            .ToList();
+
         UserTasks.AddRange(generatedUserTasks);
     }
 
@@ -98,13 +106,14 @@ public class DataGenerator
             return [];
         });
 
-    private static Faker<TaskStatusEntity> GetTableFaker(Guid boardId)
+    private static Faker<TaskStatusEntity> GetTaskStatusFaker(Guid boardId)
     {
         var status = new[] { "In Progress", "In Review", "Done", "Backlog" };
 
         return new Faker<TaskStatusEntity>()
             .RuleFor(t => t.Id, _ => Guid.NewGuid())
             .RuleFor(t => t.Name, f => f.PickRandomParam(status))
+            .RuleFor(t => t.Description, f => f.Lorem.Word())
             .RuleFor(t => t.BoardId, _ => boardId)
             .RuleFor(t => t.Tasks, (_, e) =>
             {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BLL.DTO;
 using BLL.DTO.CreateDTO;
-using BLL.Services.Interfaсes;
+using BLL.Services.Interfaces;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 
@@ -58,4 +58,3 @@ public class BoardService(IBoardRepository repository, IMapper mapper) : IBoardS
         await repository.Delete(board, cancellationToken);
     }
 }
-

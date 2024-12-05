@@ -1,6 +1,6 @@
 using BLL.DTO;
 using BLL.DTO.CreateDTO;
-using BLL.Services.Interfaсes;
+using BLL.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
