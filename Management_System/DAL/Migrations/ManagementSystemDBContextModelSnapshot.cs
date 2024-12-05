@@ -43,27 +43,27 @@ namespace ManagementSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("787a52e9-7040-4ca8-811a-6d313900e845"),
-                            Description = "unde",
-                            Name = "Theron"
+                            Id = new Guid("e30c3e79-ec4e-40cc-8a97-91c7f8a05858"),
+                            Description = "numquam",
+                            Name = "Kris"
                         },
                         new
                         {
-                            Id = new Guid("e1299cc7-b81f-4634-87d7-19c3f84f8aa9"),
-                            Description = "velit",
-                            Name = "Keshawn"
+                            Id = new Guid("fe131d51-acb6-47dc-b3fe-d4c0d4dcf87e"),
+                            Description = "labore",
+                            Name = "Alexane"
                         },
                         new
                         {
-                            Id = new Guid("9cddc7db-1849-40e6-abf3-f81b79e61967"),
-                            Description = "qui",
-                            Name = "Annalise"
+                            Id = new Guid("74dd6493-e9e3-4ed9-a010-252ed939c00f"),
+                            Description = "id",
+                            Name = "Elnora"
                         },
                         new
                         {
-                            Id = new Guid("1f9050e0-c42a-44c2-bd95-15cdbdc66235"),
-                            Description = "vero",
-                            Name = "Minerva"
+                            Id = new Guid("00d5f841-98ef-4971-9f0d-5e8af87f54d8"),
+                            Description = "provident",
+                            Name = "Ottis"
                         });
                 });
 
@@ -88,27 +88,27 @@ namespace ManagementSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4d006956-66fe-4ca5-aa4d-897f06a0f36c"),
-                            Description = "rem",
-                            Name = "matrix"
+                            Id = new Guid("65227e4b-e999-441e-ba2f-39f816891ee2"),
+                            Description = "in",
+                            Name = "SMTP"
                         },
                         new
                         {
-                            Id = new Guid("d7afa51c-55cd-4235-9bff-6e3c7f08197c"),
-                            Description = "enim",
-                            Name = "bus"
+                            Id = new Guid("266509a5-aa68-4f99-870c-faae36ed021d"),
+                            Description = "repellat",
+                            Name = "Cape Verde Escudo"
                         },
                         new
                         {
-                            Id = new Guid("0d43ed9b-040b-4019-9a39-403ec827977e"),
-                            Description = "praesentium",
-                            Name = "Ford"
+                            Id = new Guid("f46eb97f-a289-4ec9-b44a-8199ec5f3cce"),
+                            Description = "provident",
+                            Name = "Keys"
                         },
                         new
                         {
-                            Id = new Guid("195b620a-4693-4a4c-87b7-765d8ac67eb2"),
-                            Description = "qui",
-                            Name = "connect"
+                            Id = new Guid("70909c3c-cdb1-48c9-89fc-33d142efaa4e"),
+                            Description = "similique",
+                            Name = "out-of-the-box"
                         });
                 });
 
@@ -141,227 +141,227 @@ namespace ManagementSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("690ca44c-f103-4de6-a88b-07bb99fc3a9b"),
-                            Description = "ea",
-                            Name = "Licensed Concrete Bike",
-                            TaskId = new Guid("32564cd2-abf5-4b2f-a442-50c15e29bc35")
+                            Id = new Guid("1181e072-9161-4099-8b6d-45218ae0ba69"),
+                            Description = "officia",
+                            Name = "Tunnel",
+                            TaskId = new Guid("900537a8-c9d5-4920-8caf-e17fe1e4d31d")
                         },
                         new
                         {
-                            Id = new Guid("a63cd6f9-5f0d-45ec-9cc2-5b993b50b1ba"),
-                            Description = "laboriosam",
-                            Name = "Human",
-                            TaskId = new Guid("32564cd2-abf5-4b2f-a442-50c15e29bc35")
+                            Id = new Guid("bc21e76c-e774-4616-963e-dc43763dfe44"),
+                            Description = "perferendis",
+                            Name = "compressing",
+                            TaskId = new Guid("900537a8-c9d5-4920-8caf-e17fe1e4d31d")
                         },
                         new
                         {
-                            Id = new Guid("90100b0b-8d3b-4b62-8db2-9034d92e2fbe"),
-                            Description = "velit",
-                            Name = "Quetzal",
-                            TaskId = new Guid("9a542b84-5341-49d5-8645-d3674d3cc4a1")
+                            Id = new Guid("d86f571b-4b0d-4c72-8d4f-9a747a939194"),
+                            Description = "est",
+                            Name = "Concrete",
+                            TaskId = new Guid("10fc0ada-3127-4dda-868f-93e1aae74faa")
                         },
                         new
                         {
-                            Id = new Guid("2a8e9515-f9cb-4360-ba40-fba8b4b07713"),
-                            Description = "unde",
-                            Name = "Saudi Arabia",
-                            TaskId = new Guid("9a542b84-5341-49d5-8645-d3674d3cc4a1")
+                            Id = new Guid("1849ecb2-735c-4744-a38f-34f43d9b7892"),
+                            Description = "voluptatibus",
+                            Name = "Awesome Fresh Computer",
+                            TaskId = new Guid("10fc0ada-3127-4dda-868f-93e1aae74faa")
                         },
                         new
                         {
-                            Id = new Guid("f56c3a66-e7dd-4c15-b80c-d500604144ce"),
-                            Description = "illum",
-                            Name = "Mandatory",
-                            TaskId = new Guid("a07850df-a6af-475f-a1f1-38f88cff3c3f")
-                        },
-                        new
-                        {
-                            Id = new Guid("c57e3c0e-2fbc-45e2-8862-0ac8b8e74e69"),
-                            Description = "exercitationem",
-                            Name = "Bedfordshire",
-                            TaskId = new Guid("a07850df-a6af-475f-a1f1-38f88cff3c3f")
-                        },
-                        new
-                        {
-                            Id = new Guid("6fa35c0c-0f33-4a90-b56f-a87e397301f3"),
+                            Id = new Guid("47af20cf-674d-441f-8eb1-4b2b6bbbfbcf"),
                             Description = "non",
-                            Name = "ADP",
-                            TaskId = new Guid("445638aa-00f1-4e25-bfaf-0f963bc3d1f8")
+                            Name = "Florida",
+                            TaskId = new Guid("1417a381-a3a1-4509-9857-ac2e3c07ab54")
                         },
                         new
                         {
-                            Id = new Guid("d1994ac8-e782-4315-91c5-045433134ad6"),
-                            Description = "voluptate",
-                            Name = "Pass",
-                            TaskId = new Guid("445638aa-00f1-4e25-bfaf-0f963bc3d1f8")
+                            Id = new Guid("fcdefd5a-f150-471a-855a-7a967f65c0f9"),
+                            Description = "praesentium",
+                            Name = "communities",
+                            TaskId = new Guid("1417a381-a3a1-4509-9857-ac2e3c07ab54")
                         },
                         new
                         {
-                            Id = new Guid("021d105e-b1cb-4ede-8891-7dfeb04956d7"),
-                            Description = "omnis",
-                            Name = "Station",
-                            TaskId = new Guid("cce3ee84-59ff-4afe-8fb2-dfc315bf825c")
+                            Id = new Guid("43bce45b-c861-47eb-a103-2dfb7fe6c278"),
+                            Description = "sequi",
+                            Name = "Cape Verde Escudo",
+                            TaskId = new Guid("8989af17-8064-4e23-b17d-db124db025b4")
                         },
                         new
                         {
-                            Id = new Guid("cbcac5d0-b1b6-4734-9ae0-e7e614a02d94"),
-                            Description = "dolore",
-                            Name = "array",
-                            TaskId = new Guid("cce3ee84-59ff-4afe-8fb2-dfc315bf825c")
+                            Id = new Guid("3691bf9f-c54c-44de-bb5f-89a5d2208142"),
+                            Description = "alias",
+                            Name = "Handcrafted",
+                            TaskId = new Guid("8989af17-8064-4e23-b17d-db124db025b4")
                         },
                         new
                         {
-                            Id = new Guid("4d08131e-cd32-4b98-8414-ed8dddc42ac2"),
-                            Description = "ipsa",
-                            Name = "Guinea",
-                            TaskId = new Guid("1c409359-0e6b-48f9-9ca3-82fed7f8eaa2")
-                        },
-                        new
-                        {
-                            Id = new Guid("5433e0c7-79a1-4935-ab6f-d433a08d5708"),
-                            Description = "eaque",
-                            Name = "SMTP",
-                            TaskId = new Guid("1c409359-0e6b-48f9-9ca3-82fed7f8eaa2")
-                        },
-                        new
-                        {
-                            Id = new Guid("5fbd17d5-86d5-40bf-9c2c-e3e9b366efe7"),
-                            Description = "odit",
-                            Name = "Grocery",
-                            TaskId = new Guid("2a6c5a7b-f03f-467f-bda5-7054ee632485")
-                        },
-                        new
-                        {
-                            Id = new Guid("3c8b376c-4771-4811-994f-2a7b1bf924b9"),
-                            Description = "blanditiis",
-                            Name = "Guinea Franc",
-                            TaskId = new Guid("2a6c5a7b-f03f-467f-bda5-7054ee632485")
-                        },
-                        new
-                        {
-                            Id = new Guid("d022b849-e22d-400f-b0a5-eee1d12592e1"),
-                            Description = "dolor",
-                            Name = "copy",
-                            TaskId = new Guid("8ee37a2b-9ed6-4baa-bf30-1be8e874b19d")
-                        },
-                        new
-                        {
-                            Id = new Guid("e0df03e4-f9cc-4cc9-ac8d-3e392a87c937"),
-                            Description = "sint",
-                            Name = "Expanded",
-                            TaskId = new Guid("8ee37a2b-9ed6-4baa-bf30-1be8e874b19d")
-                        },
-                        new
-                        {
-                            Id = new Guid("a88321e1-9769-46aa-9279-e0119ce8c603"),
-                            Description = "facere",
-                            Name = "Credit Card Account",
-                            TaskId = new Guid("ef307ef9-7a38-49e9-8f9f-a26af2bc03b7")
-                        },
-                        new
-                        {
-                            Id = new Guid("c59796a3-77de-4a1b-abba-947da023fdae"),
-                            Description = "quas",
-                            Name = "silver",
-                            TaskId = new Guid("ef307ef9-7a38-49e9-8f9f-a26af2bc03b7")
-                        },
-                        new
-                        {
-                            Id = new Guid("1f1fd094-f824-420a-83cf-73069948b093"),
-                            Description = "qui",
-                            Name = "24 hour",
-                            TaskId = new Guid("24bcdbd7-d610-41ba-a2aa-9a338958ad77")
-                        },
-                        new
-                        {
-                            Id = new Guid("1c280f73-2d32-44e7-88f6-c2a7c69b4e34"),
-                            Description = "sapiente",
-                            Name = "utilisation",
-                            TaskId = new Guid("24bcdbd7-d610-41ba-a2aa-9a338958ad77")
-                        },
-                        new
-                        {
-                            Id = new Guid("68f5af77-d04b-41bf-be35-ea4d9ffff729"),
-                            Description = "quia",
-                            Name = "Colombian Peso",
-                            TaskId = new Guid("af4c09d3-68b0-429f-b39d-dd0f5ecc9e6f")
-                        },
-                        new
-                        {
-                            Id = new Guid("4cb2bd6b-6953-41f3-857a-81f06d4089be"),
-                            Description = "esse",
+                            Id = new Guid("e0afdcb8-9798-44f6-9503-214672dccc29"),
+                            Description = "dolorem",
                             Name = "deposit",
-                            TaskId = new Guid("af4c09d3-68b0-429f-b39d-dd0f5ecc9e6f")
+                            TaskId = new Guid("14953219-0d06-4883-973d-29c12b2b990b")
                         },
                         new
                         {
-                            Id = new Guid("34f18b5b-f667-4103-a063-cf238cb3b875"),
-                            Description = "velit",
-                            Name = "innovate",
-                            TaskId = new Guid("e91c7efd-ac30-4747-8900-bca20b6d2ed9")
+                            Id = new Guid("653ff8a8-d593-44d4-af19-0ca811d1af15"),
+                            Description = "rerum",
+                            Name = "Bedfordshire",
+                            TaskId = new Guid("14953219-0d06-4883-973d-29c12b2b990b")
                         },
                         new
                         {
-                            Id = new Guid("a356d6cb-013f-4373-9c6a-fa6fdf6a6be6"),
-                            Description = "dolor",
-                            Name = "GB",
-                            TaskId = new Guid("e91c7efd-ac30-4747-8900-bca20b6d2ed9")
+                            Id = new Guid("055ffa58-5a27-4823-a7c7-b3a46dfb2acc"),
+                            Description = "voluptatem",
+                            Name = "Computers",
+                            TaskId = new Guid("881aa7e6-d239-4e3a-8e02-5cd996fff99b")
                         },
                         new
                         {
-                            Id = new Guid("2ff15358-9bf5-46bb-8677-c08dbd3cdde7"),
-                            Description = "consequatur",
-                            Name = "Wells",
-                            TaskId = new Guid("d7980152-5d5c-42cb-b838-fd0c4e2b9e02")
+                            Id = new Guid("ca106481-10d0-48f0-9bda-2d9f3e522d2f"),
+                            Description = "omnis",
+                            Name = "payment",
+                            TaskId = new Guid("881aa7e6-d239-4e3a-8e02-5cd996fff99b")
                         },
                         new
                         {
-                            Id = new Guid("a1d49514-31f0-4941-8f9b-9341d0a200ac"),
-                            Description = "odio",
-                            Name = "Alaska",
-                            TaskId = new Guid("d7980152-5d5c-42cb-b838-fd0c4e2b9e02")
-                        },
-                        new
-                        {
-                            Id = new Guid("9bb0b8c0-62a5-4bea-9679-5e4c2e1cea16"),
-                            Description = "voluptas",
-                            Name = "Branding",
-                            TaskId = new Guid("0ca148ae-b506-4813-b86e-5e469aa8dc23")
-                        },
-                        new
-                        {
-                            Id = new Guid("2b793845-8008-4ef5-814e-3f83af865932"),
-                            Description = "rem",
-                            Name = "infrastructures",
-                            TaskId = new Guid("0ca148ae-b506-4813-b86e-5e469aa8dc23")
-                        },
-                        new
-                        {
-                            Id = new Guid("6deb9127-7edc-48dd-8621-268cbda51bfb"),
-                            Description = "et",
-                            Name = "Automotive, Movies & Outdoors",
-                            TaskId = new Guid("d270faed-aab1-455f-b5c4-f9263668b78e")
-                        },
-                        new
-                        {
-                            Id = new Guid("a376dd3b-88ee-43e5-bdd4-b3b722b4758a"),
-                            Description = "ipsam",
-                            Name = "black",
-                            TaskId = new Guid("d270faed-aab1-455f-b5c4-f9263668b78e")
-                        },
-                        new
-                        {
-                            Id = new Guid("a7941f1f-ce93-4f26-b09e-fd4b6d37f8e0"),
-                            Description = "libero",
-                            Name = "target",
-                            TaskId = new Guid("e4d5f8e3-232b-47e0-846a-4cd5cbae9ff0")
-                        },
-                        new
-                        {
-                            Id = new Guid("34db5527-568d-454b-a34e-4ee3b6688dcf"),
+                            Id = new Guid("fda546f7-1359-465c-9a03-6011d3751497"),
                             Description = "ut",
-                            Name = "South Africa",
-                            TaskId = new Guid("e4d5f8e3-232b-47e0-846a-4cd5cbae9ff0")
+                            Name = "holistic",
+                            TaskId = new Guid("03adc899-bf50-46f7-8202-f9a20520b19a")
+                        },
+                        new
+                        {
+                            Id = new Guid("c63d6cda-0931-4cc4-9a01-81b987559072"),
+                            Description = "consectetur",
+                            Name = "Incredible Concrete Car",
+                            TaskId = new Guid("03adc899-bf50-46f7-8202-f9a20520b19a")
+                        },
+                        new
+                        {
+                            Id = new Guid("70432db3-14bc-4765-bf47-1593f7177a99"),
+                            Description = "voluptas",
+                            Name = "zero administration",
+                            TaskId = new Guid("9a198c3e-e918-4352-b637-29c928894a52")
+                        },
+                        new
+                        {
+                            Id = new Guid("c612883e-88b3-40c2-89cd-d097825e9471"),
+                            Description = "fugiat",
+                            Name = "Forge",
+                            TaskId = new Guid("9a198c3e-e918-4352-b637-29c928894a52")
+                        },
+                        new
+                        {
+                            Id = new Guid("b795dc90-41c3-43b2-8085-459d86199d92"),
+                            Description = "deleniti",
+                            Name = "Rustic",
+                            TaskId = new Guid("41a0e638-8f44-4820-a348-a9e2274e001e")
+                        },
+                        new
+                        {
+                            Id = new Guid("93a3d91e-f7d6-4edc-895c-89b1c6ec67ff"),
+                            Description = "facere",
+                            Name = "Tajikistan",
+                            TaskId = new Guid("41a0e638-8f44-4820-a348-a9e2274e001e")
+                        },
+                        new
+                        {
+                            Id = new Guid("f7038e01-a8a1-48c6-99b1-ccc22ecb5bc3"),
+                            Description = "illo",
+                            Name = "magnetic",
+                            TaskId = new Guid("3e3e0a85-cc40-457c-9bbd-435ca0e31d34")
+                        },
+                        new
+                        {
+                            Id = new Guid("b5473216-c1e7-4dac-b7d2-c8c5c84ce076"),
+                            Description = "rerum",
+                            Name = "Intelligent",
+                            TaskId = new Guid("3e3e0a85-cc40-457c-9bbd-435ca0e31d34")
+                        },
+                        new
+                        {
+                            Id = new Guid("98671b19-c687-4d4a-96f0-3d467c044698"),
+                            Description = "totam",
+                            Name = "Croatian Kuna",
+                            TaskId = new Guid("8a6789d7-d49d-4200-b004-44b763aa6ea0")
+                        },
+                        new
+                        {
+                            Id = new Guid("b9c68848-3c9c-4733-ab74-92012bbaba21"),
+                            Description = "quo",
+                            Name = "auxiliary",
+                            TaskId = new Guid("8a6789d7-d49d-4200-b004-44b763aa6ea0")
+                        },
+                        new
+                        {
+                            Id = new Guid("6d50edb1-268e-45d4-8ea9-079eb5a32b85"),
+                            Description = "et",
+                            Name = "dynamic",
+                            TaskId = new Guid("3a77a6e5-f431-40e2-9279-7f27b5b5ee73")
+                        },
+                        new
+                        {
+                            Id = new Guid("fb685d7c-98b3-4393-8b1c-1de79fee693e"),
+                            Description = "quisquam",
+                            Name = "Sleek",
+                            TaskId = new Guid("3a77a6e5-f431-40e2-9279-7f27b5b5ee73")
+                        },
+                        new
+                        {
+                            Id = new Guid("8017703a-fb33-44f1-9d4e-af88817106ac"),
+                            Description = "ut",
+                            Name = "core",
+                            TaskId = new Guid("c74f9dfc-c26e-445b-9af5-8fd9c25a9a4f")
+                        },
+                        new
+                        {
+                            Id = new Guid("86c2ea39-4c9b-4ce1-bec0-8874ade460d9"),
+                            Description = "ratione",
+                            Name = "Personal Loan Account",
+                            TaskId = new Guid("c74f9dfc-c26e-445b-9af5-8fd9c25a9a4f")
+                        },
+                        new
+                        {
+                            Id = new Guid("674925c8-de1e-4203-89e2-56314389480a"),
+                            Description = "suscipit",
+                            Name = "Heights",
+                            TaskId = new Guid("52d5abb9-3352-477c-98f0-aee5795b6c10")
+                        },
+                        new
+                        {
+                            Id = new Guid("f676e02d-a7da-4f55-9ee8-080b2ad45c54"),
+                            Description = "in",
+                            Name = "orange",
+                            TaskId = new Guid("52d5abb9-3352-477c-98f0-aee5795b6c10")
+                        },
+                        new
+                        {
+                            Id = new Guid("fe69a484-c728-430d-8087-9e333d797ad5"),
+                            Description = "ducimus",
+                            Name = "optical",
+                            TaskId = new Guid("81f31633-f005-4a84-87dc-eca6078114c4")
+                        },
+                        new
+                        {
+                            Id = new Guid("7670a466-4b88-4eaf-8fcd-2b5132a539e5"),
+                            Description = "eius",
+                            Name = "multimedia",
+                            TaskId = new Guid("81f31633-f005-4a84-87dc-eca6078114c4")
+                        },
+                        new
+                        {
+                            Id = new Guid("4efeab3e-bff9-4889-901d-fed78d36ce19"),
+                            Description = "id",
+                            Name = "Alaska",
+                            TaskId = new Guid("d2ad96d9-f1ea-48cf-b237-4aef9af29071")
+                        },
+                        new
+                        {
+                            Id = new Guid("f427ae1b-9d6c-42ab-afef-9f995d4efb32"),
+                            Description = "assumenda",
+                            Name = "installation",
+                            TaskId = new Guid("d2ad96d9-f1ea-48cf-b237-4aef9af29071")
                         });
                 });
 
@@ -408,163 +408,163 @@ namespace ManagementSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("32564cd2-abf5-4b2f-a442-50c15e29bc35"),
-                            Description = "qui",
-                            Name = "Stream",
-                            Priority = 3,
-                            SerialNumber = 0,
-                            TableId = new Guid("9374db0e-1385-4a61-99f3-1bbdd2694870"),
-                            TaskEstimation = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("9a542b84-5341-49d5-8645-d3674d3cc4a1"),
-                            Description = "illo",
-                            Name = "compress",
-                            Priority = 0,
-                            SerialNumber = 0,
-                            TableId = new Guid("9374db0e-1385-4a61-99f3-1bbdd2694870"),
-                            TaskEstimation = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("a07850df-a6af-475f-a1f1-38f88cff3c3f"),
-                            Description = "dolorum",
-                            Name = "Operations",
-                            Priority = 1,
-                            SerialNumber = 0,
-                            TableId = new Guid("985c33c0-3639-4eb2-8865-8f91f23b013c"),
-                            TaskEstimation = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("445638aa-00f1-4e25-bfaf-0f963bc3d1f8"),
-                            Description = "tempora",
-                            Name = "Buckinghamshire",
-                            Priority = 0,
-                            SerialNumber = 0,
-                            TableId = new Guid("985c33c0-3639-4eb2-8865-8f91f23b013c"),
-                            TaskEstimation = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("cce3ee84-59ff-4afe-8fb2-dfc315bf825c"),
-                            Description = "voluptate",
-                            Name = "Gorgeous Concrete Computer",
-                            Priority = 0,
-                            SerialNumber = 1,
-                            TableId = new Guid("c47466d9-7713-4482-8034-74941b89dd85"),
-                            TaskEstimation = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("1c409359-0e6b-48f9-9ca3-82fed7f8eaa2"),
-                            Description = "in",
-                            Name = "Wooden",
-                            Priority = 0,
-                            SerialNumber = 1,
-                            TableId = new Guid("c47466d9-7713-4482-8034-74941b89dd85"),
-                            TaskEstimation = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("2a6c5a7b-f03f-467f-bda5-7054ee632485"),
-                            Description = "nihil",
-                            Name = "Berkshire",
-                            Priority = 3,
-                            SerialNumber = 1,
-                            TableId = new Guid("94407c38-647c-406c-87ef-ee26d3e73268"),
-                            TaskEstimation = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("8ee37a2b-9ed6-4baa-bf30-1be8e874b19d"),
-                            Description = "eos",
-                            Name = "Mexican Peso",
-                            Priority = 3,
-                            SerialNumber = 0,
-                            TableId = new Guid("94407c38-647c-406c-87ef-ee26d3e73268"),
-                            TaskEstimation = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("ef307ef9-7a38-49e9-8f9f-a26af2bc03b7"),
-                            Description = "qui",
-                            Name = "support",
-                            Priority = 0,
-                            SerialNumber = 0,
-                            TableId = new Guid("758c83fe-bbc9-4625-8505-f85dacce0a29"),
-                            TaskEstimation = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("24bcdbd7-d610-41ba-a2aa-9a338958ad77"),
-                            Description = "est",
-                            Name = "Switchable",
-                            Priority = 0,
-                            SerialNumber = 0,
-                            TableId = new Guid("758c83fe-bbc9-4625-8505-f85dacce0a29"),
-                            TaskEstimation = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("af4c09d3-68b0-429f-b39d-dd0f5ecc9e6f"),
-                            Description = "sequi",
-                            Name = "Money Market Account",
-                            Priority = 0,
-                            SerialNumber = 0,
-                            TableId = new Guid("de2b4481-2905-4e2d-b3c6-9e75c4551606"),
-                            TaskEstimation = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("e91c7efd-ac30-4747-8900-bca20b6d2ed9"),
-                            Description = "possimus",
-                            Name = "Illinois",
-                            Priority = 0,
-                            SerialNumber = 0,
-                            TableId = new Guid("de2b4481-2905-4e2d-b3c6-9e75c4551606"),
-                            TaskEstimation = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("d7980152-5d5c-42cb-b838-fd0c4e2b9e02"),
-                            Description = "accusamus",
-                            Name = "Executive",
-                            Priority = 3,
-                            SerialNumber = 0,
-                            TableId = new Guid("8a0759c4-1e13-4821-bc0c-d2fd275381aa"),
-                            TaskEstimation = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("0ca148ae-b506-4813-b86e-5e469aa8dc23"),
+                            Id = new Guid("900537a8-c9d5-4920-8caf-e17fe1e4d31d"),
                             Description = "quis",
-                            Name = "leverage",
+                            Name = "Front-line",
+                            Priority = 2,
+                            SerialNumber = 0,
+                            TableId = new Guid("e882e972-2e52-4795-b026-9a0697683984"),
+                            TaskEstimation = 2
+                        },
+                        new
+                        {
+                            Id = new Guid("10fc0ada-3127-4dda-868f-93e1aae74faa"),
+                            Description = "aut",
+                            Name = "SDD",
+                            Priority = 1,
+                            SerialNumber = 1,
+                            TableId = new Guid("e882e972-2e52-4795-b026-9a0697683984"),
+                            TaskEstimation = 1
+                        },
+                        new
+                        {
+                            Id = new Guid("1417a381-a3a1-4509-9857-ac2e3c07ab54"),
+                            Description = "sed",
+                            Name = "Port",
+                            Priority = 0,
+                            SerialNumber = 0,
+                            TableId = new Guid("4e1ef3af-feec-4e3a-acfc-6be37f0624b5"),
+                            TaskEstimation = 1
+                        },
+                        new
+                        {
+                            Id = new Guid("8989af17-8064-4e23-b17d-db124db025b4"),
+                            Description = "nostrum",
+                            Name = "index",
                             Priority = 2,
                             SerialNumber = 1,
-                            TableId = new Guid("8a0759c4-1e13-4821-bc0c-d2fd275381aa"),
-                            TaskEstimation = 0
+                            TableId = new Guid("4e1ef3af-feec-4e3a-acfc-6be37f0624b5"),
+                            TaskEstimation = 1
                         },
                         new
                         {
-                            Id = new Guid("d270faed-aab1-455f-b5c4-f9263668b78e"),
-                            Description = "rerum",
-                            Name = "Diverse",
-                            Priority = 3,
+                            Id = new Guid("14953219-0d06-4883-973d-29c12b2b990b"),
+                            Description = "et",
+                            Name = "exploit",
+                            Priority = 1,
                             SerialNumber = 0,
-                            TableId = new Guid("bd0e27f2-cc29-47bf-83ec-f97e54666938"),
+                            TableId = new Guid("8751ff46-50ed-4793-8248-6eca1906bee8"),
                             TaskEstimation = 2
                         },
                         new
                         {
-                            Id = new Guid("e4d5f8e3-232b-47e0-846a-4cd5cbae9ff0"),
-                            Description = "distinctio",
-                            Name = "Papua New Guinea",
+                            Id = new Guid("881aa7e6-d239-4e3a-8e02-5cd996fff99b"),
+                            Description = "maiores",
+                            Name = "Wooden",
                             Priority = 1,
                             SerialNumber = 1,
-                            TableId = new Guid("bd0e27f2-cc29-47bf-83ec-f97e54666938"),
+                            TableId = new Guid("8751ff46-50ed-4793-8248-6eca1906bee8"),
+                            TaskEstimation = 1
+                        },
+                        new
+                        {
+                            Id = new Guid("03adc899-bf50-46f7-8202-f9a20520b19a"),
+                            Description = "repellendus",
+                            Name = "Pa'anga",
+                            Priority = 2,
+                            SerialNumber = 1,
+                            TableId = new Guid("cfc9a4e8-5f9a-48e0-b4b6-ae5e0296184f"),
                             TaskEstimation = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("9a198c3e-e918-4352-b637-29c928894a52"),
+                            Description = "nulla",
+                            Name = "Rustic Concrete Pizza",
+                            Priority = 0,
+                            SerialNumber = 0,
+                            TableId = new Guid("cfc9a4e8-5f9a-48e0-b4b6-ae5e0296184f"),
+                            TaskEstimation = 2
+                        },
+                        new
+                        {
+                            Id = new Guid("41a0e638-8f44-4820-a348-a9e2274e001e"),
+                            Description = "quia",
+                            Name = "Tasty Soft Cheese",
+                            Priority = 1,
+                            SerialNumber = 1,
+                            TableId = new Guid("5610e5a4-357d-4ded-831c-7c7babb241a0"),
+                            TaskEstimation = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("3e3e0a85-cc40-457c-9bbd-435ca0e31d34"),
+                            Description = "qui",
+                            Name = "Investment Account",
+                            Priority = 2,
+                            SerialNumber = 0,
+                            TableId = new Guid("5610e5a4-357d-4ded-831c-7c7babb241a0"),
+                            TaskEstimation = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("8a6789d7-d49d-4200-b004-44b763aa6ea0"),
+                            Description = "tenetur",
+                            Name = "interface",
+                            Priority = 3,
+                            SerialNumber = 0,
+                            TableId = new Guid("e7c9e9e7-df0f-4ea3-ba39-3858fdd3b3c8"),
+                            TaskEstimation = 0
+                        },
+                        new
+                        {
+                            Id = new Guid("3a77a6e5-f431-40e2-9279-7f27b5b5ee73"),
+                            Description = "aut",
+                            Name = "Lek",
+                            Priority = 1,
+                            SerialNumber = 0,
+                            TableId = new Guid("e7c9e9e7-df0f-4ea3-ba39-3858fdd3b3c8"),
+                            TaskEstimation = 2
+                        },
+                        new
+                        {
+                            Id = new Guid("c74f9dfc-c26e-445b-9af5-8fd9c25a9a4f"),
+                            Description = "cupiditate",
+                            Name = "Buckinghamshire",
+                            Priority = 2,
+                            SerialNumber = 0,
+                            TableId = new Guid("3aa7791e-a958-4845-a815-5cb2e1f1efea"),
+                            TaskEstimation = 2
+                        },
+                        new
+                        {
+                            Id = new Guid("52d5abb9-3352-477c-98f0-aee5795b6c10"),
+                            Description = "sequi",
+                            Name = "Incredible",
+                            Priority = 2,
+                            SerialNumber = 0,
+                            TableId = new Guid("3aa7791e-a958-4845-a815-5cb2e1f1efea"),
+                            TaskEstimation = 1
+                        },
+                        new
+                        {
+                            Id = new Guid("81f31633-f005-4a84-87dc-eca6078114c4"),
+                            Description = "qui",
+                            Name = "Ergonomic Cotton Car",
+                            Priority = 3,
+                            SerialNumber = 0,
+                            TableId = new Guid("20de96a2-69ae-4a37-ae9e-b721cfdbaed7"),
+                            TaskEstimation = 2
+                        },
+                        new
+                        {
+                            Id = new Guid("d2ad96d9-f1ea-48cf-b237-4aef9af29071"),
+                            Description = "vel",
+                            Name = "Cotton",
+                            Priority = 3,
+                            SerialNumber = 1,
+                            TableId = new Guid("20de96a2-69ae-4a37-ae9e-b721cfdbaed7"),
+                            TaskEstimation = 1
                         });
                 });
 
@@ -597,58 +597,58 @@ namespace ManagementSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9374db0e-1385-4a61-99f3-1bbdd2694870"),
-                            BoardId = new Guid("787a52e9-7040-4ca8-811a-6d313900e845"),
-                            Description = "",
-                            Name = "In Progress"
-                        },
-                        new
-                        {
-                            Id = new Guid("985c33c0-3639-4eb2-8865-8f91f23b013c"),
-                            BoardId = new Guid("787a52e9-7040-4ca8-811a-6d313900e845"),
-                            Description = "",
+                            Id = new Guid("e882e972-2e52-4795-b026-9a0697683984"),
+                            BoardId = new Guid("e30c3e79-ec4e-40cc-8a97-91c7f8a05858"),
+                            Description = "eos",
                             Name = "In Review"
                         },
                         new
                         {
-                            Id = new Guid("c47466d9-7713-4482-8034-74941b89dd85"),
-                            BoardId = new Guid("e1299cc7-b81f-4634-87d7-19c3f84f8aa9"),
-                            Description = "",
+                            Id = new Guid("4e1ef3af-feec-4e3a-acfc-6be37f0624b5"),
+                            BoardId = new Guid("e30c3e79-ec4e-40cc-8a97-91c7f8a05858"),
+                            Description = "exercitationem",
                             Name = "In Progress"
                         },
                         new
                         {
-                            Id = new Guid("94407c38-647c-406c-87ef-ee26d3e73268"),
-                            BoardId = new Guid("e1299cc7-b81f-4634-87d7-19c3f84f8aa9"),
-                            Description = "",
-                            Name = "In Review"
-                        },
-                        new
-                        {
-                            Id = new Guid("758c83fe-bbc9-4625-8505-f85dacce0a29"),
-                            BoardId = new Guid("9cddc7db-1849-40e6-abf3-f81b79e61967"),
-                            Description = "",
-                            Name = "In Progress"
-                        },
-                        new
-                        {
-                            Id = new Guid("de2b4481-2905-4e2d-b3c6-9e75c4551606"),
-                            BoardId = new Guid("9cddc7db-1849-40e6-abf3-f81b79e61967"),
-                            Description = "",
+                            Id = new Guid("8751ff46-50ed-4793-8248-6eca1906bee8"),
+                            BoardId = new Guid("fe131d51-acb6-47dc-b3fe-d4c0d4dcf87e"),
+                            Description = "exercitationem",
                             Name = "Backlog"
                         },
                         new
                         {
-                            Id = new Guid("8a0759c4-1e13-4821-bc0c-d2fd275381aa"),
-                            BoardId = new Guid("1f9050e0-c42a-44c2-bd95-15cdbdc66235"),
-                            Description = "",
+                            Id = new Guid("cfc9a4e8-5f9a-48e0-b4b6-ae5e0296184f"),
+                            BoardId = new Guid("fe131d51-acb6-47dc-b3fe-d4c0d4dcf87e"),
+                            Description = "sit",
+                            Name = "In Progress"
+                        },
+                        new
+                        {
+                            Id = new Guid("5610e5a4-357d-4ded-831c-7c7babb241a0"),
+                            BoardId = new Guid("74dd6493-e9e3-4ed9-a010-252ed939c00f"),
+                            Description = "sint",
                             Name = "In Review"
                         },
                         new
                         {
-                            Id = new Guid("bd0e27f2-cc29-47bf-83ec-f97e54666938"),
-                            BoardId = new Guid("1f9050e0-c42a-44c2-bd95-15cdbdc66235"),
-                            Description = "",
+                            Id = new Guid("e7c9e9e7-df0f-4ea3-ba39-3858fdd3b3c8"),
+                            BoardId = new Guid("74dd6493-e9e3-4ed9-a010-252ed939c00f"),
+                            Description = "sint",
+                            Name = "Backlog"
+                        },
+                        new
+                        {
+                            Id = new Guid("3aa7791e-a958-4845-a815-5cb2e1f1efea"),
+                            BoardId = new Guid("00d5f841-98ef-4971-9f0d-5e8af87f54d8"),
+                            Description = "dolores",
+                            Name = "Done"
+                        },
+                        new
+                        {
+                            Id = new Guid("20de96a2-69ae-4a37-ae9e-b721cfdbaed7"),
+                            BoardId = new Guid("00d5f841-98ef-4971-9f0d-5e8af87f54d8"),
+                            Description = "architecto",
                             Name = "Backlog"
                         });
                 });
@@ -670,23 +670,18 @@ namespace ManagementSystem.Migrations
                     b.HasData(
                         new
                         {
-                            BoardId = new Guid("e1299cc7-b81f-4634-87d7-19c3f84f8aa9"),
-                            UserId = new Guid("9af36fdf-6bd4-4d63-9b00-265ac05bb9c1")
+                            BoardId = new Guid("fe131d51-acb6-47dc-b3fe-d4c0d4dcf87e"),
+                            UserId = new Guid("17a50d40-4f38-4b18-b246-69e5e83dc837")
                         },
                         new
                         {
-                            BoardId = new Guid("787a52e9-7040-4ca8-811a-6d313900e845"),
-                            UserId = new Guid("ad7c707f-61c9-43ba-af9f-10ee527230d2")
+                            BoardId = new Guid("e30c3e79-ec4e-40cc-8a97-91c7f8a05858"),
+                            UserId = new Guid("e45e8ef8-bae3-4ca9-b749-4a2073b4129f")
                         },
                         new
                         {
-                            BoardId = new Guid("1f9050e0-c42a-44c2-bd95-15cdbdc66235"),
-                            UserId = new Guid("9af36fdf-6bd4-4d63-9b00-265ac05bb9c1")
-                        },
-                        new
-                        {
-                            BoardId = new Guid("1f9050e0-c42a-44c2-bd95-15cdbdc66235"),
-                            UserId = new Guid("7d3ff7ce-2e90-4e07-ab77-eb9955a9ee93")
+                            BoardId = new Guid("e30c3e79-ec4e-40cc-8a97-91c7f8a05858"),
+                            UserId = new Guid("95e27ee1-3087-48d1-ad20-82bb8c447b68")
                         });
                 });
 
@@ -715,31 +710,31 @@ namespace ManagementSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ad7c707f-61c9-43ba-af9f-10ee527230d2"),
-                            Email = "Selena93@hotmail.com",
-                            FirstName = "Rogers",
-                            LastName = "Schuppe"
+                            Id = new Guid("3908149a-83f5-490c-8078-02afab7a4236"),
+                            Email = "Lilliana_Beier77@yahoo.com",
+                            FirstName = "Kali",
+                            LastName = "O'Conner"
                         },
                         new
                         {
-                            Id = new Guid("9af36fdf-6bd4-4d63-9b00-265ac05bb9c1"),
-                            Email = "Marvin.Schaefer@hotmail.com",
-                            FirstName = "Kacey",
-                            LastName = "Nienow"
+                            Id = new Guid("17a50d40-4f38-4b18-b246-69e5e83dc837"),
+                            Email = "Adrianna20@yahoo.com",
+                            FirstName = "Horace",
+                            LastName = "Gaylord"
                         },
                         new
                         {
-                            Id = new Guid("7d3ff7ce-2e90-4e07-ab77-eb9955a9ee93"),
-                            Email = "Quinten.Crooks@yahoo.com",
-                            FirstName = "Rogers",
-                            LastName = "Zulauf"
+                            Id = new Guid("95e27ee1-3087-48d1-ad20-82bb8c447b68"),
+                            Email = "Libbie_Fay@hotmail.com",
+                            FirstName = "Salvador",
+                            LastName = "Yundt"
                         },
                         new
                         {
-                            Id = new Guid("63c11e29-2e11-422e-87dd-60487978a59e"),
-                            Email = "Irwin_Hartmann58@gmail.com",
-                            FirstName = "Caden",
-                            LastName = "Moen"
+                            Id = new Guid("e45e8ef8-bae3-4ca9-b749-4a2073b4129f"),
+                            Email = "Ashly50@hotmail.com",
+                            FirstName = "Mollie",
+                            LastName = "Simonis"
                         });
                 });
 
@@ -763,27 +758,27 @@ namespace ManagementSystem.Migrations
                     b.HasData(
                         new
                         {
-                            TaskId = new Guid("cce3ee84-59ff-4afe-8fb2-dfc315bf825c"),
-                            UserId = new Guid("9af36fdf-6bd4-4d63-9b00-265ac05bb9c1"),
-                            Role = 2
-                        },
-                        new
-                        {
-                            TaskId = new Guid("cce3ee84-59ff-4afe-8fb2-dfc315bf825c"),
-                            UserId = new Guid("ad7c707f-61c9-43ba-af9f-10ee527230d2"),
+                            TaskId = new Guid("14953219-0d06-4883-973d-29c12b2b990b"),
+                            UserId = new Guid("3908149a-83f5-490c-8078-02afab7a4236"),
                             Role = 0
                         },
                         new
                         {
-                            TaskId = new Guid("445638aa-00f1-4e25-bfaf-0f963bc3d1f8"),
-                            UserId = new Guid("7d3ff7ce-2e90-4e07-ab77-eb9955a9ee93"),
+                            TaskId = new Guid("8989af17-8064-4e23-b17d-db124db025b4"),
+                            UserId = new Guid("3908149a-83f5-490c-8078-02afab7a4236"),
                             Role = 2
                         },
                         new
                         {
-                            TaskId = new Guid("ef307ef9-7a38-49e9-8f9f-a26af2bc03b7"),
-                            UserId = new Guid("ad7c707f-61c9-43ba-af9f-10ee527230d2"),
+                            TaskId = new Guid("10fc0ada-3127-4dda-868f-93e1aae74faa"),
+                            UserId = new Guid("17a50d40-4f38-4b18-b246-69e5e83dc837"),
                             Role = 2
+                        },
+                        new
+                        {
+                            TaskId = new Guid("41a0e638-8f44-4820-a348-a9e2274e001e"),
+                            UserId = new Guid("e45e8ef8-bae3-4ca9-b749-4a2073b4129f"),
+                            Role = 0
                         });
                 });
 
