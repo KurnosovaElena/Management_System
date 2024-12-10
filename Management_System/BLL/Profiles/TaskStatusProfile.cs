@@ -4,6 +4,7 @@ using DAL.Entities;
 using AutoMapper;
 
 namespace BLL.Profiles;
+
 public class TaskStatusProfile : Profile
 {
     public TaskStatusProfile()
