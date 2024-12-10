@@ -2,10 +2,8 @@
 
 namespace DAL.Entities;
 
-public class TaskEntity
+public class TaskEntity : IEntity
 {
-    public Guid Id { get; set; }
-
     public int SerialNumber { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
