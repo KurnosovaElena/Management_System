@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BLL.DTO;
 using BLL.DTO.CreateDTO;
-using BLL.Services.Interfaces;
+using BLL.Services.Interfaсes;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 

@@ -17,5 +17,6 @@ public static class ServicesConfguration
         services.AddScoped<IBoardRepository, BoardRepository>();
         services.AddScoped<ITaskStatusRepository, TaskStatusRepository>();
         services.AddScoped<ILabelRepository, LabelRepository>();
+        services.AddScoped<ITaskRepository, TaskRepository>();
     }
 }
