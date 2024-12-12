@@ -1,10 +1,11 @@
+using BLL.Profiles;
 using BLL.Services.Implementaiton;
+using BLL.Services.Implementation;
+using BLL.Services.Interfaces;
 using BLL.Services.Interfaсes;
 using DAL.DI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using BLL.Profiles;
-using BLL.Services.Implementation;
 
 namespace BLL.DI;
 
@@ -18,7 +19,7 @@ public static class ServicesConfguration
         services.AddScoped<ITaskStatusService, TaskStatusService>();
         services.AddScoped<ILabelService, LabelService>();
         services.AddScoped<ITasksService, TasksService>();
-      
+
         services.AddAutoMapper(typeof(BoardProfile), typeof(LabelProfile), typeof(TaskStatusProfile), typeof(TasksProfile));
     }
 }
