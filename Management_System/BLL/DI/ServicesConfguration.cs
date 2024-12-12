@@ -20,6 +20,6 @@ public static class ServicesConfguration
         services.AddScoped<ILabelService, LabelService>();
         services.AddScoped<ITasksService, TasksService>();
 
-        services.AddAutoMapper(typeof(BoardProfile), typeof(LabelProfile), typeof(TaskStatusProfile), typeof(TasksProfile));
+        services.AddAutoMapper(typeof(BoardProfile), typeof(LabelProfile), typeof(TaskStatusProfile), typeof(TasksProfile), typeof(SubtaskProfile));
     }
 }
