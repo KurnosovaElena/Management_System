@@ -12,17 +12,10 @@ public class UserService(IUserRepository repository, IMapper mapper) : IUserServ
 {
     public async Task<UserDTO> Add(CreateUserDTO entity, CancellationToken cancellationToken)
     {
-        try
-        {
-            var user = mapper.Map<UserEntity>(entity);
-            await repository.Add(user, cancellationToken);
-            var userDTO = mapper.Map<UserDTO>(user);
-            return userDTO;
-        }
-        catch (Exception ex)
-        {
-            throw new ApplicationException("An error occurred while adding the user.", ex);
-        }
+        var user = mapper.Map<UserEntity>(entity);
+        await repository.Add(user, cancellationToken);
+        var userDTO = mapper.Map<UserDTO>(user);
+        return userDTO;
     }
 
     public async Task<UserDTO> GetById(Guid id, CancellationToken cancellationToken)
@@ -47,13 +40,13 @@ public class UserService(IUserRepository repository, IMapper mapper) : IUserServ
 
     public async Task<UserDTO> Update(Guid id, CreateUserDTO entity, CancellationToken cancellationToken)
     {
-        var user = await repository.GetById(id, cancellationToken)
-            ?? throw new NotFoundException("No user found");
-
-        if (entity == null)
+        if (entity is null)
         {
             throw new BadRequestException("Invalid user data provided.");
         }
+
+        var user = await repository.GetById(id, cancellationToken)
+            ?? throw new NotFoundException("No user found");
 
         mapper.Map(entity, user);
 

@@ -12,17 +12,10 @@ public class TasksService(ITaskRepository repository, IMapper mapper) : ITasksSe
 {
     public async Task<TasksDTO> Add(CreateTasksDTO entity, CancellationToken cancellationToken)
     {
-        try
-        {
-            var task = mapper.Map<TaskEntity>(entity);
-            await repository.Add(task, cancellationToken);
-            var taskDTO = mapper.Map<TasksDTO>(task);
-            return taskDTO;
-        }
-        catch (Exception ex)
-        {
-            throw new ApplicationException("An error occurred while adding the task.", ex);
-        }
+        var task = mapper.Map<TaskEntity>(entity);
+        await repository.Add(task, cancellationToken);
+        var taskDTO = mapper.Map<TasksDTO>(task);
+        return taskDTO;
     }
 
     public async Task<TasksDTO> GetById(Guid id, CancellationToken cancellationToken)
@@ -47,13 +40,13 @@ public class TasksService(ITaskRepository repository, IMapper mapper) : ITasksSe
 
     public async Task<TasksDTO> Update(Guid id, CreateTasksDTO entity, CancellationToken cancellationToken)
     {
-        var task = await repository.GetById(id, cancellationToken)
-            ?? throw new NotFoundException("No task found");
-
-        if (entity == null)
+        if (entity is null)
         {
             throw new BadRequestException("Invalid task data provided.");
         }
+
+        var task = await repository.GetById(id, cancellationToken)
+            ?? throw new NotFoundException("No task found");
 
         mapper.Map(entity, task);
 

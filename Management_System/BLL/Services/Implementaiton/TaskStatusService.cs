@@ -12,17 +12,10 @@ public class TaskStatusService(ITaskStatusRepository repository, IMapper mapper)
 {
     public async Task<TaskStatusDTO> Add(CreateTaskStatusDTO entity, CancellationToken cancellationToken)
     {
-        try
-        {
-            var taskStatus = mapper.Map<TaskStatusEntity>(entity);
-            await repository.Add(taskStatus, cancellationToken);
-            var taskStatusDTO = mapper.Map<TaskStatusDTO>(taskStatus);
-            return taskStatusDTO;
-        }
-        catch (Exception ex)
-        {
-            throw new ApplicationException("An error occurred while adding the task status.", ex);
-        }
+        var taskStatus = mapper.Map<TaskStatusEntity>(entity);
+        await repository.Add(taskStatus, cancellationToken);
+        var taskStatusDTO = mapper.Map<TaskStatusDTO>(taskStatus);
+        return taskStatusDTO;
     }
 
     public async Task<TaskStatusDTO> GetById(Guid id, CancellationToken cancellationToken)
@@ -47,13 +40,13 @@ public class TaskStatusService(ITaskStatusRepository repository, IMapper mapper)
 
     public async Task<TaskStatusDTO> Update(Guid id, CreateTaskStatusDTO entity, CancellationToken cancellationToken)
     {
-        var status = await repository.GetById(id, cancellationToken)
-            ?? throw new NotFoundException("No task status found");
-
-        if (entity == null)
+        if (entity is null)
         {
             throw new BadRequestException("Invalid task status data provided.");
         }
+
+        var status = await repository.GetById(id, cancellationToken)
+            ?? throw new NotFoundException("No task status found");
 
         mapper.Map(entity, status);
 

@@ -12,17 +12,10 @@ public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelS
 {
     public async Task<LabelDTO> Add(CreateLabelDTO entity, CancellationToken cancellationToken)
     {
-        try
-        {
-            var label = mapper.Map<LabelEntity>(entity);
-            await repository.Add(label, cancellationToken);
-            var labelDTO = mapper.Map<LabelDTO>(label);
-            return labelDTO;
-        }
-        catch (Exception ex)
-        {
-            throw new ApplicationException("An error occurred while adding the label.", ex);
-        }
+        var label = mapper.Map<LabelEntity>(entity);
+        await repository.Add(label, cancellationToken);
+        var labelDTO = mapper.Map<LabelDTO>(label);
+        return labelDTO;
     }
 
     public async Task<LabelDTO> GetById(Guid id, CancellationToken cancellationToken)
@@ -47,13 +40,13 @@ public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelS
 
     public async Task<LabelDTO> Update(Guid id, CreateLabelDTO entity, CancellationToken cancellationToken)
     {
-        var label = await repository.GetById(id, cancellationToken)
-            ?? throw new NotFoundException("No label found");
-
-        if (entity == null)
+        if (entity is null)
         {
             throw new BadRequestException("Invalid label data provided.");
         }
+
+        var label = await repository.GetById(id, cancellationToken)
+            ?? throw new NotFoundException("No label found");
 
         mapper.Map(entity, label);
 

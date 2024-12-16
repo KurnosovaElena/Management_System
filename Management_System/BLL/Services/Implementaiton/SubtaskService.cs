@@ -12,17 +12,10 @@ public class SubtaskService(ISubtaskRepository repository, IMapper mapper) : ISu
 {
     public async Task<SubtaskDTO> Add(CreateSubtaskDTO entity, CancellationToken cancellationToken)
     {
-        try
-        {
-            var subtask = mapper.Map<SubtaskEntity>(entity);
-            await repository.Add(subtask, cancellationToken);
-            var subtaskDTO = mapper.Map<SubtaskDTO>(subtask);
-            return subtaskDTO;
-        }
-        catch (Exception ex)
-        {
-            throw new ApplicationException("An error occurred while adding the subtask.", ex);
-        }
+        var subtask = mapper.Map<SubtaskEntity>(entity);
+        await repository.Add(subtask, cancellationToken);
+        var subtaskDTO = mapper.Map<SubtaskDTO>(subtask);
+        return subtaskDTO;
     }
 
     public async Task<SubtaskDTO> GetById(Guid id, CancellationToken cancellationToken)
@@ -47,13 +40,13 @@ public class SubtaskService(ISubtaskRepository repository, IMapper mapper) : ISu
 
     public async Task<SubtaskDTO> Update(Guid id, CreateSubtaskDTO entity, CancellationToken cancellationToken)
     {
-        var subtask = await repository.GetById(id, cancellationToken)
-            ?? throw new NotFoundException("No subtask found");
-
-        if (entity == null)
+        if (entity is null)
         {
             throw new BadRequestException("Invalid subtask data provided.");
         }
+
+        var subtask = await repository.GetById(id, cancellationToken)
+            ?? throw new NotFoundException("No subtask found");
 
         mapper.Map(entity, subtask);
 

@@ -30,7 +30,6 @@ public class ExceptionMiddleware(RequestDelegate next)
                 (int)HttpStatusCode.BadRequest,
                 ex.Message
             ),
-
             _ => new ExceptionResponse(
                 (int)HttpStatusCode.InternalServerError,
                 ex.Message
