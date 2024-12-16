@@ -30,8 +30,7 @@ public class BoardService(IBoardRepository repository, IMapper mapper) : IBoardS
 
     public async Task<IEnumerable<BoardDTO>> GetAll(CancellationToken cancellationToken)
     {
-        var boards = await repository.GetAll(cancellationToken)
-            ?? throw new NotFoundException("No boards found");
+        var boards = await repository.GetAll(cancellationToken);
 
         var boardsDTO = mapper.Map<IEnumerable<BoardDTO>>(boards);
 

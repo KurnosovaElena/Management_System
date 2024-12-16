@@ -30,8 +30,7 @@ public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelS
 
     public async Task<IEnumerable<LabelDTO>> GetAll(CancellationToken cancellationToken)
     {
-        var labels = await repository.GetAll(cancellationToken)
-            ?? throw new NotFoundException("No labels found");
+        var labels = await repository.GetAll(cancellationToken);
 
         var labelsDTO = mapper.Map<IEnumerable<LabelDTO>>(labels);
 

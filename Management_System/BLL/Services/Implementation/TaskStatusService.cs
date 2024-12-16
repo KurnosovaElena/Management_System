@@ -30,8 +30,7 @@ public class TaskStatusService(ITaskStatusRepository repository, IMapper mapper)
 
     public async Task<IEnumerable<TaskStatusDTO>> GetAll(CancellationToken cancellationToken)
     {
-        var statusAll = await repository.GetAll(cancellationToken)
-            ?? throw new NotFoundException("No task statuses found");
+        var statusAll = await repository.GetAll(cancellationToken);
 
         var statusAllDTO = mapper.Map<IEnumerable<TaskStatusDTO>>(statusAll);
 

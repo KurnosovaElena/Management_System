@@ -20,8 +20,7 @@ public class UserService(IUserRepository repository, IMapper mapper) : IUserServ
 
     public async Task<UserDTO> GetById(Guid id, CancellationToken cancellationToken)
     {
-        var user = await repository.GetById(id, cancellationToken)
-            ?? throw new NotFoundException("No user found");
+        var user = await repository.GetById(id, cancellationToken);
 
         var userDTO = mapper.Map<UserDTO>(user);
 

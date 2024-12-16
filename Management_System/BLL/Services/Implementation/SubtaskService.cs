@@ -30,8 +30,7 @@ public class SubtaskService(ISubtaskRepository repository, IMapper mapper) : ISu
 
     public async Task<IEnumerable<SubtaskDTO>> GetAll(CancellationToken cancellationToken)
     {
-        var subtasks = await repository.GetAll(cancellationToken)
-            ?? throw new NotFoundException("No subtasks found");
+        var subtasks = await repository.GetAll(cancellationToken);
 
         var subtasksDTO = mapper.Map<IEnumerable<SubtaskDTO>>(subtasks);
 

@@ -30,8 +30,7 @@ public class TasksService(ITaskRepository repository, IMapper mapper) : ITasksSe
 
     public async Task<IEnumerable<TasksDTO>> GetAll(CancellationToken cancellationToken)
     {
-        var tasks = await repository.GetAll(cancellationToken)
-            ?? throw new NotFoundException("No tasks found");
+        var tasks = await repository.GetAll(cancellationToken);
 
         var tasksDTO = mapper.Map<IEnumerable<TasksDTO>>(tasks);
 
