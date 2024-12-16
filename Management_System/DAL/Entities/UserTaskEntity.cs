@@ -1,5 +1,4 @@
 ﻿using DAL.Enums;
-using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Entities;
 
