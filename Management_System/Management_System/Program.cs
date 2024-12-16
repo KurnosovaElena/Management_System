@@ -1,3 +1,4 @@
+using API.Middlewares;
 using ManagementSystem.DI;
 using System.Text.Json.Serialization;
 
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
