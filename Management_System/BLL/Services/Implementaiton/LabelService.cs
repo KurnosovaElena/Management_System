@@ -6,6 +6,7 @@ using DAL.Entities;
 using DAL.Repositories.Interfaces;
 
 namespace BLL.Services.Implementaiton;
+
 public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelService
 {
     public async Task<LabelDTO> Add(CreateLabelDTO entity, CancellationToken cancellationToken)
