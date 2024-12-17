@@ -32,5 +32,13 @@ public class ManagementSystemProfiles : Profile
         // User mappings
         CreateMap<CreateUserDTO, UserEntity>();
         CreateMap<UserEntity, UserDTO>();
+
+        // UserBoard mappings
+        CreateMap<CreateUserBoardDTO, UserBoardEntity>();
+        CreateMap<UserBoardEntity, UserBoardDTO>();
+
+        // UserTask mappings
+        CreateMap<CreateUserTaskDTO, UserTaskEntity>();
+        CreateMap<UserTaskEntity, UserTaskDTO>();
     }
 }
