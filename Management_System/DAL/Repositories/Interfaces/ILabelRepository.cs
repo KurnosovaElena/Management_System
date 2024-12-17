@@ -4,5 +4,5 @@ namespace DAL.Repositories.Interfaces;
 
 public interface ILabelRepository : IRepository<LabelEntity>
 {
-    Task<LabelEntity> GetById(Guid id, CancellationToken cancellationToken);
+    Task<LabelEntity?> GetById(Guid id, CancellationToken cancellationToken);
 }
