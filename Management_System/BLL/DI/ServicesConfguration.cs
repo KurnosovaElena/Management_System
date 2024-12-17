@@ -21,6 +21,8 @@ public static class ServicesConfguration
         services.AddScoped<ITasksService, TasksService>();
         services.AddScoped<ISubtaskService, SubtaskService>();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IUserBoardService, UserBoardService>();
+        services.AddScoped<IUserTaskService, UserTaskService>();
 
         services.AddAutoMapper(typeof(ManagementSystemProfiles));
     }
