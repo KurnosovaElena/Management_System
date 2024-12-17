@@ -6,6 +6,6 @@ public class UserEntity : IEntity
     public string LastName { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
 
-    public IEnumerable<UserBoardEntity> UserBoards { get; set; } = [];
-    public IEnumerable<UserTaskEntity> UserTasks { get; set; } = [];
+    public IEnumerable<UserBoardEntity> UserBoards { get; set; } = new List<UserBoardEntity>();
+    public IEnumerable<UserTaskEntity> UserTasks { get; set; } = new List<UserTaskEntity>();
 }
