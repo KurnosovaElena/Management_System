@@ -1,4 +1,5 @@
 using BLL.Profiles;
+using BLL.Services.Implementaiton;
 using BLL.Services.Implementation;
 using BLL.Services.Interfaces;
 using BLL.Services.Interfaсes;
@@ -20,6 +21,8 @@ public static class ServicesConfguration
         services.AddScoped<ITasksService, TasksService>();
         services.AddScoped<ISubtaskService, SubtaskService>();
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IUserBoardService, UserBoardService>();
+        services.AddScoped<IUserTaskService, UserTaskService>();
 
         services.AddAutoMapper(typeof(ManagementSystemProfiles));
     }
