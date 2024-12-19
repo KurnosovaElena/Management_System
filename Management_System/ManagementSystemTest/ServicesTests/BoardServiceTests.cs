@@ -52,7 +52,6 @@ public class BoardServiceTests
         Assert.Equal(boardId, result.Id);
         Assert.Equal("Test Board", result.Name);
         Assert.Equal("This is a test board.", result.Description);
-        // Add additional assertions based on properties
     }
 
     [Fact]
@@ -63,9 +62,11 @@ public class BoardServiceTests
         _boardRepositoryMock.Setup(repo => repo.GetById(boardId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((BoardEntity)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _boardService.GetById(boardId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _boardService.GetById(boardId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No board found", exception.Message);
     }
 
@@ -147,9 +148,11 @@ public class BoardServiceTests
         _boardRepositoryMock.Setup(repo => repo.GetById(boardId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((BoardEntity)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _boardService.Update(boardId, updateDto, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _boardService.Update(boardId, updateDto, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No board found", exception.Message);
     }
 
@@ -183,9 +186,11 @@ public class BoardServiceTests
         _boardRepositoryMock.Setup(repo => repo.GetById(boardId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((BoardEntity)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _boardService.Delete(boardId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _boardService.Delete(boardId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No board found", exception.Message);
     }
 }

@@ -101,11 +101,13 @@ public class TasksServiceTests
         // Arrange
         var taskId = Guid.NewGuid();
         _taskRepositoryMock.Setup(repo => repo.GetById(taskId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((TaskEntity)null);
+            .ReturnsAsync((TaskEntity?)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _tasksService.GetById(taskId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _tasksService.GetById(taskId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No task found", exception.Message);
     }
 
@@ -177,11 +179,13 @@ public class TasksServiceTests
         var updateDto = new CreateTasksDTO { Name = "New Name", Description = "New Description", Priority = TaskPriority.Medium, TaskEstimation = TaskEstimation.Hour, TableId = Guid.NewGuid() };
 
         _taskRepositoryMock.Setup(repo => repo.GetById(taskId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((TaskEntity)null);
+            .ReturnsAsync((TaskEntity?)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _tasksService.Update(taskId, updateDto, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _tasksService.Update(taskId, updateDto, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No task found", exception.Message);
     }
 
@@ -216,11 +220,13 @@ public class TasksServiceTests
         // Arrange
         var taskId = Guid.NewGuid();
         _taskRepositoryMock.Setup(repo => repo.GetById(taskId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((TaskEntity)null);
+            .ReturnsAsync((TaskEntity?)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _tasksService.Delete(taskId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _tasksService.Delete(taskId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No task found", exception.Message);
     }
 }

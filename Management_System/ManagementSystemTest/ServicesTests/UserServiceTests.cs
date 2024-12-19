@@ -148,9 +148,11 @@ public class UserServiceTests
         _userRepositoryMock.Setup(repo => repo.GetById(userId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((UserEntity)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _userService.Update(userId, updateDto, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _userService.Update(userId, updateDto, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No user found", exception.Message);
     }
 
@@ -185,9 +187,11 @@ public class UserServiceTests
         _userRepositoryMock.Setup(repo => repo.GetById(userId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((UserEntity)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _userService.Delete(userId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _userService.Delete(userId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No user found", exception.Message);
     }
 }

@@ -84,11 +84,13 @@ public class SubtaskServiceTests
         // Arrange
         var subtaskId = Guid.NewGuid();
         _subtaskRepositoryMock.Setup(repo => repo.GetById(subtaskId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((SubtaskEntity)null);
+            .ReturnsAsync((SubtaskEntity?)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _subtaskService.GetById(subtaskId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _subtaskService.GetById(subtaskId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No subtask found", exception.Message);
     }
 
@@ -150,14 +152,16 @@ public class SubtaskServiceTests
     {
         // Arrange
         var subtaskId = Guid.NewGuid();
-        var updateDto = new CreateSubtaskDTO { Name = "New Name", Description = "New Description"};
+        var updateDto = new CreateSubtaskDTO { Name = "New Name", Description = "New Description" };
 
         _subtaskRepositoryMock.Setup(repo => repo.GetById(subtaskId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((SubtaskEntity)null);
+            .ReturnsAsync((SubtaskEntity?)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _subtaskService.Update(subtaskId, updateDto, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _subtaskService.Update(subtaskId, updateDto, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No subtask found", exception.Message);
     }
 
@@ -190,11 +194,13 @@ public class SubtaskServiceTests
         // Arrange
         var subtaskId = Guid.NewGuid();
         _subtaskRepositoryMock.Setup(repo => repo.GetById(subtaskId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((SubtaskEntity)null);
+            .ReturnsAsync((SubtaskEntity?)null);
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _subtaskService.Delete(subtaskId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _subtaskService.Delete(subtaskId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No subtask found", exception.Message);
     }
 }

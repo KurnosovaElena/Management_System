@@ -43,7 +43,7 @@ public class LabelServiceTests
         };
 
         _labelRepositoryMock.Setup(repo => repo.Add(It.IsAny<LabelEntity>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(labelEntity); 
+            .ReturnsAsync(labelEntity);
 
         // Act
         var result = await _labelService.Add(createLabelDto, CancellationToken.None);
@@ -84,11 +84,13 @@ public class LabelServiceTests
         // Arrange
         var labelId = Guid.NewGuid();
         _labelRepositoryMock.Setup(repo => repo.GetById(labelId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((LabelEntity)null); // Adjust this line if necessary
+            .ReturnsAsync((LabelEntity?)null); // Adjust this line if necessary
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _labelService.GetById(labelId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _labelService.GetById(labelId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No label found", exception.Message);
     }
 
@@ -152,11 +154,13 @@ public class LabelServiceTests
         var updateDto = new CreateLabelDTO { Name = "New Name", Description = "New Description" };
 
         _labelRepositoryMock.Setup(repo => repo.GetById(labelId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((LabelEntity)null); // Adjust this line if necessary
+            .ReturnsAsync((LabelEntity?)null); // Adjust this line if necessary
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _labelService.Update(labelId, updateDto, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _labelService.Update(labelId, updateDto, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No label found", exception.Message);
     }
 
@@ -188,11 +192,13 @@ public class LabelServiceTests
         // Arrange
         var labelId = Guid.NewGuid();
         _labelRepositoryMock.Setup(repo => repo.GetById(labelId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((LabelEntity)null); // Adjust this line if necessary
+            .ReturnsAsync((LabelEntity?)null); // Adjust this line if necessary
 
-        // Act & Assert
-        var exception = await Assert.ThrowsAsync<NotFoundException>(() =>
-            _labelService.Delete(labelId, CancellationToken.None));
+        // Act
+        Func<Task> act = async () => await _labelService.Delete(labelId, CancellationToken.None);
+
+        // Assert
+        var exception = await Assert.ThrowsAsync<NotFoundException>(act);
         Assert.Equal("No label found", exception.Message);
     }
 }
