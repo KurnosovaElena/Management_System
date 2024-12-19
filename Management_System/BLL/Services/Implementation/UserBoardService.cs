@@ -5,7 +5,7 @@ using BLL.Services.Interfaсes;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 
-namespace BLL.Services.Implementaiton;
+namespace BLL.Services.Implementation;
 
 public class UserBoardService(IUserBoardRepository repository, IMapper mapper) : IUserBoardService
 {

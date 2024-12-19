@@ -6,7 +6,7 @@ using BLL.Services.Interfaсes;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 
-namespace BLL.Services.Implementaiton;
+namespace BLL.Services.Implementation;
 
 public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelService
 {
