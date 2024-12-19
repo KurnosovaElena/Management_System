@@ -12,8 +12,8 @@ public class UserBoardService(IUserBoardRepository repository, IMapper mapper) :
     public async Task<UserBoardDTO> Add(CreateUserBoardDTO entity, Guid userId, Guid boardId, CancellationToken cancellationToken)
     {
         var userBoard = mapper.Map<UserBoardEntity>(entity);
-        userBoard.UserId = userId; 
-        userBoard.BoardId = boardId; 
+        userBoard.UserId = userId;
+        userBoard.BoardId = boardId;
 
         await repository.Add(userBoard, cancellationToken);
         var userBoardDTO = mapper.Map<UserBoardDTO>(userBoard);
@@ -50,7 +50,7 @@ public class UserBoardService(IUserBoardRepository repository, IMapper mapper) :
 
     public async Task<UserBoardDTO> Update(Guid userId, Guid boardId, CreateUserBoardDTO entity, CancellationToken cancellationToken)
     {
-        var userBoard = await repository.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken) 
+        var userBoard = await repository.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken)
             ?? throw new Exception("UserBoard not found");
         mapper.Map(entity, userBoard);
         await repository.Update(userBoard, cancellationToken);
@@ -61,7 +61,7 @@ public class UserBoardService(IUserBoardRepository repository, IMapper mapper) :
 
     public async Task Delete(Guid userId, Guid boardId, CancellationToken cancellationToken)
     {
-        var userBoard = await repository.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken) 
+        var userBoard = await repository.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken)
             ?? throw new Exception("UserBoard not found");
         await repository.Delete(userBoard, cancellationToken);
     }

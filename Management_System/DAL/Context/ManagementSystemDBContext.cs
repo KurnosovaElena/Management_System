@@ -23,8 +23,8 @@ public class ManagementSystemDBContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<UserBoardEntity>().HasKey(ub => new {ub.BoardId , ub.UserId}); 
-        modelBuilder.Entity<UserTaskEntity>().HasKey(ub => new {ub.TaskId , ub.UserId});
+        modelBuilder.Entity<UserBoardEntity>().HasKey(ub => new { ub.BoardId, ub.UserId });
+        modelBuilder.Entity<UserTaskEntity>().HasKey(ub => new { ub.TaskId, ub.UserId });
 
         DataGenerator.Init();
 

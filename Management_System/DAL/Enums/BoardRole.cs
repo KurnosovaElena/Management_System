@@ -3,7 +3,7 @@
 public enum BoardRole
 {
     NoAccess,
-    Read, 
+    Read,
     Write,
     Admin
 }
