@@ -13,8 +13,11 @@ public class UserService(IUserRepository repository, IMapper mapper) : IUserServ
     public async Task<UserDTO> Add(CreateUserDTO entity, CancellationToken cancellationToken)
     {
         var user = mapper.Map<UserEntity>(entity);
+
         await repository.Add(user, cancellationToken);
+
         var userDTO = mapper.Map<UserDTO>(user);
+
         return userDTO;
     }
 
