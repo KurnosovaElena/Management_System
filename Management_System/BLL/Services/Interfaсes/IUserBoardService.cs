@@ -1,5 +1,5 @@
-﻿using BLL.DTO.CreateDTO;
-using BLL.DTO;
+﻿using BLL.DTO;
+using BLL.DTO.CreateDTO;
 
 namespace BLL.Services.Interfaсes;
 
