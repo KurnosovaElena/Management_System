@@ -14,7 +14,7 @@ public class ManagementSystemProfiles : Profile
         CreateMap<SubtaskEntity, SubtaskDTO>();
 
         // Board mappings
-        CreateMap<CreateBoardDTO, BoardEntity>();
+        CreateMap<CreateBoardDto, BoardEntity>();
         CreateMap<BoardEntity, BoardDto>();
 
         // Label mappings

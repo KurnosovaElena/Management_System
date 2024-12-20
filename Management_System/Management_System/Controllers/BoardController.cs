@@ -24,14 +24,14 @@ public class BoardsController(IBoardService service) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<BoardDto> Add([FromBody] CreateBoardDTO entity, CancellationToken cancellationToken)
+    public async Task<BoardDto> Add([FromBody] CreateBoardDto entity, CancellationToken cancellationToken)
     {
         var board = await service.Add(entity, cancellationToken);
         return board;
     }
 
     [HttpPut("{id}")]
-    public async Task<BoardDto> Update([FromRoute] Guid id, [FromBody] CreateBoardDTO entity, CancellationToken cancellationToken)
+    public async Task<BoardDto> Update([FromRoute] Guid id, [FromBody] CreateBoardDto entity, CancellationToken cancellationToken)
     {
         var board = await service.Update(id, entity, cancellationToken);
         return board;

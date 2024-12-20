@@ -2,7 +2,7 @@ using BLL.DTO.CreateDTO;
 
 namespace BLL.DTO;
 
-public class BoardDto : CreateBoardDTO
+public class BoardDto : CreateBoardDto
 {
     public Guid Id { get; set; }
 }

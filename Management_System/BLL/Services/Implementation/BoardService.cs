@@ -10,7 +10,7 @@ namespace BLL.Services.Implementation;
 
 public class BoardService(IBoardRepository repository, IMapper mapper) : IBoardService
 {
-    public async Task<BoardDto> Add(CreateBoardDTO entity, CancellationToken cancellationToken)
+    public async Task<BoardDto> Add(CreateBoardDto entity, CancellationToken cancellationToken)
     {
         var board = mapper.Map<BoardEntity>(entity);
         await repository.Add(board, cancellationToken);
@@ -37,7 +37,7 @@ public class BoardService(IBoardRepository repository, IMapper mapper) : IBoardS
         return boardsDTO;
     }
 
-    public async Task<BoardDto> Update(Guid id, CreateBoardDTO entity, CancellationToken cancellationToken)
+    public async Task<BoardDto> Update(Guid id, CreateBoardDto entity, CancellationToken cancellationToken)
     {
         if (entity is null)
         {
