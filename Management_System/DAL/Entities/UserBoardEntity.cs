@@ -2,7 +2,7 @@
 
 namespace DAL.Entities;
 
-public class UserBoardEntity : IEntity
+public class UserBoardEntity : Entity
 {
     public Guid UserId { get; set; }
     public Guid BoardId { get; set; }

@@ -2,7 +2,7 @@
 
 namespace DAL.Entities;
 
-public class UserTaskEntity : IEntity
+public class UserTaskEntity : Entity
 {
     public Guid UserId { get; set; }
     public Guid TaskId { get; set; }

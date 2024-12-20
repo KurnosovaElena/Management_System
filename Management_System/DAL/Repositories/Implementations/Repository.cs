@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Repositories.Implementations;
 
-public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where T : IEntity
+public class Repository<T>(ManagementSystemDBContext db) : IRepository<T> where T : Entity
 {
     public async Task<IEnumerable<T>> GetAll(CancellationToken cancellationToken)
     {

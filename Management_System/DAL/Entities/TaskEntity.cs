@@ -2,7 +2,7 @@
 
 namespace DAL.Entities;
 
-public class TaskEntity : IEntity
+public class TaskEntity : Entity
 {
     public int SerialNumber { get; set; }
     public string Name { get; set; } = string.Empty;

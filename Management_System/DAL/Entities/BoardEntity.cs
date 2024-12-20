@@ -1,6 +1,6 @@
 ﻿namespace DAL.Entities;
 
-public class BoardEntity : IEntity
+public class BoardEntity : Entity
 {
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
