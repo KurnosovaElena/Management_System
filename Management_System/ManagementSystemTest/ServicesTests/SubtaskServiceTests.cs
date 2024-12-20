@@ -20,8 +20,8 @@ public class SubtaskServiceTests
         _subtaskRepositoryMock = new Mock<ISubtaskRepository>();
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<CreateSubtaskDTO, SubtaskEntity>();
-            cfg.CreateMap<SubtaskEntity, SubtaskDTO>();
+            cfg.CreateMap<CreateSubtaskDto, SubtaskEntity>();
+            cfg.CreateMap<SubtaskEntity, SubtaskDto>();
         });
         _mapper = config.CreateMapper();
         _subtaskService = new SubtaskService(_subtaskRepositoryMock.Object, _mapper);
@@ -31,7 +31,7 @@ public class SubtaskServiceTests
     public async Task Add_ValidSubtask_AddsAndReturnsSubtaskDTO()
     {
         // Arrange
-        var createSubtaskDto = new CreateSubtaskDTO
+        var createSubtaskDto = new CreateSubtaskDto
         {
             Name = "Subtask 1",
             Description = "Description for Subtask 1",
@@ -129,7 +129,7 @@ public class SubtaskServiceTests
             Description = "Old Description",
             TaskId = Guid.NewGuid() // Assuming TaskId is required
         };
-        var updateDto = new CreateSubtaskDTO
+        var updateDto = new CreateSubtaskDto
         {
             Name = "Updated Name",
             Description = "Updated Description",
@@ -152,7 +152,7 @@ public class SubtaskServiceTests
     {
         // Arrange
         var subtaskId = Guid.NewGuid();
-        var updateDto = new CreateSubtaskDTO { Name = "New Name", Description = "New Description" };
+        var updateDto = new CreateSubtaskDto { Name = "New Name", Description = "New Description" };
 
         _subtaskRepositoryMock.Setup(repo => repo.GetById(subtaskId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((SubtaskEntity?)null);

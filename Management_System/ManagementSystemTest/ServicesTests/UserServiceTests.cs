@@ -20,8 +20,8 @@ public class UserServiceTests
         _userRepositoryMock = new Mock<IUserRepository>();
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<CreateUserDTO, UserEntity>();
-            cfg.CreateMap<UserEntity, UserDTO>();
+            cfg.CreateMap<CreateUserDto, UserEntity>();
+            cfg.CreateMap<UserEntity, UserDto>();
         });
         _mapper = config.CreateMapper();
         _userService = new UserService(_userRepositoryMock.Object, _mapper);
@@ -31,7 +31,7 @@ public class UserServiceTests
     public async Task Add_ValidUser_AddsAndReturnsUserDTO()
     {
         // Arrange
-        var createUserDto = new CreateUserDTO
+        var createUserDto = new CreateUserDto
         {
             FirstName = "John",
             LastName = "Doe",
@@ -118,7 +118,7 @@ public class UserServiceTests
             LastName = "Old Last Name",
             Email = "old.email@example.com"
         };
-        var updateDto = new CreateUserDTO
+        var updateDto = new CreateUserDto
         {
             FirstName = "Updated Name",
             LastName = "Updated Last Name",
@@ -143,7 +143,7 @@ public class UserServiceTests
     {
         // Arrange
         var userId = Guid.NewGuid();
-        var updateDto = new CreateUserDTO { FirstName = "New Name", LastName = "New Last Name", Email = "new.email@example.com" };
+        var updateDto = new CreateUserDto { FirstName = "New Name", LastName = "New Last Name", Email = "new.email@example.com" };
 
         _userRepositoryMock.Setup(repo => repo.GetById(userId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((UserEntity)null);
@@ -185,7 +185,7 @@ public class UserServiceTests
         // Arrange
         var userId = Guid.NewGuid();
         _userRepositoryMock.Setup(repo => repo.GetById(userId, It.IsAny<CancellationToken>()))
-            .ReturnsAsync((UserEntity)null);
+            .ReturnsAsync((UserEntity?)null);
 
         // Act
         var act = async () => await _userService.Delete(userId, CancellationToken.None);

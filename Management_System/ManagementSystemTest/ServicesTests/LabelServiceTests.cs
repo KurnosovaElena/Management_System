@@ -21,7 +21,7 @@ public class LabelServiceTests
         var config = new MapperConfiguration(cfg =>
         {
             cfg.CreateMap<CreateLabelDto, LabelEntity>();
-            cfg.CreateMap<LabelEntity, LabelDTO>();
+            cfg.CreateMap<LabelEntity, LabelDto>();
         });
         _mapper = config.CreateMapper();
         _labelService = new LabelService(_labelRepositoryMock.Object, _mapper);

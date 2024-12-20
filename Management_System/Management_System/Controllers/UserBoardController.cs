@@ -10,39 +10,39 @@ namespace API.Controllers;
 public class UserBoardController(IUserBoardService service) : ControllerBase
 {
     [HttpGet]
-    public async Task<IEnumerable<UserBoardDTO>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<UserBoardDto>> GetAll(CancellationToken cancellationToken)
     {
         var userBoards = await service.GetAll(cancellationToken);
         return userBoards;
     }
 
     [HttpGet("{userId}/{boardId}")]
-    public async Task<UserBoardDTO> GetByUserIdAndBoardIdAsync([FromRoute] Guid userId, [FromRoute] Guid boardId, CancellationToken cancellationToken)
+    public async Task<UserBoardDto> GetByUserIdAndBoardIdAsync([FromRoute] Guid userId, [FromRoute] Guid boardId, CancellationToken cancellationToken)
     {
         return await service.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken);
     }
 
     [HttpGet("user/{userId}")]
-    public async Task<IEnumerable<UserBoardDTO>> GetBoardsByUserIdAsync([FromRoute] Guid userId, CancellationToken cancellationToken)
+    public async Task<IEnumerable<UserBoardDto>> GetBoardsByUserIdAsync([FromRoute] Guid userId, CancellationToken cancellationToken)
     {
         return await service.GetBoardsByUserIdAsync(userId, cancellationToken);
     }
 
     [HttpGet("board/{boardId}")]
-    public async Task<IEnumerable<UserBoardDTO>> GetUsersByBoardIdAsync([FromRoute] Guid boardId, CancellationToken cancellationToken)
+    public async Task<IEnumerable<UserBoardDto>> GetUsersByBoardIdAsync([FromRoute] Guid boardId, CancellationToken cancellationToken)
     {
         return await service.GetUsersByBoardIdAsync(boardId, cancellationToken);
     }
 
     [HttpPost("{userId}/{boardId}")]
-    public async Task<UserBoardDTO> Add([FromBody] CreateUserBoardDTO entity, [FromRoute] Guid userId, [FromRoute] Guid boardId, CancellationToken cancellationToken)
+    public async Task<UserBoardDto> Add([FromBody] CreateUserBoardDto entity, [FromRoute] Guid userId, [FromRoute] Guid boardId, CancellationToken cancellationToken)
     {
         var userBoard = await service.Add(entity, userId, boardId, cancellationToken);
         return userBoard;
     }
 
     [HttpPut("{userId}/{boardId}")]
-    public async Task<UserBoardDTO> Update([FromRoute] Guid userId, [FromRoute] Guid boardId, [FromBody] CreateUserBoardDTO entity, CancellationToken cancellationToken)
+    public async Task<UserBoardDto> Update([FromRoute] Guid userId, [FromRoute] Guid boardId, [FromBody] CreateUserBoardDto entity, CancellationToken cancellationToken)
     {
         var userBoard = await service.Update(userId, boardId, entity, cancellationToken);
         return userBoard;

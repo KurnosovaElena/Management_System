@@ -5,11 +5,11 @@ namespace BLL.Services.Interfaсes;
 
 public interface IUserTaskService
 {
-    Task<UserTaskDTO> GetByUserIdAndTaskIdAsync(Guid userId, Guid taskId, CancellationToken cancellationToken);
-    Task<IEnumerable<UserTaskDTO>> GetTasksByUserIdAsync(Guid userId, CancellationToken cancellationToken);
-    Task<IEnumerable<UserTaskDTO>> GetUsersByTaskIdAsync(Guid taskId, CancellationToken cancellationToken);
-    Task<IEnumerable<UserTaskDTO>> GetAll(CancellationToken cancellationToken);
-    Task<UserTaskDTO> Add(CreateUserTaskDTO entity, Guid userId, Guid taskId, CancellationToken cancellationToken);
-    Task<UserTaskDTO> Update(Guid userId, Guid taskId, CreateUserTaskDTO entity, CancellationToken cancellationToken);
+    Task<UserTaskDto> GetByUserIdAndTaskIdAsync(Guid userId, Guid taskId, CancellationToken cancellationToken);
+    Task<IEnumerable<UserTaskDto>> GetTasksByUserIdAsync(Guid userId, CancellationToken cancellationToken);
+    Task<IEnumerable<UserTaskDto>> GetUsersByTaskIdAsync(Guid taskId, CancellationToken cancellationToken);
+    Task<IEnumerable<UserTaskDto>> GetAll(CancellationToken cancellationToken);
+    Task<UserTaskDto> Add(CreateUserTaskDto entity, Guid userId, Guid taskId, CancellationToken cancellationToken);
+    Task<UserTaskDto> Update(Guid userId, Guid taskId, CreateUserTaskDto entity, CancellationToken cancellationToken);
     Task Delete(Guid userId, Guid taskId, CancellationToken cancellationToken);
 }

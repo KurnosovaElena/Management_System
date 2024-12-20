@@ -10,8 +10,8 @@ public class ManagementSystemProfiles : Profile
     public ManagementSystemProfiles()
     {
         // Subtask mappings
-        CreateMap<CreateSubtaskDTO, SubtaskEntity>();
-        CreateMap<SubtaskEntity, SubtaskDTO>();
+        CreateMap<CreateSubtaskDto, SubtaskEntity>();
+        CreateMap<SubtaskEntity, SubtaskDto>();
 
         // Board mappings
         CreateMap<CreateBoardDto, BoardEntity>();
@@ -19,26 +19,26 @@ public class ManagementSystemProfiles : Profile
 
         // Label mappings
         CreateMap<CreateLabelDto, LabelEntity>();
-        CreateMap<LabelEntity, LabelDTO>();
+        CreateMap<LabelEntity, LabelDto>();
 
         // Task mappings
-        CreateMap<CreateTasksDTO, TaskEntity>();
-        CreateMap<TaskEntity, TasksDTO>();
+        CreateMap<CreateTasksDto, TaskEntity>();
+        CreateMap<TaskEntity, TasksDto>();
 
         // TaskStatus mappings
-        CreateMap<CreateTaskStatusDTO, TaskStatusEntity>();
-        CreateMap<TaskStatusEntity, TaskStatusDTO>();
+        CreateMap<CreateTaskStatusDto, TaskStatusEntity>();
+        CreateMap<TaskStatusEntity, TaskStatusDto>();
 
         // User mappings
-        CreateMap<CreateUserDTO, UserEntity>();
-        CreateMap<UserEntity, UserDTO>();
+        CreateMap<CreateUserDto, UserEntity>();
+        CreateMap<UserEntity, UserDto>();
 
         // UserBoard mappings
-        CreateMap<CreateUserBoardDTO, UserBoardEntity>();
-        CreateMap<UserBoardEntity, UserBoardDTO>();
+        CreateMap<CreateUserBoardDto, UserBoardEntity>();
+        CreateMap<UserBoardEntity, UserBoardDto>();
 
         // UserTask mappings
-        CreateMap<CreateUserTaskDTO, UserTaskEntity>();
-        CreateMap<UserTaskEntity, UserTaskDTO>();
+        CreateMap<CreateUserTaskDto, UserTaskEntity>();
+        CreateMap<UserTaskEntity, UserTaskDto>();
     }
 }

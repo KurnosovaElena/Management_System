@@ -21,8 +21,8 @@ public class TasksServiceTests
         _taskRepositoryMock = new Mock<ITaskRepository>();
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<CreateTasksDTO, TaskEntity>();
-            cfg.CreateMap<TaskEntity, TasksDTO>();
+            cfg.CreateMap<CreateTasksDto, TaskEntity>();
+            cfg.CreateMap<TaskEntity, TasksDto>();
         });
         _mapper = config.CreateMapper();
         _tasksService = new TasksService(_taskRepositoryMock.Object, _mapper);
@@ -32,7 +32,7 @@ public class TasksServiceTests
     public async Task Add_ValidTask_AddsAndReturnsTaskDTO()
     {
         // Arrange
-        var createTaskDto = new CreateTasksDTO
+        var createTaskDto = new CreateTasksDto
         {
             Name = "Task 1",
             Description = "Description for Task 1",
@@ -148,7 +148,7 @@ public class TasksServiceTests
             TaskEstimation = TaskEstimation.Hour,
             TableId = Guid.NewGuid()
         };
-        var updateDto = new CreateTasksDTO
+        var updateDto = new CreateTasksDto
         {
             Name = "Updated Task Name",
             Description = "Updated Description",
@@ -176,7 +176,7 @@ public class TasksServiceTests
     {
         // Arrange
         var taskId = Guid.NewGuid();
-        var updateDto = new CreateTasksDTO { Name = "New Name", Description = "New Description", Priority = TaskPriority.Medium, TaskEstimation = TaskEstimation.Hour, TableId = Guid.NewGuid() };
+        var updateDto = new CreateTasksDto { Name = "New Name", Description = "New Description", Priority = TaskPriority.Medium, TaskEstimation = TaskEstimation.Hour, TableId = Guid.NewGuid() };
 
         _taskRepositoryMock.Setup(repo => repo.GetById(taskId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((TaskEntity?)null);

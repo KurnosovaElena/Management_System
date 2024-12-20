@@ -21,8 +21,8 @@ public class UserBoardServiceTests
         _userBoardRepositoryMock = new Mock<IUserBoardRepository>();
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<CreateUserBoardDTO, UserBoardEntity>();
-            cfg.CreateMap<UserBoardEntity, UserBoardDTO>();
+            cfg.CreateMap<CreateUserBoardDto, UserBoardEntity>();
+            cfg.CreateMap<UserBoardEntity, UserBoardDto>();
         });
         _mapper = config.CreateMapper();
         _userBoardService = new UserBoardService(_userBoardRepositoryMock.Object, _mapper);
@@ -34,7 +34,7 @@ public class UserBoardServiceTests
         // Arrange
         var userId = Guid.NewGuid();
         var boardId = Guid.NewGuid();
-        var createUserBoardDto = new CreateUserBoardDTO
+        var createUserBoardDto = new CreateUserBoardDto
         {
             Role = BoardRole.Admin
         };
@@ -162,9 +162,9 @@ public class UserBoardServiceTests
             BoardId = boardId,
             Role = BoardRole.Read
         };
-        var updateDto = new CreateUserBoardDTO
+        var updateDto = new CreateUserBoardDto
         {
-            Role = BoardRole.Admin 
+            Role = BoardRole.Admin
         };
 
         _userBoardRepositoryMock.Setup(repo => repo.GetByUserIdAndBoardIdAsync(userId, boardId, It.IsAny<CancellationToken>()))
@@ -184,7 +184,7 @@ public class UserBoardServiceTests
         // Arrange
         var userId = Guid.NewGuid();
         var boardId = Guid.NewGuid();
-        var updateDto = new CreateUserBoardDTO { Role = BoardRole.Admin };
+        var updateDto = new CreateUserBoardDto { Role = BoardRole.Admin };
 
         _userBoardRepositoryMock.Setup(repo => repo.GetByUserIdAndBoardIdAsync(userId, boardId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((UserBoardEntity?)null);

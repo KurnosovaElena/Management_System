@@ -10,34 +10,34 @@ namespace BLL.Services.Implementation;
 
 public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelService
 {
-    public async Task<LabelDTO> Add(CreateLabelDto entity, CancellationToken cancellationToken)
+    public async Task<LabelDto> Add(CreateLabelDto entity, CancellationToken cancellationToken)
     {
         var label = mapper.Map<LabelEntity>(entity);
         await repository.Add(label, cancellationToken);
-        var labelDTO = mapper.Map<LabelDTO>(label);
+        var labelDTO = mapper.Map<LabelDto>(label);
         return labelDTO;
     }
 
-    public async Task<LabelDTO> GetById(Guid id, CancellationToken cancellationToken)
+    public async Task<LabelDto> GetById(Guid id, CancellationToken cancellationToken)
     {
         var label = await repository.GetById(id, cancellationToken)
             ?? throw new NotFoundException("No label found");
 
-        var labelDTO = mapper.Map<LabelDTO>(label);
+        var labelDTO = mapper.Map<LabelDto>(label);
 
         return labelDTO;
     }
 
-    public async Task<IEnumerable<LabelDTO>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<LabelDto>> GetAll(CancellationToken cancellationToken)
     {
         var labels = await repository.GetAll(cancellationToken);
 
-        var labelsDTO = mapper.Map<IEnumerable<LabelDTO>>(labels);
+        var labelsDTO = mapper.Map<IEnumerable<LabelDto>>(labels);
 
         return labelsDTO;
     }
 
-    public async Task<LabelDTO> Update(Guid id, CreateLabelDto entity, CancellationToken cancellationToken)
+    public async Task<LabelDto> Update(Guid id, CreateLabelDto entity, CancellationToken cancellationToken)
     {
         if (entity is null)
         {
@@ -51,7 +51,7 @@ public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelS
 
         await repository.Update(label, cancellationToken);
 
-        var labelDTO = mapper.Map<LabelDTO>(label);
+        var labelDTO = mapper.Map<LabelDto>(label);
 
         return labelDTO;
     }
