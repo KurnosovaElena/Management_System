@@ -87,7 +87,7 @@ public class LabelServiceTests
             .ReturnsAsync((LabelEntity?)null); // Adjust this line if necessary
 
         // Act
-        Func<Task> act = async () => await _labelService.GetById(labelId, CancellationToken.None);
+        var act = async () => await _labelService.GetById(labelId, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
@@ -157,7 +157,7 @@ public class LabelServiceTests
             .ReturnsAsync((LabelEntity?)null); // Adjust this line if necessary
 
         // Act
-        Func<Task> act = async () => await _labelService.Update(labelId, updateDto, CancellationToken.None);
+        var act = async () => await _labelService.Update(labelId, updateDto, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
@@ -195,7 +195,7 @@ public class LabelServiceTests
             .ReturnsAsync((LabelEntity?)null); // Adjust this line if necessary
 
         // Act
-        Func<Task> act = async () => await _labelService.Delete(labelId, CancellationToken.None);
+        var act = async () => await _labelService.Delete(labelId, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);

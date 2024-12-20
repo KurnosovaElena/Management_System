@@ -63,7 +63,7 @@ public class BoardServiceTests
             .ReturnsAsync((BoardEntity)null);
 
         // Act
-        Func<Task> act = async () => await _boardService.GetById(boardId, CancellationToken.None);
+        var act = async () => await _boardService.GetById(boardId, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
@@ -149,7 +149,7 @@ public class BoardServiceTests
             .ReturnsAsync((BoardEntity)null);
 
         // Act
-        Func<Task> act = async () => await _boardService.Update(boardId, updateDto, CancellationToken.None);
+        var act = async () => await _boardService.Update(boardId, updateDto, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
@@ -187,7 +187,7 @@ public class BoardServiceTests
             .ReturnsAsync((BoardEntity)null);
 
         // Act
-        Func<Task> act = async () => await _boardService.Delete(boardId, CancellationToken.None);
+        var act = async () => await _boardService.Delete(boardId, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);

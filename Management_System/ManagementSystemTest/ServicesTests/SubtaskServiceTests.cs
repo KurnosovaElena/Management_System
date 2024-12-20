@@ -87,7 +87,7 @@ public class SubtaskServiceTests
             .ReturnsAsync((SubtaskEntity?)null);
 
         // Act
-        Func<Task> act = async () => await _subtaskService.GetById(subtaskId, CancellationToken.None);
+        var act = async () => await _subtaskService.GetById(subtaskId, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
@@ -158,7 +158,7 @@ public class SubtaskServiceTests
             .ReturnsAsync((SubtaskEntity?)null);
 
         // Act
-        Func<Task> act = async () => await _subtaskService.Update(subtaskId, updateDto, CancellationToken.None);
+        var act = async () => await _subtaskService.Update(subtaskId, updateDto, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
@@ -197,7 +197,7 @@ public class SubtaskServiceTests
             .ReturnsAsync((SubtaskEntity?)null);
 
         // Act
-        Func<Task> act = async () => await _subtaskService.Delete(subtaskId, CancellationToken.None);
+        var act = async () => await _subtaskService.Delete(subtaskId, CancellationToken.None);
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
