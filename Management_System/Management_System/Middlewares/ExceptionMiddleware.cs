@@ -1,5 +1,5 @@
-﻿using BLL.Exceptions;
-using API.Exceptions;
+﻿using API.Exceptions;
+using BLL.Exceptions;
 using System.Net;
 
 namespace API.Middlewares;
