@@ -175,7 +175,7 @@ public class UserTaskServiceTests
 
         // Assert
         _userTaskRepositoryMock.Verify(repo => repo.Update(existingUserTask, It.IsAny<CancellationToken>()), Times.Once);
-        Assert.Equal(TaskRole.Reviewer, existingUserTask.Role);
+        Assert.Equal(TaskRole.Assignee, existingUserTask.Role);
     }
 
     [Fact]
