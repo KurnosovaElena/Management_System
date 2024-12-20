@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLL.DTO;
 using BLL.DTO.CreateDTO;
+using BLL.Exceptions;
 using BLL.Services.Interfaсes;
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
@@ -23,7 +24,9 @@ public class UserBoardService(IUserBoardRepository repository, IMapper mapper) :
 
     public async Task<UserBoardDto> GetByUserIdAndBoardIdAsync(Guid userId, Guid boardId, CancellationToken cancellationToken)
     {
-        var userBoardEntity = await repository.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken);
+        var userBoardEntity = await repository.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken) 
+            ?? throw new NotFoundException("No user board found");
+        
         return mapper.Map<UserBoardDto>(userBoardEntity);
     }
 
@@ -51,7 +54,7 @@ public class UserBoardService(IUserBoardRepository repository, IMapper mapper) :
     public async Task<UserBoardDto> Update(Guid userId, Guid boardId, CreateUserBoardDto entity, CancellationToken cancellationToken)
     {
         var userBoard = await repository.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken)
-            ?? throw new Exception("UserBoard not found");
+            ?? throw new NotFoundException("UserBoard not found");
         mapper.Map(entity, userBoard);
         await repository.Update(userBoard, cancellationToken);
         var userBoardDTO = mapper.Map<UserBoardDto>(userBoard);
@@ -62,7 +65,7 @@ public class UserBoardService(IUserBoardRepository repository, IMapper mapper) :
     public async Task Delete(Guid userId, Guid boardId, CancellationToken cancellationToken)
     {
         var userBoard = await repository.GetByUserIdAndBoardIdAsync(userId, boardId, cancellationToken)
-            ?? throw new Exception("UserBoard not found");
+            ?? throw new NotFoundException("UserBoard not found");
         await repository.Delete(userBoard, cancellationToken);
     }
 }
