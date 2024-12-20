@@ -19,14 +19,14 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Restore dependencies for ProfileService
-      run: dotnet restore ./ProfileService
+    - name: Restore dependencies for Management_System
+      run: dotnet restore ./Management_System
+      
+    - name: Build Management_System
+      run: dotnet build ./Management_System --no-restore --configuration Release
 
-    - name: Build ProfileService
-      run: dotnet build ./ProfileService --no-restore --configuration Release
-
-    - name: Test ProfileService
-      run: dotnet test ./ProfileService --no-build --verbosity normal --configuration Release
+    - name: Test Management_System
+      run: dotnet test ./Management_System --no-build --verbosity normal --configuration Release
 
   analyze:
 
@@ -37,7 +37,7 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Sonar Scan ProfileService
+    - name: Sonar Scan Management_System
       uses: highbyte/sonarscan-dotnet@v2.3.0
       
     env:
