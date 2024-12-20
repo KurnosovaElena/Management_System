@@ -21,7 +21,7 @@ public class BoardServiceTests
         var config = new MapperConfiguration(cfg =>
         {
             cfg.CreateMap<CreateBoardDTO, BoardEntity>();
-            cfg.CreateMap<BoardEntity, BoardDTO>();
+            cfg.CreateMap<BoardEntity, BoardDto>();
         });
         _mapper = config.CreateMapper();
         _boardService = new BoardService(_boardRepositoryMock.Object, _mapper);

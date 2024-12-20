@@ -15,7 +15,7 @@ public class ManagementSystemProfiles : Profile
 
         // Board mappings
         CreateMap<CreateBoardDTO, BoardEntity>();
-        CreateMap<BoardEntity, BoardDTO>();
+        CreateMap<BoardEntity, BoardDto>();
 
         // Label mappings
         CreateMap<CreateLabelDTO, LabelEntity>();
