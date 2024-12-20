@@ -20,7 +20,7 @@ public class LabelServiceTests
         _labelRepositoryMock = new Mock<ILabelRepository>();
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<CreateLabelDTO, LabelEntity>();
+            cfg.CreateMap<CreateLabelDto, LabelEntity>();
             cfg.CreateMap<LabelEntity, LabelDTO>();
         });
         _mapper = config.CreateMapper();
@@ -31,7 +31,7 @@ public class LabelServiceTests
     public async Task Add_ValidLabel_AddsAndReturnsLabelDTO()
     {
         // Arrange
-        var createLabelDto = new CreateLabelDTO
+        var createLabelDto = new CreateLabelDto
         {
             Name = "Urgent",
             Description = "Tasks that need immediate attention"
@@ -128,7 +128,7 @@ public class LabelServiceTests
             Name = "Old Name",
             Description = "Old Description"
         };
-        var updateDto = new CreateLabelDTO
+        var updateDto = new CreateLabelDto
         {
             Name = "Updated Name",
             Description = "Updated Description"
@@ -151,7 +151,7 @@ public class LabelServiceTests
     {
         // Arrange
         var labelId = Guid.NewGuid();
-        var updateDto = new CreateLabelDTO { Name = "New Name", Description = "New Description" };
+        var updateDto = new CreateLabelDto { Name = "New Name", Description = "New Description" };
 
         _labelRepositoryMock.Setup(repo => repo.GetById(labelId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((LabelEntity?)null); // Adjust this line if necessary

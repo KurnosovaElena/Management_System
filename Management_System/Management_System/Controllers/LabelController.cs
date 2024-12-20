@@ -24,14 +24,14 @@ public class LabelsController(ILabelService service) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<LabelDTO> Add([FromBody] CreateLabelDTO entity, CancellationToken cancellationToken)
+    public async Task<LabelDTO> Add([FromBody] CreateLabelDto entity, CancellationToken cancellationToken)
     {
         var label = await service.Add(entity, cancellationToken);
         return label;
     }
 
     [HttpPut("{id}")]
-    public async Task<LabelDTO> Update([FromRoute] Guid id, [FromBody] CreateLabelDTO entity, CancellationToken cancellationToken)
+    public async Task<LabelDTO> Update([FromRoute] Guid id, [FromBody] CreateLabelDto entity, CancellationToken cancellationToken)
     {
         var label = await service.Update(id, entity, cancellationToken);
         return label;

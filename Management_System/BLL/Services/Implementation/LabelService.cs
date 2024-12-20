@@ -10,7 +10,7 @@ namespace BLL.Services.Implementation;
 
 public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelService
 {
-    public async Task<LabelDTO> Add(CreateLabelDTO entity, CancellationToken cancellationToken)
+    public async Task<LabelDTO> Add(CreateLabelDto entity, CancellationToken cancellationToken)
     {
         var label = mapper.Map<LabelEntity>(entity);
         await repository.Add(label, cancellationToken);
@@ -37,7 +37,7 @@ public class LabelService(ILabelRepository repository, IMapper mapper) : ILabelS
         return labelsDTO;
     }
 
-    public async Task<LabelDTO> Update(Guid id, CreateLabelDTO entity, CancellationToken cancellationToken)
+    public async Task<LabelDTO> Update(Guid id, CreateLabelDto entity, CancellationToken cancellationToken)
     {
         if (entity is null)
         {
