@@ -4,7 +4,7 @@ using DAL.Enums;
 
 namespace DAL.Context;
 
-public class DataGenerator
+public static class DataGenerator
 {
     public static readonly List<BoardEntity> Boards = [];
     public static readonly List<TaskStatusEntity> TaskStatus = [];
@@ -48,28 +48,25 @@ public class DataGenerator
         Labels.AddRange(generatedLabels);
     }
 
-    private static List<TaskStatusEntity> GetBogusStatusData(Guid boardId)
+    private static void GetBogusStatusData(Guid boardId)
     {
         var statusGenerator = GetTaskStatusFaker(boardId);
         var generatedStatus = statusGenerator.Generate(NumberOfBoards);
         TaskStatus.AddRange(generatedStatus);
-        return generatedStatus;
     }
 
-    private static List<SubtaskEntity> GetBogusSubtasksData(Guid taskId)
+    private static void GetBogusSubtasksData(Guid taskId)
     {
         var subtasksGenerator = GetSubtasksFaker(taskId);
         var generatedSubtasks = subtasksGenerator.Generate(NumberOfTasks);
         Subtasks.AddRange(generatedSubtasks);
-        return generatedSubtasks;
     }
 
-    private static List<TaskEntity> GetBogusTasksData(Guid userId)
+    private static void GetBogusTasksData(Guid userId)
     {
         var tasksGenerator = GetTasksFaker(userId);
         var generatedTasks = tasksGenerator.Generate(NumberOfTasks);
         Tasks.AddRange(generatedTasks);
-        return generatedTasks;
     }
 
     private static void GenerateUserBoardsData()
