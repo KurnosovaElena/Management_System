@@ -2,7 +2,7 @@
 
 namespace BLL.DTO.CreateDTO;
 
-public class CreateUserBoardDTO
+public class CreateUserBoardDto
 {
     public BoardRole Role { get; set; }
 }

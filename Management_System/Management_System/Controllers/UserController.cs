@@ -10,28 +10,28 @@ namespace API.Controllers;
 public class UserController(IUserService service) : ControllerBase
 {
     [HttpGet]
-    public async Task<IEnumerable<UserDTO>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<UserDto>> GetAll(CancellationToken cancellationToken)
     {
         var users = await service.GetAll(cancellationToken);
         return users;
     }
 
     [HttpGet("{id}")]
-    public async Task<UserDTO> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
+    public async Task<UserDto> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
         var user = await service.GetById(id, cancellationToken);
         return user;
     }
 
     [HttpPost]
-    public async Task<UserDTO> Add([FromBody] CreateUserDTO entity, CancellationToken cancellationToken)
+    public async Task<UserDto> Add([FromBody] CreateUserDto entity, CancellationToken cancellationToken)
     {
         var user = await service.Add(entity, cancellationToken);
         return user;
     }
 
     [HttpPut("{id}")]
-    public async Task<UserDTO> Update([FromRoute] Guid id, [FromBody] CreateUserDTO entity, CancellationToken cancellationToken)
+    public async Task<UserDto> Update([FromRoute] Guid id, [FromBody] CreateUserDto entity, CancellationToken cancellationToken)
     {
         var user = await service.Update(id, entity, cancellationToken);
         return user;

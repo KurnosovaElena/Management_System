@@ -21,8 +21,8 @@ public class UserTaskServiceTests
         _userTaskRepositoryMock = new Mock<IUserTaskRepository>();
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<CreateUserTaskDTO, UserTaskEntity>();
-            cfg.CreateMap<UserTaskEntity, UserTaskDTO>();
+            cfg.CreateMap<CreateUserTaskDto, UserTaskEntity>();
+            cfg.CreateMap<UserTaskEntity, UserTaskDto>();
         });
         _mapper = config.CreateMapper();
         _userTaskService = new UserTaskService(_userTaskRepositoryMock.Object, _mapper);
@@ -34,7 +34,7 @@ public class UserTaskServiceTests
         // Arrange
         var userId = Guid.NewGuid();
         var taskId = Guid.NewGuid();
-        var createUserTaskDto = new CreateUserTaskDTO
+        var createUserTaskDto = new CreateUserTaskDto
         {
             Role = TaskRole.Reviewer
         };
@@ -162,7 +162,7 @@ public class UserTaskServiceTests
             TaskId = taskId,
             Role = TaskRole.Reviewer
         };
-        var updateDto = new CreateUserTaskDTO
+        var updateDto = new CreateUserTaskDto
         {
             Role = TaskRole.Assignee
         };
@@ -175,7 +175,7 @@ public class UserTaskServiceTests
 
         // Assert
         _userTaskRepositoryMock.Verify(repo => repo.Update(existingUserTask, It.IsAny<CancellationToken>()), Times.Once);
-        Assert.Equal(TaskRole.Reviewer, existingUserTask.Role);
+        Assert.Equal(TaskRole.Assignee, existingUserTask.Role);
     }
 
     [Fact]
@@ -184,7 +184,7 @@ public class UserTaskServiceTests
         // Arrange
         var userId = Guid.NewGuid();
         var taskId = Guid.NewGuid();
-        var updateDto = new CreateUserTaskDTO { Role = TaskRole.Assignee };
+        var updateDto = new CreateUserTaskDto { Role = TaskRole.Assignee };
 
         _userTaskRepositoryMock.Setup(repo => repo.GetByUserIdAndTaskIdAsync(userId, taskId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((UserTaskEntity)null);

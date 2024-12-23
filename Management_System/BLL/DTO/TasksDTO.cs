@@ -2,7 +2,7 @@
 
 namespace BLL.DTO;
 
-public class TasksDTO : CreateTasksDTO
+public class TasksDto : CreateTasksDto
 {
     public Guid Id { get; set; }
 }

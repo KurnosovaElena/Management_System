@@ -20,8 +20,8 @@ public class TaskStatusServiceTests
         _taskStatusRepositoryMock = new Mock<ITaskStatusRepository>();
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<CreateTaskStatusDTO, TaskStatusEntity>();
-            cfg.CreateMap<TaskStatusEntity, TaskStatusDTO>();
+            cfg.CreateMap<CreateTaskStatusDto, TaskStatusEntity>();
+            cfg.CreateMap<TaskStatusEntity, TaskStatusDto>();
         });
         _mapper = config.CreateMapper();
         _taskStatusService = new TaskStatusService(_taskStatusRepositoryMock.Object, _mapper);
@@ -31,7 +31,7 @@ public class TaskStatusServiceTests
     public async Task Add_ValidTaskStatus_AddsAndReturnsTaskStatusDTO()
     {
         // Arrange
-        var createTaskStatusDto = new CreateTaskStatusDTO
+        var createTaskStatusDto = new CreateTaskStatusDto
         {
             Name = "In Progress",
             Description = "Tasks that are currently being worked on",
@@ -135,7 +135,7 @@ public class TaskStatusServiceTests
             Description = "Old Description",
             BoardId = Guid.NewGuid()
         };
-        var updateDto = new CreateTaskStatusDTO
+        var updateDto = new CreateTaskStatusDto
         {
             Name = "Updated Status",
             Description = "Updated Description",
@@ -159,7 +159,7 @@ public class TaskStatusServiceTests
     {
         // Arrange
         var taskStatusId = Guid.NewGuid();
-        var updateDto = new CreateTaskStatusDTO { Name = "New Name", Description = "New Description", BoardId = Guid.NewGuid() };
+        var updateDto = new CreateTaskStatusDto { Name = "New Name", Description = "New Description", BoardId = Guid.NewGuid() };
 
         _taskStatusRepositoryMock.Setup(repo => repo.GetById(taskStatusId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((TaskStatusEntity?)null);

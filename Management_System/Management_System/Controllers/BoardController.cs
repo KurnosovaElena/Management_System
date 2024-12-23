@@ -10,28 +10,28 @@ namespace API.Controllers;
 public class BoardsController(IBoardService service) : ControllerBase
 {
     [HttpGet]
-    public async Task<IEnumerable<BoardDTO>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<BoardDto>> GetAll(CancellationToken cancellationToken)
     {
         var boards = await service.GetAll(cancellationToken);
         return boards;
     }
 
     [HttpGet("{id}")]
-    public async Task<BoardDTO> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
+    public async Task<BoardDto> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
         var board = await service.GetById(id, cancellationToken);
         return board;
     }
 
     [HttpPost]
-    public async Task<BoardDTO> Add([FromBody] CreateBoardDTO entity, CancellationToken cancellationToken)
+    public async Task<BoardDto> Add([FromBody] CreateBoardDto entity, CancellationToken cancellationToken)
     {
         var board = await service.Add(entity, cancellationToken);
         return board;
     }
 
     [HttpPut("{id}")]
-    public async Task<BoardDTO> Update([FromRoute] Guid id, [FromBody] CreateBoardDTO entity, CancellationToken cancellationToken)
+    public async Task<BoardDto> Update([FromRoute] Guid id, [FromBody] CreateBoardDto entity, CancellationToken cancellationToken)
     {
         var board = await service.Update(id, entity, cancellationToken);
         return board;

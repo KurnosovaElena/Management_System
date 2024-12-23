@@ -2,7 +2,7 @@
 
 namespace BLL.DTO;
 
-public class UserDTO : CreateUserDTO
+public class UserDto : CreateUserDto
 {
     public Guid Id { get; set; }
 }
