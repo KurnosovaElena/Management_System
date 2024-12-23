@@ -48,21 +48,21 @@ public static class DataGenerator
         Labels.AddRange(generatedLabels);
     }
 
-    private static void GetBogusStatusData(Guid boardId)
+    private static void GenerateBogusStatusData(Guid boardId)
     {
         var statusGenerator = GetTaskStatusFaker(boardId);
         var generatedStatus = statusGenerator.Generate(NumberOfBoards);
         TaskStatus.AddRange(generatedStatus);
     }
 
-    private static void GetBogusSubtasksData(Guid taskId)
+    private static void GenerateBogusSubtasksData(Guid taskId)
     {
         var subtasksGenerator = GetSubtasksFaker(taskId);
         var generatedSubtasks = subtasksGenerator.Generate(NumberOfTasks);
         Subtasks.AddRange(generatedSubtasks);
     }
 
-    private static void GetBogusTasksData(Guid userId)
+    private static void GenerateBogusTasksData(Guid userId)
     {
         var tasksGenerator = GetTasksFaker(userId);
         var generatedTasks = tasksGenerator.Generate(NumberOfTasks);
@@ -98,7 +98,7 @@ public static class DataGenerator
         .RuleFor(b => b.Description, f => f.Lorem.Word())
         .RuleFor(b => b.TaskStatus, (_, e) =>
         {
-            GetBogusStatusData(e.Id);
+            GenerateBogusStatusData(e.Id);
             return [];
         });
 
@@ -113,7 +113,7 @@ public static class DataGenerator
             .RuleFor(t => t.BoardId, _ => boardId)
             .RuleFor(t => t.Tasks, (_, e) =>
             {
-                GetBogusTasksData(e.Id);
+                GenerateBogusTasksData(e.Id);
                 return [];
             });
     }
@@ -154,7 +154,7 @@ public static class DataGenerator
            .RuleFor(t => t.TableId, _ => tableId)
            .RuleFor(t => t.Subtasks, (_, e) =>
            {
-               GetBogusSubtasksData(e.Id);
+               GenerateBogusSubtasksData(e.Id);
                return [];
            });
     }
