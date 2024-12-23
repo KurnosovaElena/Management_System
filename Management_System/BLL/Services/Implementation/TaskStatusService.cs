@@ -10,34 +10,34 @@ namespace BLL.Services.Implementation;
 
 public class TaskStatusService(ITaskStatusRepository repository, IMapper mapper) : ITaskStatusService
 {
-    public async Task<TaskStatusDTO> Add(CreateTaskStatusDTO entity, CancellationToken cancellationToken)
+    public async Task<TaskStatusDto> Add(CreateTaskStatusDto entity, CancellationToken cancellationToken)
     {
         var taskStatus = mapper.Map<TaskStatusEntity>(entity);
         await repository.Add(taskStatus, cancellationToken);
-        var taskStatusDTO = mapper.Map<TaskStatusDTO>(taskStatus);
+        var taskStatusDTO = mapper.Map<TaskStatusDto>(taskStatus);
         return taskStatusDTO;
     }
 
-    public async Task<TaskStatusDTO> GetById(Guid id, CancellationToken cancellationToken)
+    public async Task<TaskStatusDto> GetById(Guid id, CancellationToken cancellationToken)
     {
         var taskStatus = await repository.GetById(id, cancellationToken)
             ?? throw new NotFoundException("No task status found");
 
-        var taskStatusDTO = mapper.Map<TaskStatusDTO>(taskStatus);
+        var taskStatusDTO = mapper.Map<TaskStatusDto>(taskStatus);
 
         return taskStatusDTO;
     }
 
-    public async Task<IEnumerable<TaskStatusDTO>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<TaskStatusDto>> GetAll(CancellationToken cancellationToken)
     {
         var statusAll = await repository.GetAll(cancellationToken);
 
-        var statusAllDTO = mapper.Map<IEnumerable<TaskStatusDTO>>(statusAll);
+        var statusAllDTO = mapper.Map<IEnumerable<TaskStatusDto>>(statusAll);
 
         return statusAllDTO;
     }
 
-    public async Task<TaskStatusDTO> Update(Guid id, CreateTaskStatusDTO entity, CancellationToken cancellationToken)
+    public async Task<TaskStatusDto> Update(Guid id, CreateTaskStatusDto entity, CancellationToken cancellationToken)
     {
         if (entity is null)
         {
@@ -51,7 +51,7 @@ public class TaskStatusService(ITaskStatusRepository repository, IMapper mapper)
 
         await repository.Update(status, cancellationToken);
 
-        var statusDTO = mapper.Map<TaskStatusDTO>(status);
+        var statusDTO = mapper.Map<TaskStatusDto>(status);
 
         return statusDTO;
     }

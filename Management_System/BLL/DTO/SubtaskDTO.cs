@@ -2,7 +2,7 @@
 
 namespace BLL.DTO;
 
-public class SubtaskDTO : CreateSubtaskDTO
+public class SubtaskDto : CreateSubtaskDto
 {
     public Guid Id { get; set; }
 }

@@ -5,9 +5,9 @@ namespace BLL.Services.Interfaсes;
 
 public interface ITasksService
 {
-    Task<TasksDTO> GetById(Guid id, CancellationToken cancellationToken);
-    Task<IEnumerable<TasksDTO>> GetAll(CancellationToken cancellationToken);
-    Task<TasksDTO> Add(CreateTasksDTO entity, CancellationToken cancellationToken);
-    Task<TasksDTO> Update(Guid id, CreateTasksDTO entity, CancellationToken cancellationToken);
+    Task<TasksDto> GetById(Guid id, CancellationToken cancellationToken);
+    Task<IEnumerable<TasksDto>> GetAll(CancellationToken cancellationToken);
+    Task<TasksDto> Add(CreateTasksDto entity, CancellationToken cancellationToken);
+    Task<TasksDto> Update(Guid id, CreateTasksDto entity, CancellationToken cancellationToken);
     Task Delete(Guid id, CancellationToken cancellationToken);
 }

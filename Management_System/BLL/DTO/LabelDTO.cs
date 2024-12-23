@@ -2,7 +2,7 @@
 
 namespace BLL.DTO;
 
-public class LabelDTO : CreateLabelDTO
+public class LabelDto : CreateLabelDto
 {
     public Guid Id { get; set; }
 }

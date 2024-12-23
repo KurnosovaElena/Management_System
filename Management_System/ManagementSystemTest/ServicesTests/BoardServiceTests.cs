@@ -20,8 +20,8 @@ public class BoardServiceTests
         _boardRepositoryMock = new Mock<IBoardRepository>();
         var config = new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<CreateBoardDTO, BoardEntity>();
-            cfg.CreateMap<BoardEntity, BoardDTO>();
+            cfg.CreateMap<CreateBoardDto, BoardEntity>();
+            cfg.CreateMap<BoardEntity, BoardDto>();
         });
         _mapper = config.CreateMapper();
         _boardService = new BoardService(_boardRepositoryMock.Object, _mapper);
@@ -120,7 +120,7 @@ public class BoardServiceTests
             TaskStatus = new List<TaskStatusEntity>(),
             UserBoards = new List<UserBoardEntity>()
         };
-        var updateDto = new CreateBoardDTO
+        var updateDto = new CreateBoardDto
         {
             Name = "Updated Board Name",
             Description = "Updated Description"
@@ -143,7 +143,7 @@ public class BoardServiceTests
     {
         // Arrange
         var boardId = Guid.NewGuid();
-        var updateDto = new CreateBoardDTO { Name = "New Name", Description = "New Description" };
+        var updateDto = new CreateBoardDto { Name = "New Name", Description = "New Description" };
 
         _boardRepositoryMock.Setup(repo => repo.GetById(boardId, It.IsAny<CancellationToken>()))
             .ReturnsAsync((BoardEntity)null);

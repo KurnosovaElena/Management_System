@@ -2,7 +2,7 @@
 
 namespace BLL.DTO.CreateDTO;
 
-public class CreateUserTaskDTO
+public class CreateUserTaskDto
 {
     public TaskRole Role { get; set; }
 }

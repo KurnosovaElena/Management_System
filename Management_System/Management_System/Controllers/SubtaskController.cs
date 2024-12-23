@@ -10,28 +10,28 @@ namespace API.Controllers;
 public class SubtaskController(ISubtaskService service) : ControllerBase
 {
     [HttpGet]
-    public async Task<IEnumerable<SubtaskDTO>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<SubtaskDto>> GetAll(CancellationToken cancellationToken)
     {
         var subtasks = await service.GetAll(cancellationToken);
         return subtasks;
     }
 
     [HttpGet("{id}")]
-    public async Task<SubtaskDTO> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
+    public async Task<SubtaskDto> GetById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
         var subtask = await service.GetById(id, cancellationToken);
         return subtask;
     }
 
     [HttpPost]
-    public async Task<SubtaskDTO> Add([FromBody] CreateSubtaskDTO entity, CancellationToken cancellationToken)
+    public async Task<SubtaskDto> Add([FromBody] CreateSubtaskDto entity, CancellationToken cancellationToken)
     {
         var subtask = await service.Add(entity, cancellationToken);
         return subtask;
     }
 
     [HttpPut("{id}")]
-    public async Task<SubtaskDTO> Update([FromRoute] Guid id, [FromBody] CreateSubtaskDTO entity, CancellationToken cancellationToken)
+    public async Task<SubtaskDto> Update([FromRoute] Guid id, [FromBody] CreateSubtaskDto entity, CancellationToken cancellationToken)
     {
         var subtask = await service.Update(id, entity, cancellationToken);
         return subtask;

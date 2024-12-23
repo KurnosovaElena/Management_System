@@ -10,34 +10,34 @@ namespace BLL.Services.Implementation;
 
 public class SubtaskService(ISubtaskRepository repository, IMapper mapper) : ISubtaskService
 {
-    public async Task<SubtaskDTO> Add(CreateSubtaskDTO entity, CancellationToken cancellationToken)
+    public async Task<SubtaskDto> Add(CreateSubtaskDto entity, CancellationToken cancellationToken)
     {
         var subtask = mapper.Map<SubtaskEntity>(entity);
         await repository.Add(subtask, cancellationToken);
-        var subtaskDTO = mapper.Map<SubtaskDTO>(subtask);
+        var subtaskDTO = mapper.Map<SubtaskDto>(subtask);
         return subtaskDTO;
     }
 
-    public async Task<SubtaskDTO> GetById(Guid id, CancellationToken cancellationToken)
+    public async Task<SubtaskDto> GetById(Guid id, CancellationToken cancellationToken)
     {
         var subtask = await repository.GetById(id, cancellationToken)
             ?? throw new NotFoundException("No subtask found");
 
-        var subtaskDTO = mapper.Map<SubtaskDTO>(subtask);
+        var subtaskDTO = mapper.Map<SubtaskDto>(subtask);
 
         return subtaskDTO;
     }
 
-    public async Task<IEnumerable<SubtaskDTO>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<SubtaskDto>> GetAll(CancellationToken cancellationToken)
     {
         var subtasks = await repository.GetAll(cancellationToken);
 
-        var subtasksDTO = mapper.Map<IEnumerable<SubtaskDTO>>(subtasks);
+        var subtasksDTO = mapper.Map<IEnumerable<SubtaskDto>>(subtasks);
 
         return subtasksDTO;
     }
 
-    public async Task<SubtaskDTO> Update(Guid id, CreateSubtaskDTO entity, CancellationToken cancellationToken)
+    public async Task<SubtaskDto> Update(Guid id, CreateSubtaskDto entity, CancellationToken cancellationToken)
     {
         if (entity is null)
         {
@@ -51,7 +51,7 @@ public class SubtaskService(ISubtaskRepository repository, IMapper mapper) : ISu
 
         await repository.Update(subtask, cancellationToken);
 
-        var subtaskDTO = mapper.Map<SubtaskDTO>(subtask);
+        var subtaskDTO = mapper.Map<SubtaskDto>(subtask);
 
         return subtaskDTO;
     }

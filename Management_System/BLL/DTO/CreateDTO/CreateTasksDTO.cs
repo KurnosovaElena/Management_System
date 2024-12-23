@@ -2,7 +2,8 @@
 using DAL.Enums;
 
 namespace BLL.DTO.CreateDTO;
-public class CreateTasksDTO
+
+public class CreateTasksDto
 {
     public int SerialNumber { get; set; }
     public string Name { get; set; } = string.Empty;

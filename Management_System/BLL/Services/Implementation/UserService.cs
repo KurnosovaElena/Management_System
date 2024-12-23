@@ -10,37 +10,37 @@ namespace BLL.Services.Implementation;
 
 public class UserService(IUserRepository repository, IMapper mapper) : IUserService
 {
-    public async Task<UserDTO> Add(CreateUserDTO entity, CancellationToken cancellationToken)
+    public async Task<UserDto> Add(CreateUserDto entity, CancellationToken cancellationToken)
     {
         var user = mapper.Map<UserEntity>(entity);
 
         await repository.Add(user, cancellationToken);
 
-        var userDTO = mapper.Map<UserDTO>(user);
+        var userDTO = mapper.Map<UserDto>(user);
 
         return userDTO;
     }
 
-    public async Task<UserDTO> GetById(Guid id, CancellationToken cancellationToken)
+    public async Task<UserDto> GetById(Guid id, CancellationToken cancellationToken)
     {
         var user = await repository.GetById(id, cancellationToken);
 
-        var userDTO = mapper.Map<UserDTO>(user);
+        var userDTO = mapper.Map<UserDto>(user);
 
         return userDTO;
     }
 
-    public async Task<IEnumerable<UserDTO>> GetAll(CancellationToken cancellationToken)
+    public async Task<IEnumerable<UserDto>> GetAll(CancellationToken cancellationToken)
     {
         var users = await repository.GetAll(cancellationToken)
             ?? throw new NotFoundException("No users found");
 
-        var usersDTO = mapper.Map<IEnumerable<UserDTO>>(users);
+        var usersDTO = mapper.Map<IEnumerable<UserDto>>(users);
 
         return usersDTO;
     }
 
-    public async Task<UserDTO> Update(Guid id, CreateUserDTO entity, CancellationToken cancellationToken)
+    public async Task<UserDto> Update(Guid id, CreateUserDto entity, CancellationToken cancellationToken)
     {
         if (entity is null)
         {
@@ -54,7 +54,7 @@ public class UserService(IUserRepository repository, IMapper mapper) : IUserServ
 
         await repository.Update(user, cancellationToken);
 
-        var userDTO = mapper.Map<UserDTO>(user);
+        var userDTO = mapper.Map<UserDto>(user);
 
         return userDTO;
     }

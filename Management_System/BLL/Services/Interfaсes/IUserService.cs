@@ -5,9 +5,9 @@ namespace BLL.Services.Interfaсes;
 
 public interface IUserService
 {
-    Task<UserDTO> GetById(Guid id, CancellationToken cancellationToken);
-    Task<IEnumerable<UserDTO>> GetAll(CancellationToken cancellationToken);
-    Task<UserDTO> Add(CreateUserDTO entity, CancellationToken cancellationToken);
-    Task<UserDTO> Update(Guid id, CreateUserDTO entity, CancellationToken cancellationToken);
+    Task<UserDto> GetById(Guid id, CancellationToken cancellationToken);
+    Task<IEnumerable<UserDto>> GetAll(CancellationToken cancellationToken);
+    Task<UserDto> Add(CreateUserDto entity, CancellationToken cancellationToken);
+    Task<UserDto> Update(Guid id, CreateUserDto entity, CancellationToken cancellationToken);
     Task Delete(Guid id, CancellationToken cancellationToken);
 }
