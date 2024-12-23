@@ -26,8 +26,8 @@ public class UserTaskService(IUserTaskRepository repository, IMapper mapper) : I
     {
         var userTaskEntity = await repository.GetByUserIdAndTaskIdAsync(userId, taskId, cancellationToken);
 
-        return userTaskEntity == null
-            ? throw new NotFoundException("No user task found") : mapper.Map<UserTaskDto>(userTaskEntity);
+        return mapper.Map<UserTaskDto>(userTaskEntity) 
+            ?? throw new NotFoundException($"No user task found for userId: {userId}, taskId: {taskId}");
     }
 
     public async Task<IEnumerable<UserTaskDto>> GetTasksByUserIdAsync(Guid userId, CancellationToken cancellationToken)
@@ -54,7 +54,7 @@ public class UserTaskService(IUserTaskRepository repository, IMapper mapper) : I
     public async Task<UserTaskDto> Update(Guid userId, Guid taskId, CreateUserTaskDto entity, CancellationToken cancellationToken)
     {
         var userTask = await repository.GetByUserIdAndTaskIdAsync(userId, taskId, cancellationToken)
-            ?? throw new NotFoundException("UserTask not found");
+            ?? throw new NotFoundException($"No user task found for userId: {userId}, taskId: {taskId}");
         mapper.Map(entity, userTask);
         await repository.Update(userTask, cancellationToken);
         var userTaskDTO = mapper.Map<UserTaskDto>(userTask);
@@ -65,7 +65,7 @@ public class UserTaskService(IUserTaskRepository repository, IMapper mapper) : I
     public async Task Delete(Guid userId, Guid taskId, CancellationToken cancellationToken)
     {
         var userTask = await repository.GetByUserIdAndTaskIdAsync(userId, taskId, cancellationToken)
-            ?? throw new NotFoundException("UserTask not found");
+            ?? throw new NotFoundException($"No user task found for userId: {userId}, taskId: {taskId}");
         await repository.Delete(userTask, cancellationToken);
     }
 }
