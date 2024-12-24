@@ -1,0 +1,45 @@
+name: Management System CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies for Management_System
+      run: dotnet restore ./Management_System
+      
+    - name: Build Management_System
+      run: dotnet build ./Management_System --no-restore --configuration Release
+
+    - name: Test Management_System
+      run: dotnet test ./Management_System --no-build --verbosity normal --configuration Release
+
+  analyze:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Sonar Scan Management_System
+      uses: highbyte/sonarscan-dotnet@v2.3.0
+      
+    env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
