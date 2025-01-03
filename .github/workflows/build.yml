@@ -42,7 +42,7 @@ jobs:
       with:
         sonarProjectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         sonarProjectName: ${{ vars.SONAR_PROJECT_NAME }}
-        sonarOrganization: ${{ vars.SONAROR_GANIZATION }}
+        sonarOrganization: ${{ vars.SONAR_ORGANIZATION }}
       
     env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
