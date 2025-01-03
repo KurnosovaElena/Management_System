@@ -99,7 +99,7 @@ public class UserTaskServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal("No user task found", exception.Message);
+        Assert.Equal($"No user task found for userId: {userId}", exception.Message);
     }
 
     [Fact]
@@ -194,7 +194,7 @@ public class UserTaskServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal("UserTask not found", exception.Message);
+        Assert.Equal($"No user task found for userId: {userId}", exception.Message);
     }
 
     [Fact]
@@ -234,6 +234,6 @@ public class UserTaskServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal("UserTask not found", exception.Message);
+        Assert.Equal($"No user task found for userId: {userId}", exception.Message);
     }
 }
