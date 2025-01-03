@@ -99,7 +99,7 @@ public class UserTaskServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal("No user task found", exception.Message);
+        Assert.Equal($"No user task found for userId: {userId}, taskId: {taskId}", exception.Message);
     }
 
     [Fact]
@@ -108,10 +108,10 @@ public class UserTaskServiceTests
         // Arrange
         var userId = Guid.NewGuid();
         var userTasks = new List<UserTaskEntity>
-            {
+        {
                 new UserTaskEntity { UserId = userId, TaskId = Guid.NewGuid(), Role = TaskRole.Reviewer },
                 new UserTaskEntity { UserId = userId, TaskId = Guid.NewGuid(), Role = TaskRole.Assignee }
-            };
+        };
 
         _userTaskRepositoryMock.Setup(repo => repo.GetTasksByUserIdAsync(userId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(userTasks);
@@ -132,10 +132,10 @@ public class UserTaskServiceTests
         // Arrange
         var taskId = Guid.NewGuid();
         var userTasks = new List<UserTaskEntity>
-            {
+        {
                 new UserTaskEntity { UserId = Guid.NewGuid(), TaskId = taskId, Role = TaskRole.Reviewer },
                 new UserTaskEntity { UserId = Guid.NewGuid(), TaskId = taskId, Role = TaskRole.Assignee }
-            };
+        };
 
         _userTaskRepositoryMock.Setup(repo => repo.GetUsersByTaskIdAsync(taskId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(userTasks);
@@ -194,7 +194,7 @@ public class UserTaskServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal("UserTask not found", exception.Message);
+        Assert.Equal($"No user task found for userId: {userId}, taskId: {taskId}", exception.Message);
     }
 
     [Fact]
@@ -234,6 +234,6 @@ public class UserTaskServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal("UserTask not found", exception.Message);
+        Assert.Equal($"No user task found for userId: {userId}, taskId: {taskId}", exception.Message);
     }
 }

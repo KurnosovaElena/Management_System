@@ -1,0 +1,54 @@
+name: Management System CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Restore dependencies for Management_System
+      run: dotnet restore ./Management_System
+      
+    - name: Build Management_System
+      run: dotnet build ./Management_System --no-restore --configuration Release
+
+    - name: Test Management_System
+      run: dotnet test ./Management_System --no-build --verbosity normal --configuration Release
+
+  analyze:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Sonar Scan Management_System
+      uses: highbyte/sonarscan-dotnet@v2.3.0
+      with:
+        sonarProjectKey: ${{ secrets.SONAR_PROJECT_KEY }}
+        sonarProjectName: ${{ vars.SONAR_PROJECT_NAME }}
+        sonarOrganization: ${{ vars.SONAR_ORGANIZATION }}
+        dotnetBuildArguments: ./Management_System --configuration Release
+        dotnetTestArguments: ./Management_System --no-build --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx" /d:sonar.coverage.exclusions="$SONAR_EXCLUDE_FROM_COVERAGE" 
+
+    env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_EXCLUDE_FROM_COVERAGE: "**/Program.cs, **/Migrations/*, **/DI/*"
