@@ -5,6 +5,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+    paths: 
+    - "Management_System/ManagementSystem.sln"
 
 jobs:
   build:
@@ -43,7 +45,7 @@ jobs:
         sonarProjectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         sonarProjectName: ${{ vars.SONAR_PROJECT_NAME }}
         sonarOrganization: ${{ vars.SONAR_ORGANIZATION }}
-      
+    
     env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
