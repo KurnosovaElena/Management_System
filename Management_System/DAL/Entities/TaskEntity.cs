@@ -11,6 +11,6 @@ public class TaskEntity : BaseEntity
     public TaskEstimation TaskEstimation { get; set; }
     public Guid TableId { get; set; }
 
-    public IEnumerable<SubtaskEntity> Subtasks { get; set; } = [];
-    public IEnumerable<UserTaskEntity> UserTasks { get; set; } = [];
+    public IEnumerable<SubtaskEntity> Subtasks { get; set; } = new List<SubtaskEntity>();
+    public IEnumerable<UserTaskEntity> UserTasks { get; set; } = new List<UserTaskEntity>();
 }
