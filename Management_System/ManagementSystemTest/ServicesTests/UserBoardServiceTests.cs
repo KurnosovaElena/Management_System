@@ -99,7 +99,7 @@ public class UserBoardServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal($"No user board found for userId: {userId}", exception.Message);
+        Assert.Equal($"No user board found for userId: {userId}, boardId: {boardId}", exception.Message);
     }
 
     [Fact]
@@ -108,10 +108,10 @@ public class UserBoardServiceTests
         // Arrange
         var userId = Guid.NewGuid();
         var userBoards = new List<UserBoardEntity>
-            {
+        {
                 new UserBoardEntity { UserId = userId, BoardId = Guid.NewGuid(), Role = BoardRole.Read },
                 new UserBoardEntity { UserId = userId, BoardId = Guid.NewGuid(), Role = BoardRole.Admin }
-            };
+        };
 
         _userBoardRepositoryMock.Setup(repo => repo.GetBoardsByUserIdAsync(userId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(userBoards);
@@ -132,10 +132,10 @@ public class UserBoardServiceTests
         // Arrange
         var boardId = Guid.NewGuid();
         var userBoards = new List<UserBoardEntity>
-            {
+        {
                 new UserBoardEntity { UserId = Guid.NewGuid(), BoardId = boardId, Role = BoardRole.Write },
                 new UserBoardEntity { UserId = Guid.NewGuid(), BoardId = boardId, Role = BoardRole.Admin }
-            };
+        };
 
         _userBoardRepositoryMock.Setup(repo => repo.GetUsersByBoardIdAsync(boardId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(userBoards);
@@ -194,7 +194,7 @@ public class UserBoardServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal($"No user board found for userId: {userId}", exception.Message);
+        Assert.Equal($"No user board found for userId: {userId}, boardId: {boardId}", exception.Message);
     }
 
     [Fact]
@@ -234,6 +234,6 @@ public class UserBoardServiceTests
 
         // Assert
         var exception = await Assert.ThrowsAsync<NotFoundException>(act);
-        Assert.Equal($"No user board found for userId: {userId}", exception.Message);
+        Assert.Equal($"No user board found for userId: {userId}, boardId: {boardId}", exception.Message);
     }
 }
