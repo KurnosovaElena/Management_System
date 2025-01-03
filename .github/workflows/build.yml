@@ -39,6 +39,10 @@ jobs:
 
     - name: Sonar Scan Management_System
       uses: highbyte/sonarscan-dotnet@v2.3.0
+      with:
+        sonarProjectKey: ${{ secrets.SONAR_PROJECT_KEY }}
+        sonarProjectName: ${{ vars.SONAR_PROJECT_NAME }}
+        sonarOrganization: ${{ vars.SONAROR_GANIZATION }}
       
     env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
