@@ -30,7 +30,7 @@ public class BoardServiceTests
     }
 
     [Fact]
-    public async Task Add_ShouldReturnMappedBoardDto()
+    public async Task Add_ReturnMappedBoardDto()
     { 
         // Arrange
         var cancellationToken = CancellationToken.None; 

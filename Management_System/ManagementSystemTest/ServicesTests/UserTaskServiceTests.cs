@@ -153,7 +153,7 @@ public class UserTaskServiceTests
     }
 
     [Fact]
-    public async Task GetAll_ShouldReturnMappedUserTaskDtos()
+    public async Task GetAll_ReturnMappedUserTaskDtos()
     {
         // Arrange
         var cancellationToken = CancellationToken.None;

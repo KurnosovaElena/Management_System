@@ -62,7 +62,7 @@ public class UserBoardServiceTests
     }
 
     [Fact]
-    public async Task GetAll_ShouldReturnMappedUserBoardDtos()
+    public async Task GetAll_ReturnMappedUserBoardDtos()
     {
         //Arrange 
         var cancellationToken = CancellationToken.None;
