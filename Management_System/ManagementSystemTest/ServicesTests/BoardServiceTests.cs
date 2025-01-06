@@ -13,10 +13,12 @@ public class BoardServiceTests
 {
     private readonly Mock<IBoardRepository> _boardRepositoryMock;
     private readonly IMapper _mapper;
+    private readonly Mock<IMapper> _mapperMock;
     private readonly BoardService _boardService;
 
     public BoardServiceTests()
     {
+        _mapperMock = new Mock<IMapper>();
         _boardRepositoryMock = new Mock<IBoardRepository>();
         var config = new MapperConfiguration(cfg =>
         {
@@ -28,6 +30,27 @@ public class BoardServiceTests
     }
 
     [Fact]
+    public async Task Add_ReturnMappedBoardDto()
+    { 
+        // Arrange
+        var cancellationToken = CancellationToken.None; 
+        var createBoardDto = new CreateBoardDto(); 
+        var boardEntity = new BoardEntity(); 
+        var boardDto = new BoardDto(); 
+        _mapperMock.Setup(mapper => mapper.Map<BoardEntity>(createBoardDto)).Returns(boardEntity);
+        _boardRepositoryMock.Setup(repo => repo.Add(boardEntity, cancellationToken)).Returns(Task.FromResult(boardEntity)); 
+        _mapperMock.Setup(mapper => mapper.Map<BoardDto>(boardEntity)).Returns(boardDto); 
+        // Act
+        var result = await _boardService.Add(createBoardDto, cancellationToken);
+        // Assert
+        Assert.Equal(boardDto.Id, result.Id);
+        Assert.Equal(boardDto.Name, result.Name);
+        Assert.Equal(boardDto.Description, result.Description);
+        Assert.Equal(boardDto.TaskStatus, result.TaskStatus);
+        Assert.Equal(boardDto.UserBoards, result.UserBoards);
+    }
+
+        [Fact]
     public async Task GetById_BoardExists_ReturnsBoardDTO()
     {
         // Arrange

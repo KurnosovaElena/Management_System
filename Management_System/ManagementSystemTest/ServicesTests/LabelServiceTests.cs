@@ -138,7 +138,7 @@ public class LabelServiceTests
             .ReturnsAsync(existingLabel); // Adjust this line if necessary
 
         // Act
-        var result = await _labelService.Update(labelId, updateDto, CancellationToken.None);
+        await _labelService.Update(labelId, updateDto, CancellationToken.None);
 
         // Assert
         _labelRepositoryMock.Verify(repo => repo.Update(existingLabel, It.IsAny<CancellationToken>()), Times.Once);

@@ -14,11 +14,13 @@ public class UserBoardServiceTests
 {
     private readonly Mock<IUserBoardRepository> _userBoardRepositoryMock;
     private readonly IMapper _mapper;
+    private readonly Mock<IMapper> _mapperMock;
     private readonly UserBoardService _userBoardService;
 
     public UserBoardServiceTests()
     {
         _userBoardRepositoryMock = new Mock<IUserBoardRepository>();
+        _mapperMock = new Mock<IMapper>();
         var config = new MapperConfiguration(cfg =>
         {
             cfg.CreateMap<CreateUserBoardDto, UserBoardEntity>();
@@ -57,6 +59,27 @@ public class UserBoardServiceTests
         Assert.Equal(userId, result.UserId);
         Assert.Equal(boardId, result.BoardId);
         Assert.Equal(createUserBoardDto.Role, result.Role);
+    }
+
+    [Fact]
+    public async Task GetAll_ReturnMappedUserBoardDtos()
+    {
+        //Arrange 
+        var cancellationToken = CancellationToken.None;
+        var userBoards = new List<UserBoardEntity> { new UserBoardEntity() };
+        var userBoardDtos = new List<UserBoardDto> { new UserBoardDto() };
+        _userBoardRepositoryMock.Setup(repo => repo.GetAll(cancellationToken)).ReturnsAsync(userBoards);
+        _mapperMock.Setup(mapper => mapper.Map<IEnumerable<UserBoardDto>>(userBoards)).Returns(userBoardDtos);
+        //Act
+        var result = await _userBoardService.GetAll(cancellationToken);
+        //Assert 
+        Assert.Equal(userBoardDtos.Count, result.Count());
+        for (int i = 0; i < userBoardDtos.Count; i++)
+        {
+            Assert.Equal(userBoardDtos[i].BoardId, result.ElementAt(i).BoardId);
+            Assert.Equal(userBoardDtos[i].Role, result.ElementAt(i).Role);
+            Assert.Equal(userBoardDtos[i].UserId, result.ElementAt(i).UserId);
+        }
     }
 
     [Fact]

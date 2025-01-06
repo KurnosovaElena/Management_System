@@ -14,11 +14,13 @@ public class UserTaskServiceTests
 {
     private readonly Mock<IUserTaskRepository> _userTaskRepositoryMock;
     private readonly IMapper _mapper;
+    private readonly Mock<IMapper> _mapperMock;
     private readonly UserTaskService _userTaskService;
 
     public UserTaskServiceTests()
     {
         _userTaskRepositoryMock = new Mock<IUserTaskRepository>();
+        _mapperMock = new Mock<IMapper>();
         var config = new MapperConfiguration(cfg =>
         {
             cfg.CreateMap<CreateUserTaskDto, UserTaskEntity>();
@@ -148,6 +150,29 @@ public class UserTaskServiceTests
         Assert.Equal(2, result.Count());
         Assert.Equal(userTasks[0].UserId, result.First().UserId);
         Assert.Equal(userTasks[1].UserId, result.Last().UserId);
+    }
+
+    [Fact]
+    public async Task GetAll_ReturnMappedUserTaskDtos()
+    {
+        // Arrange
+        var cancellationToken = CancellationToken.None;
+        var userTasks = new List<UserTaskEntity> { new UserTaskEntity() };
+        var userTaskDtos = new List<UserTaskDto> { new UserTaskDto() };
+
+        _userTaskRepositoryMock.Setup(repo => repo.GetAll(cancellationToken)).ReturnsAsync(userTasks);
+        _mapperMock.Setup(mapper => mapper.Map<IEnumerable<UserTaskDto>>(userTasks)).Returns(userTaskDtos);
+
+        // Act
+        var result = await _userTaskService.GetAll(cancellationToken);
+
+        Assert.Equal(userTaskDtos.Count, result.Count());
+        for (int i = 0; i < userTaskDtos.Count; i++)
+        {
+            Assert.Equal(userTaskDtos[i].TaskId, result.ElementAt(i).TaskId);
+            Assert.Equal(userTaskDtos[i].UserId, result.ElementAt(i).UserId);
+            Assert.Equal(userTaskDtos[i].Role, result.ElementAt(i).Role);
+        }
     }
 
     [Fact]
