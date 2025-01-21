@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UserMicroserviceDAL.Context;
@@ -11,9 +12,11 @@ using UserMicroserviceDAL.Context;
 namespace UserMicroserviceDAL.Migrations
 {
     [DbContext(typeof(UserMicriserviceDBContext))]
-    partial class UserMicriserviceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250114142308_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,29 +46,6 @@ namespace UserMicroserviceDAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("6f9a39fb-6876-4dbf-9657-f1f29b519f4d"),
-                            Email = "alice.smith@example.com",
-                            FirstName = "Alic",
-                            LastName = "Smith"
-                        },
-                        new
-                        {
-                            Id = new Guid("e3a1976b-83e4-4f65-9b8f-67a5c317f8a7"),
-                            Email = "bob.johnson@example.com",
-                            FirstName = "Bob",
-                            LastName = "Johnson"
-                        },
-                        new
-                        {
-                            Id = new Guid("0f5ea429-2e73-4a0b-93c3-f3b8b0eafb31"),
-                            Email = "ethan.jones@example.com",
-                            FirstName = "Ethan",
-                            LastName = "Jones"
-                        });
                 });
 #pragma warning restore 612, 618
         }
