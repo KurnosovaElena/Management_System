@@ -12,14 +12,6 @@ public class Repository<T>(UserMicriserviceDBContext db) : IRepository<T> where 
         return await db.Set<T>().ToListAsync(cancellationToken);
     }
 
-    public IQueryable<T> FetchPaginatedData(int page, int pageSize, CancellationToken cancellationToken)
-    {
-        return db.Set<T>()
-                 .Skip((page - 1) * pageSize)
-                 .Take(pageSize)
-                 .AsNoTracking();
-    }
-
     public virtual async Task<T?> GetById(Guid id, CancellationToken cancellationToken)
     {
         return await db.Set<T>()
