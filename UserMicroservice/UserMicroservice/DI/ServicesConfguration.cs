@@ -16,7 +16,7 @@ public static class ServicesConfiguration
         services.ConfigureSwagger();
         services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
 
-        services.Configure<Auth0Settings>(configuration.GetSection("Auth0"));
+        services.Configure<Auth0Settings>(configuration.GetSection(Auth0Settings.SectionName));
         services.AddAuth0Authentication();
     }
 
@@ -42,7 +42,7 @@ public static class ServicesConfiguration
             });
 
         services.AddAuthorizationBuilder()
-            .AddPolicy(AuthorizationConstants.ReadUsersPolicy, policy =>
+            .AddPolicy(AuthorizationConstants.ReadUsersScope, policy =>
             {
                 var serviceProvider = services.BuildServiceProvider();
                 var auth0Settings = serviceProvider.GetRequiredService<IOptions<Auth0Settings>>().Value;
