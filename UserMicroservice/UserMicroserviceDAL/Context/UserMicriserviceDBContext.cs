@@ -6,16 +6,12 @@ namespace UserMicroserviceDAL.Context;
 
 public class UserMicriserviceDBContext : DbContext
 {
-    public UserMicriserviceDBContext(DbContextOptions options) : base(options) => 
+    public UserMicriserviceDBContext(DbContextOptions options) : base(options)
+    {
         Database.Migrate();
-    
+    } 
 
     public DbSet<UserEntity> Users { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -40,6 +36,12 @@ public class UserMicriserviceDBContext : DbContext
               FirstName = "Ethan",
               LastName = "Jones",
               Email = "ethan.jones@example.com"
+          },
+          new() {
+              Id = Guid.Parse("9f5ea420-2e73-4a0b-93c3-f3b8b0eafb35"),
+              FirstName = "Ethany",
+              LastName = "Jones",
+              Email = "ethany.jones@example.com"
           }
         };
 

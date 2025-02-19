@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace UserMicroserviceDAL.Migrations
 {
     /// <inheritdoc />
-    public partial class seed : Migration
+    public partial class test : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,6 +20,7 @@ namespace UserMicroserviceDAL.Migrations
                 {
                     { new Guid("0f5ea429-2e73-4a0b-93c3-f3b8b0eafb31"), "ethan.jones@example.com", "Ethan", "Jones" },
                     { new Guid("6f9a39fb-6876-4dbf-9657-f1f29b519f4d"), "alice.smith@example.com", "Alic", "Smith" },
+                    { new Guid("9f5ea420-2e73-4a0b-93c3-f3b8b0eafb35"), "ethany.jones@example.com", "Ethany", "Jones" },
                     { new Guid("e3a1976b-83e4-4f65-9b8f-67a5c317f8a7"), "bob.johnson@example.com", "Bob", "Johnson" }
                 });
         }
@@ -36,6 +37,11 @@ namespace UserMicroserviceDAL.Migrations
                 table: "Users",
                 keyColumn: "Id",
                 keyValue: new Guid("6f9a39fb-6876-4dbf-9657-f1f29b519f4d"));
+
+            migrationBuilder.DeleteData(
+                table: "Users",
+                keyColumn: "Id",
+                keyValue: new Guid("9f5ea420-2e73-4a0b-93c3-f3b8b0eafb35"));
 
             migrationBuilder.DeleteData(
                 table: "Users",

@@ -12,8 +12,8 @@ using UserMicroserviceDAL.Context;
 namespace UserMicroserviceDAL.Migrations
 {
     [DbContext(typeof(UserMicriserviceDBContext))]
-    [Migration("20250114172716_seed")]
-    partial class seed
+    [Migration("20250219123051_test")]
+    partial class test
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,6 +67,13 @@ namespace UserMicroserviceDAL.Migrations
                             Id = new Guid("0f5ea429-2e73-4a0b-93c3-f3b8b0eafb31"),
                             Email = "ethan.jones@example.com",
                             FirstName = "Ethan",
+                            LastName = "Jones"
+                        },
+                        new
+                        {
+                            Id = new Guid("9f5ea420-2e73-4a0b-93c3-f3b8b0eafb35"),
+                            Email = "ethany.jones@example.com",
+                            FirstName = "Ethany",
                             LastName = "Jones"
                         });
                 });

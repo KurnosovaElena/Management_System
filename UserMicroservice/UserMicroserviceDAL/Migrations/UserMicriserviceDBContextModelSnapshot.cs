@@ -65,6 +65,13 @@ namespace UserMicroserviceDAL.Migrations
                             Email = "ethan.jones@example.com",
                             FirstName = "Ethan",
                             LastName = "Jones"
+                        },
+                        new
+                        {
+                            Id = new Guid("9f5ea420-2e73-4a0b-93c3-f3b8b0eafb35"),
+                            Email = "ethany.jones@example.com",
+                            FirstName = "Ethany",
+                            LastName = "Jones"
                         });
                 });
 #pragma warning restore 612, 618
