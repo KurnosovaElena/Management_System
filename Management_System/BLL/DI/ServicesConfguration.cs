@@ -19,7 +19,6 @@ public static class ServicesConfguration
         services.AddScoped<ILabelService, LabelService>();
         services.AddScoped<ITasksService, TasksService>();
         services.AddScoped<ISubtaskService, SubtaskService>();
-        services.AddScoped<IUserService, UserService>();
         services.AddScoped<IUserBoardService, UserBoardService>();
         services.AddScoped<IUserTaskService, UserTaskService>();
 

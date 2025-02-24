@@ -10,7 +10,6 @@ public class UserTaskRepository(ManagementSystemDBContext db) : Repository<UserT
     public async Task<UserTaskEntity?> GetByUserIdAndTaskIdAsync(Guid userId, Guid taskId, CancellationToken cancellationToken)
     {
         return await db.Set<UserTaskEntity>()
-            .Include(ub => ub.User)
             .Include(ub => ub.Task)
             .AsNoTracking()
             .FirstOrDefaultAsync(entity => entity.UserId == userId && entity.TaskId == taskId, cancellationToken);
@@ -28,7 +27,6 @@ public class UserTaskRepository(ManagementSystemDBContext db) : Repository<UserT
     public async Task<IEnumerable<UserTaskEntity>> GetUsersByTaskIdAsync(Guid taskId, CancellationToken cancellationToken)
     {
         return await db.Set<UserTaskEntity>()
-            .Include(ub => ub.User)
             .Where(ub => ub.TaskId == taskId)
             .AsNoTracking()
             .ToListAsync(cancellationToken);

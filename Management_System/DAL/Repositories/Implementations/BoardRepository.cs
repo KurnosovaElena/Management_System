@@ -11,7 +11,6 @@ public class BoardRepository(ManagementSystemDBContext db) : Repository<BoardEnt
     {
         return await db.Set<BoardEntity>()
             .Include(b => b.TaskStatus)
-            .Include(b => b.UserBoards)
             .AsNoTracking()
             .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }

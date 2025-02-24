@@ -8,6 +8,5 @@ public class UserBoardEntity : BaseEntity
     public Guid BoardId { get; set; }
     public BoardRole Role { get; set; }
 
-    public UserEntity User { get; set; } = null!;
     public BoardEntity Board { get; set; } = null!;
 }

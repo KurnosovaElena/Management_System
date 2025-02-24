@@ -10,7 +10,6 @@ public class UserBoardRepository(ManagementSystemDBContext db) : Repository<User
     public async Task<UserBoardEntity?> GetByUserIdAndBoardIdAsync(Guid userId, Guid boardId, CancellationToken cancellationToken)
     {
         return await db.Set<UserBoardEntity>()
-            .Include(ub => ub.User)
             .Include(ub => ub.Board)
             .AsNoTracking()
             .FirstOrDefaultAsync(entity => entity.UserId == userId && entity.BoardId == boardId, cancellationToken);
@@ -28,7 +27,6 @@ public class UserBoardRepository(ManagementSystemDBContext db) : Repository<User
     public async Task<IEnumerable<UserBoardEntity>> GetUsersByBoardIdAsync(Guid boardId, CancellationToken cancellationToken)
     {
         return await db.Set<UserBoardEntity>()
-            .Include(ub => ub.User)
             .Where(ub => ub.BoardId == boardId)
             .AsNoTracking()
             .ToListAsync(cancellationToken);

@@ -12,7 +12,6 @@ public static class DataGenerator
     public static readonly List<UserBoardEntity> UserBoards = [];
     public static readonly List<SubtaskEntity> Subtasks = [];
     public static readonly List<UserTaskEntity> UserTasks = [];
-    public static readonly List<UserEntity> Users = [];
     public static readonly List<LabelEntity> Labels = [];
 
     public const int NumberOfBoards = 2;
@@ -22,7 +21,6 @@ public static class DataGenerator
     {
         GenerateBogusBoardsData();
         GenerateBogusLabelsData();
-        GenerateBogusUsersData();
         GenerateUserBoardsData();
         GenerateBogusUserTasksData();
     }
@@ -32,13 +30,6 @@ public static class DataGenerator
         var boardGenerator = GetBoardFaker();
         var generatedBoards = boardGenerator.Generate(NumberOfBoards);
         Boards.AddRange(generatedBoards);
-    }
-
-    private static void GenerateBogusUsersData()
-    {
-        var userGenerator = GetUserFaker();
-        var generatedUsers = userGenerator.Generate(NumberOfBoards);
-        Users.AddRange(generatedUsers);
     }
 
     private static void GenerateBogusLabelsData()
@@ -118,13 +109,6 @@ public static class DataGenerator
             });
     }
 
-    private static Faker<UserEntity> GetUserFaker() =>
-    new Faker<UserEntity>()
-    .RuleFor(b => b.Id, _ => Guid.NewGuid())
-    .RuleFor(b => b.FirstName, f => f.Name.FirstName())
-    .RuleFor(b => b.LastName, f => f.Name.LastName())
-    .RuleFor(b => b.Email, f => f.Internet.Email());
-
     private static Faker<LabelEntity> GetLabelFaker()
     {
         return new Faker<LabelEntity>()
@@ -162,14 +146,12 @@ public static class DataGenerator
     private static Faker<UserBoardEntity> GetUserBoardsFaker()
     {
         return new Faker<UserBoardEntity>()
-            .RuleFor(ub => ub.UserId, _ => _.PickRandom(Users).Id)
             .RuleFor(ub => ub.BoardId, _ => _.PickRandom(Boards).Id);
     }
 
     private static Faker<UserTaskEntity> GetUserTasksFaker()
     {
         return new Faker<UserTaskEntity>()
-            .RuleFor(ub => ub.UserId, _ => _.PickRandom(Users).Id)
             .RuleFor(ub => ub.TaskId, _ => _.PickRandom(Tasks).Id)
             .RuleFor(ub => ub.Role, f => f.PickRandom(Enum.GetValues(typeof(TaskRole)).Cast<TaskRole>()));
     }
