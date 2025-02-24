@@ -15,7 +15,6 @@ public class ManagementSystemDBContext : DbContext
     public DbSet<SubtaskEntity> Subtasks { get; set; }
     public DbSet<TaskStatusEntity> TaskStatus { get; set; }
     public DbSet<TaskEntity> Tasks { get; set; }
-    public DbSet<UserEntity> Users { get; set; }
     public DbSet<UserBoardEntity> UserBoards { get; set; }
     public DbSet<UserTaskEntity> UserTasks { get; set; }
 
@@ -32,7 +31,6 @@ public class ManagementSystemDBContext : DbContext
         modelBuilder.Entity<TaskStatusEntity>().HasData(DataGenerator.TaskStatus);
         modelBuilder.Entity<TaskEntity>().HasData(DataGenerator.Tasks);
         modelBuilder.Entity<LabelEntity>().HasData(DataGenerator.Labels);
-        modelBuilder.Entity<UserEntity>().HasData(DataGenerator.Users);
         modelBuilder.Entity<SubtaskEntity>().HasData(DataGenerator.Subtasks);
         modelBuilder.Entity<UserBoardEntity>().HasData(DataGenerator.UserBoards);
         modelBuilder.Entity<UserTaskEntity>().HasData(DataGenerator.UserTasks);

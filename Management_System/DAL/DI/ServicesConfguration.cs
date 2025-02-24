@@ -19,7 +19,6 @@ public static class ServicesConfguration
         services.AddScoped<ILabelRepository, LabelRepository>();
         services.AddScoped<ITaskRepository, TaskRepository>();
         services.AddScoped<ISubtaskRepository, SubtaskRepository>();
-        services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserBoardRepository, UserBoardRepository>();
         services.AddScoped<IUserTaskRepository, UserTaskRepository>();
     }

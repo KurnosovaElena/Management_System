@@ -61,7 +61,6 @@ public class BoardServiceTests
             Name = "Test Board",
             Description = "This is a test board.",
             TaskStatus = new List<TaskStatusEntity>(),
-            UserBoards = new List<UserBoardEntity>()
         };
 
         _boardRepositoryMock.Setup(repo => repo.GetById(boardId, It.IsAny<CancellationToken>()))
@@ -105,7 +104,6 @@ public class BoardServiceTests
                     Name = "Board One",
                     Description = "Description for Board One",
                     TaskStatus = new List<TaskStatusEntity>(),
-                    UserBoards = new List<UserBoardEntity>()
                 },
                 new BoardEntity
                 {
@@ -113,7 +111,6 @@ public class BoardServiceTests
                     Name = "Board Two",
                     Description = "Description for Board Two",
                     TaskStatus = new List<TaskStatusEntity>(),
-                    UserBoards = new List<UserBoardEntity>()
                 }
             };
 
@@ -141,7 +138,6 @@ public class BoardServiceTests
             Name = "Old Board Name",
             Description = "Old Description",
             TaskStatus = new List<TaskStatusEntity>(),
-            UserBoards = new List<UserBoardEntity>()
         };
         var updateDto = new CreateBoardDto
         {
