@@ -43,8 +43,8 @@ jobs:
         sonarProjectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         sonarProjectName: ${{ vars.SONAR_PROJECT_NAME }}
         sonarOrganization: ${{ vars.SONAR_ORGANIZATION }}
-        dotnetBuildArguments: ./Management_System --configuration Release
-        dotnetTestArguments: ./Management_System --no-build --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        dotnetBuildArguments: ./Management_System/ManagementSystem.sln --configuration Release
+        dotnetTestArguments: ./Management_System/ManagementSystem.sln --no-build --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
         sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx" /d:sonar.coverage.exclusions="$SONAR_EXCLUDE_FROM_COVERAGE" 
 
     env:
