@@ -20,13 +20,13 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore dependencies for Management_System
-      run: dotnet restore ./Management_System
+      run: dotnet restore ./Management_System/ManagementSystem.sln
       
     - name: Build Management_System
-      run: dotnet build ./Management_System --no-restore --configuration Release
+      run: dotnet build ./Management_System/ManagementSystem.sln --no-restore --configuration Release
 
     - name: Test Management_System
-      run: dotnet test ./Management_System --no-build --verbosity normal --configuration Release
+      run: dotnet test ./Management_System/ManagementSystem.sln --no-build --verbosity normal --configuration Release
 
   analyze:
 
