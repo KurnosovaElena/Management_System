@@ -12,5 +12,4 @@ public class TaskEntity : BaseEntity
     public Guid TableId { get; set; }
 
     public IEnumerable<SubtaskEntity> Subtasks { get; set; } = new List<SubtaskEntity>();
-    public IEnumerable<UserTaskEntity> UserTasks { get; set; } = new List<UserTaskEntity>();
 }

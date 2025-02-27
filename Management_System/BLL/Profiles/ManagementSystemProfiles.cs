@@ -29,10 +29,6 @@ public class ManagementSystemProfiles : Profile
         CreateMap<CreateTaskStatusDto, TaskStatusEntity>();
         CreateMap<TaskStatusEntity, TaskStatusDto>();
 
-        // User mappings
-        CreateMap<CreateUserDto, UserEntity>();
-        CreateMap<UserEntity, UserDto>();
-
         // UserBoard mappings
         CreateMap<CreateUserBoardDto, UserBoardEntity>();
         CreateMap<UserBoardEntity, UserBoardDto>();

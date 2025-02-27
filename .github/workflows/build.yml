@@ -20,13 +20,13 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore dependencies for Management_System
-      run: dotnet restore ./Management_System
+      run: dotnet restore ./Management_System/ManagementSystem.sln
       
     - name: Build Management_System
-      run: dotnet build ./Management_System --no-restore --configuration Release
+      run: dotnet build ./Management_System/ManagementSystem.sln --no-restore --configuration Release
 
     - name: Test Management_System
-      run: dotnet test ./Management_System --no-build --verbosity normal --configuration Release
+      run: dotnet test ./Management_System/ManagementSystem.sln --no-build --verbosity normal --configuration Release
 
   analyze:
 
@@ -43,12 +43,12 @@ jobs:
         sonarProjectKey: ${{ secrets.SONAR_PROJECT_KEY }}
         sonarProjectName: ${{ vars.SONAR_PROJECT_NAME }}
         sonarOrganization: ${{ vars.SONAR_ORGANIZATION }}
-        dotnetBuildArguments: ./Management_System --configuration Release
-        dotnetTestArguments: ./Management_System --no-build --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        dotnetBuildArguments: ./Management_System/ManagementSystem.sln --configuration Release
+        dotnetTestArguments: ./Management_System/ManagementSystem.sln --no-build --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
         sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" -d:sonar.cs.vstest.reportsPaths="**/TestResults/*.trx" /d:sonar.coverage.exclusions="$SONAR_EXCLUDE_FROM_COVERAGE" 
 
     env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
-          SONAR_EXCLUDE_FROM_COVERAGE: "**/Program.cs, **/Migrations/*, **/DI/*, **/Context/*, **/Profiles/*, **/Repositories/*"
+          SONAR_EXCLUDE_FROM_COVERAGE: "**/Program.cs, **/Migrations/*, **/DI/*, **/Context/*, **/Profiles/*, **/Repositories/*, **/Dockerfile/*"

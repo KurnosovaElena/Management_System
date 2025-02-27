@@ -11,7 +11,6 @@ public class TaskRepository(ManagementSystemDBContext db) : Repository<TaskEntit
     {
         return await db.Set<TaskEntity>()
             .Include(b => b.Subtasks)
-            .Include(b => b.UserTasks)
             .AsNoTracking()
             .FirstOrDefaultAsync(entity => entity.Id == id, cancellationToken);
     }
